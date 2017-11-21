@@ -1,0 +1,12 @@
+* Nix home configuration
+
+** Setup
+
+```sh
+git clone https://github.com/tadfisher/nixhome ~/.config/nixpkgs
+nix-shell "~/.config/nixpkgs/home-manager" -A install --run 'home-manager switch'
+gpg --recv-keys 3977AC09
+gpg --edit-key 3977AC09 # trust; 5; y; quit
+keybase login
+git clone keybase://private/tad/pass ~/.password-store
+```

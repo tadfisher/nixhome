@@ -3,10 +3,13 @@
 {
   home.packages = with pkgs; [
     adapta-gtk-theme
-    i3status
+    gnupg
+    kbfs
+    keybase
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    pass
     roboto
     roboto-mono
   ];
@@ -29,6 +32,15 @@
 
   programs.bash.enable = true;
 
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: with epkgs; [
+      magit
+    ];
+  };
+
+  programs.firefox.enable = true;
+
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
@@ -37,8 +49,62 @@
     ignores = ["*~" "#*#"];
   };
 
+  programs.sway = {
+    enable = true;
+    config = {
+      font = "Roboto 10";
+    };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 3600;
+    enableSshSupport = true;
+  };
+
+  systemd.user.services.kbfs = let
+    cfg = {
+      mountPoint = "%h/keybase";
+      extraFlags = [ "-label kbfs" "-mount-type normal" ];
+    };
+  in {
+    Unit = {
+      Description = "Keybase File System";
+      Requires = [ "keybase.service" ];
+      After = [ "keybase.service" ];
+    };
+
+    Service = {
+      Environment = "PATH=/run/wrappers";
+      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${cfg.mountPoint}";
+      ExecStart = "${pkgs.kbfs}/bin/kbfsfuse ${toString cfg.extraFlags} ${cfg.mountPoint}";
+      ExecStopPost = "/run/wrappers/bin/fusermount -u ${cfg.mountPoint}";
+      Restart = "on-failure";
+      PrivateTmp = true;
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
+  systemd.user.services.keybase = {
+    Unit = {
+      Description = "Keybase service";
+    };
+    
+    Service = {
+      ExecStart = "${pkgs.keybase}/bin/keybase service --auto-forked";
+      Restart = "on-failure";
+      PrivateTmp = true;
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
   programs.home-manager = {
     enable = true;
-    path = https://github.com/rycee/home-manager/archive/master.tar.gz;
   };
 }
