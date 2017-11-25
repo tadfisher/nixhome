@@ -32,6 +32,11 @@
 
   programs.bash.enable = true;
 
+  programs.browserpass = {
+    enable = true;
+    browsers = [ "chromium" "firefox" ];
+  };
+
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: with epkgs; [
@@ -62,47 +67,12 @@
     enableSshSupport = true;
   };
 
-  systemd.user.services.kbfs = let
-    cfg = {
-      mountPoint = "%h/keybase";
-      extraFlags = [ "-label kbfs" "-mount-type normal" ];
-    };
-  in {
-    Unit = {
-      Description = "Keybase File System";
-      Requires = [ "keybase.service" ];
-      After = [ "keybase.service" ];
-    };
-
-    Service = {
-      Environment = "PATH=/run/wrappers";
-      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${cfg.mountPoint}";
-      ExecStart = "${pkgs.kbfs}/bin/kbfsfuse ${toString cfg.extraFlags} ${cfg.mountPoint}";
-      ExecStopPost = "/run/wrappers/bin/fusermount -u ${cfg.mountPoint}";
-      Restart = "on-failure";
-      PrivateTmp = true;
-    };
-
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
+  services.kbfs = {
+    enable = true;
+    extraFlags = [ "-label kbfs" "-mount-type normal" ];
   };
 
-  systemd.user.services.keybase = {
-    Unit = {
-      Description = "Keybase service";
-    };
-    
-    Service = {
-      ExecStart = "${pkgs.keybase}/bin/keybase service --auto-forked";
-      Restart = "on-failure";
-      PrivateTmp = true;
-    };
-
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
+  services.udiskie.enable = true;
 
   programs.home-manager = {
     enable = true;
