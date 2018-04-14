@@ -1,16 +1,27 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     # Programs
+    android-studio
+    blueman
+    ditaa
     emacs
-    gnome3.file-roller
-    gnome3.nautilus
+    gimp
     gnupg
+    gnumake
+    graphviz
     (hunspellWithDicts [hunspellDicts.en-us])
     inkscape
+    inset
+    jetbrains.idea-community
+    llvmPackages.clang
     pass
+    silver-searcher
+    telnet
+    trash-cli
     unzip
+    xorg.xbacklight
 
     # Fonts
     emacs-all-the-icons-fonts
@@ -18,14 +29,58 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    roboto
     roboto-mono
+
+    # Go
+    go
+    dep
+    libcec
+
+    # Nix
+    go2nix
+    nix-index
+    nix-prefetch-scripts
+    nox
+
+    # Python
+    python3
+
+    # Rust
+    cargo
+    carnix
+    rustc
+    rustfmt
+    rustracer
+
+    # Testing
+    acpica-tools
+    binutils-unwrapped
+    dmidecode
+    fwts
+
+    # Games
+    enyo-doom
+    gzdoom
+    keen4
+    sc-controller
+    steam
+    steam-run
+    vkquake
+    yquake2-all-games
   ];
 
   home.file = {
     ".local/share/fonts/icomoon.ttf".source = ./polybar/icomoon.ttf;
+    ".local/share/lib/ditaa.jar".source = "${pkgs.ditaa}/lib/ditaa.jar";
   };
 
   home.keyboard.options = [ "ctrl:nocaps" ];
+
+  home.sessionVariables = {
+    GOPATH = "${config.home.homeDirectory}/go";
+    RUST_SRC_PATH = pkgs.rustPlatform.rustcSrc;
+  };
 
   gtk = {
     enable = true;
@@ -42,11 +97,17 @@
       package = pkgs.adapta-gtk-theme;
     };
     gtk2.extraConfig = ''
+      gtk-cursor-blink = 0
       gtk-key-theme-name = "Emacs"
     '';
     gtk3.extraConfig = {
+      gtk-cursor-blink = false;
       gtk-key-theme-name = "Emacs";
     };
+  };
+
+  nixpkgs.config = {
+    allowUnfree = true;
   };
 
   programs.bash.enable = true;
@@ -64,12 +125,33 @@
     userName = "Tad Fisher";
     userEmail = "tadfisher@gmail.com";
     ignores = ["*~" "#*#"];
+    signing.key = "tadfisher@gmail.com";
+    extraConfig = {
+      github.user = "tadfisher";
+      pull.rebase = "true";
+    };
+  };
+
+  programs.ssh = {
+    enable = true;
+    controlMaster = "auto";
+    controlPersist = "10m";
+  };
+
+  services.compton = {
+    enable = true;
+    vSync = "opengl-mswc";
   };
 
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 3600;
     enableSshSupport = true;
+    grabKeyboardAndMouse = false;
+    # extraConfig = ''
+    #   allow-emacs-pinentry
+    #   allow-loopback-pinentry
+    # '';
   };
 
   services.kbfs = {
@@ -78,7 +160,7 @@
   };
 
   services.polybar = {
-    enable = true;
+    enable = false;
     config = {
       settings = {
         format-offset = 2;
@@ -176,18 +258,81 @@
     script = "polybar status &";
   };
 
+  services.redshift = {
+    enable = true;
+    latitude = "45.5231";
+    longitude = "-122.6765";
+  };
+
   services.udiskie.enable = true;
+
+  services.unclutter.enable = true;
+
+  systemd.user.services.inset =
+    let
+      left = 6;
+      right = 3;
+      top = 5;
+      bottom = 0;
+    in {
+      Unit = {
+        Description = "inset";
+        After = [ "graphical-session-pre.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = "${pkgs.inset}/bin/inset ${toString left} ${toString right} ${toString top} ${toString bottom}";
+        RestartSec = 3;
+        Restart = "always";
+      };
+
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
+    };
+
+  systemd.user.services.steam-controller =
+    let
+      daemon = "${pkgs.sc-controller}/bin/scc-daemon";
+      device = "sys-devices-valve-sc-Valve_Software_Steam_Controller.device";
+    in {
+      Unit = {
+        Description = "Steam Controller daemon";
+        After = [ device ];
+        BindsTo = [ device ];
+      };
+
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${daemon} start";
+        ExecReload = "${daemon} restart";
+        ExecStop = "${daemon} stop";
+        RemainAfterExit = true;
+      };
+
+      Install = {
+        WantedBy = [ device ];
+      };
+    };
+
+  systemd.user.startServices = true;
 
   xsession = {
     enable = true;
+    pointerCursor = {
+      package = pkgs.paper-icon-theme;
+      name = "Paper";
+      size = 16;
+    };
     initExtra = ''
-      ${pkgs.wmname}/bin/wmname LG3D
       ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
       export VISUAL="${pkgs.emacs}/bin/emacsclient"
       export EDITOR="$VISUAL"
+      export _JAVA_AWT_WM_NONREPARENTING=1
     '';
     windowManager.command = ''
-      ${pkgs.emacs}/bin/emacs --eval "(exwm-enable)"
+      ${pkgs.emacs}/bin/emacs
     '';
   };
 
