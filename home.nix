@@ -8,9 +8,11 @@
     ditaa
     emacs
     gimp
+    gksu
     gnupg
     gnumake
     graphviz
+    gparted
     (hunspellWithDicts [hunspellDicts.en-us])
     inkscape
     inset
@@ -22,6 +24,7 @@
     trash-cli
     unzip
     xorg.xbacklight
+    xorg.xhost
 
     # Fonts
     emacs-all-the-icons-fonts
@@ -291,6 +294,23 @@
         WantedBy = [ "graphical-session.target" ];
       };
     };
+
+  systemd.user.services.polkit-gnome = {
+    Unit = {
+      Description = "PolicyKit Authentication Agent";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
 
   systemd.user.services.steam-controller =
     let
