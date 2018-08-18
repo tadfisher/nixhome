@@ -6,6 +6,14 @@
     xorg.xbacklight
   ];
 
+  services.gpg-agent = {
+    extraConfig = ''
+      allow-emacs-pinentry
+      allow-loopback-pinentry
+      pinentry-program ${pkgs.pinentry_emacs}/bin/pinentry-emacs
+    '';
+  };
+
   services.compton = {
     enable = true;
     vSync = "opengl-mswc";
