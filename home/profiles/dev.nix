@@ -34,15 +34,15 @@ in {
     })
 
     (mkIf cfg.go.enable {
+      programs.go = {
+        enable = true;
+        goPath = ".go";
+      };
+
       home.packages = with pkgs; [
-        go
         go2nix
         dep
       ];
-
-      pam.sessionVariables = {
-        GOPATH = "${config.home.homeDirectory}/.go";
-      };
     })
 
     (mkIf cfg.jvm.enable {

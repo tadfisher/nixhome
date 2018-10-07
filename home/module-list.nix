@@ -4,6 +4,7 @@
 
   profiles/desktop.nix
   profiles/dev.nix
+  profiles/exwm.nix
   profiles/games.nix
   profiles/gnome.nix
   profiles/nixos.nix
@@ -13,6 +14,9 @@
   programs/ssh.nix
 
   services/gpg-agent.nix
+  services/inset.nix
+  services/keybase.nix
+  services/steam-controller.nix
 ] ++ (if builtins.pathExists ../local.nix then [
   ../local.nix
 ] else [])
