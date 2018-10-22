@@ -9,6 +9,7 @@
   profiles/gnome.nix
   profiles/nixos.nix
 
+  programs/chromium.nix
   programs/emacs.nix
   programs/git.nix
   programs/ssh.nix

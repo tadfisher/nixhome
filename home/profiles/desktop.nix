@@ -19,7 +19,6 @@ with lib;
 
     home.packages = with pkgs; [
       calibre
-      chromium
       gksu
       gparted
       keybase
@@ -39,7 +38,7 @@ with lib;
         enable = true;
         browsers = [ "chromium" "firefox" ];
       };
-
+      chromium.enable = true;
       firefox.enable = true;
     };
 
