@@ -1,2 +1,3 @@
 home-manager
 local.nix
+secrets.nix

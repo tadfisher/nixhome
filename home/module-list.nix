@@ -4,6 +4,7 @@
 
   profiles/desktop.nix
   profiles/dev.nix
+  profiles/electronics.nix
   profiles/exwm.nix
   profiles/games.nix
   profiles/gnome.nix

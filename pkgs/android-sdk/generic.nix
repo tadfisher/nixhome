@@ -6,11 +6,11 @@ let
   buildSdk = callPackage ./repo.nix {
     runScript = writeScript "build-android-sdk-${version}" ''
       #!${stdenv.shell}
-      mkdir -p out/dist
-      ./tools/buildSrc/servers/build_tools.sh `pwd`/out `pwd`/out/dist
+      source build/envsetup.sh
+      lunch sdk-eng
+      make sdk
     '';
   };
-
 
 in stdenv.mkDerivation rec {
   inherit version;

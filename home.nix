@@ -14,9 +14,11 @@ in {
     gnupg
     lm_sensors
     (pass.withExtensions (e: [ e.pass-otp ]))
+    ripgrep
     rw
     telnet
     trash-cli
+    tree
     unzip
   ];
 

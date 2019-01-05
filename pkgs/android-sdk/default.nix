@@ -4,8 +4,8 @@ let
   androidSdk = callPackage ./generic.nix { };
 
 in {
-  android-sdk-p-preview-2 = androidSdk rec {
-     version = "8.1.0_r33";
-     sha256 = "0a3wlcagy9widn6my9qahjymvmxd6risqk8vvdij5qvw8wiicy6k";
+  android-sdk-p = androidSdk rec {
+     version = "9.0.0_r10";
+     sha256 = "13v8g6zwnvvakxi764pnn0k3zn5r3zh0h7vmqak91a5g11zhi0ry";
   };
 }

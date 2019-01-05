@@ -10,12 +10,12 @@ with lib;
       gnome3.gnome-chess
       enyo-doom
       gzdoom
-      (steam.override {
-        nativeOnly = true;
-      })
+      steam
       steam-run
       stockfish
-      vkquake
+      # vkquake
+      winetricks
+      wineWowPackages.staging
       yquake2-all-games
     ];
   };

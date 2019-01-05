@@ -28,9 +28,12 @@ in {
 
     (mkIf cfg.android.enable {
       home.packages = with pkgs; [
-          androidStudioPackages.stable
-          androidStudioPackages.canary
-        ];
+        androidStudioPackages.stable
+        androidStudioPackages.canary
+      ];
+      pam.sessionVariables = {
+        ANDROID_HOME = "${config.xdg.dataHome}/android-sdk";
+      };
     })
 
     (mkIf cfg.go.enable {
@@ -42,6 +45,15 @@ in {
       home.packages = with pkgs; [
         go2nix
         dep
+        go-langserver
+        gocode
+        godef
+        gotools
+        # gogetdoc
+        gotests
+        gopkgs
+        # reftools
+        # impl
       ];
     })
 
@@ -59,9 +71,11 @@ in {
 
     (mkIf cfg.nix.enable {
       home.packages = with pkgs; [
+        binutils
         nix-index
         nix-prefetch-scripts
         nox
+        patchelf
       ];
     })
 
@@ -73,10 +87,8 @@ in {
 
     (mkIf cfg.rust.enable {
       home.packages = with pkgs; [
-        cargo
         carnix
-        rustc
-        rustfmt
+        rustup
         # TODO Broken tests
         # rustracer
       ];

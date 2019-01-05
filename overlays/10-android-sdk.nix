@@ -1,3 +1,3 @@
 self: super: {
-  asdk = self.callPackage ../pkgs/android-sdk { };
+  android-sdk = self.callPackage ../pkgs/android-sdk { };
 }
