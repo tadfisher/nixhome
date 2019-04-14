@@ -94,7 +94,7 @@ in {
       ];
 
       pam.sessionVariables = {
-        RUST_SRC_PATH = pkgs.rustPlatform.rustcSrc;
+        RUST_SRC_PATH = "${pkgs.rustPlatform.rustcSrc}";
       };
     })
 

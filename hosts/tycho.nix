@@ -2,9 +2,12 @@
 
 {
   home.packages = with pkgs; [
+    brasero
+    inkscape
     OVMF
     pencil
     plex-media-player
+    transmission-remote-gtk
     ubootTools
   ];
 
