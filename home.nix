@@ -27,6 +27,10 @@ in {
     allowBroken = true;
   };
 
+  passthru = {
+    dataDir = ./data;
+  };
+
   profiles = {
     desktop.enable = lib.mkDefault (sysCfg.services.xserver.enable or config.xsession.enable);
     gnome.enable = lib.mkDefault (sysCfg.services.xserver.desktopManager.gnome3.enable or false);

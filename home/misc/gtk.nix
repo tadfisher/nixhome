@@ -11,8 +11,8 @@ lib.mkIf (config.gtk.enable) {
       package = pkgs.paper-icon-theme;
     };
     theme = {
-      name = "Adapta-Nokto-Eta";
-      package = pkgs.adapta-gtk-theme;
+      name = "Plata-Noir";
+      package = pkgs.plata-theme;
     };
     gtk2.extraConfig = ''
       gtk-cursor-blink = 0
