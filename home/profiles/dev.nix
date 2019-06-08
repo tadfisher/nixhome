@@ -4,6 +4,15 @@ with lib;
 
 let
   cfg = config.profiles.dev;
+  androidPkgs = pkgs.callPackage (builtins.fetchTarball https://github.com/tadfisher/android-nixpkgs/archive/master.tar.gz) {};
+  androidSdk = androidPkgs.sdk.canary (p: with p; [
+    tools
+    build-tools-29-0-0
+    platform-tools
+    platforms.android-29
+    emulator
+    system-images.android-29.google_apis_playstore.x86
+  ]);
 
 in {
   options.profiles.dev = {
@@ -30,9 +39,11 @@ in {
       home.packages = with pkgs; [
         androidStudioPackages.stable
         androidStudioPackages.canary
+        androidSdk
+        gitRepo
       ];
       pam.sessionVariables = {
-        ANDROID_HOME = "${config.xdg.dataHome}/android-sdk";
+        ANDROID_HOME = "${androidSdk}/share/android-sdk";
       };
     })
 
