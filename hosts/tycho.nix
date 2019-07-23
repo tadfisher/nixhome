@@ -7,6 +7,7 @@
     OVMF
     pencil
     plex-media-player
+    simpleburn
     transmission-remote-gtk
     ubootTools
   ];

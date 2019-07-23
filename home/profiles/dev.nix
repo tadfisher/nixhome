@@ -76,7 +76,7 @@ in {
       ];
 
       pam.sessionVariables = {
-        JAVA_HOME = "${pkgs.jetbrains.jdk}";
+        JAVA_HOME = "${pkgs.openjdk8.home}";
       };
     })
 
@@ -85,6 +85,7 @@ in {
         binutils
         nix-index
         nix-prefetch-scripts
+        nix-prefetch-github
         nox
         patchelf
       ];
@@ -94,19 +95,6 @@ in {
       home.packages = with pkgs; [
         python3
       ];
-    })
-
-    (mkIf cfg.rust.enable {
-      home.packages = with pkgs; [
-        carnix
-        rustup
-        # TODO Broken tests
-        # rustracer
-      ];
-
-      pam.sessionVariables = {
-        RUST_SRC_PATH = "${pkgs.rustPlatform.rustcSrc}";
-      };
     })
 
     (mkIf cfg.hardware.enable {
