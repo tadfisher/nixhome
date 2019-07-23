@@ -7,6 +7,7 @@ in {
   imports = import home/module-list.nix ++ [
     <nixpkgs/nixos/modules/misc/extra-arguments.nix>
     <nixpkgs/nixos/modules/misc/passthru.nix>
+    ./emacs.nix
   ];
 
   home.packages = with pkgs; [
@@ -39,6 +40,8 @@ in {
   programs = {
     bash.enable = true;
     emacs.enable = true;
+    emacs.init.enable = true;
+    firefox.enable = true;
     git.enable = true;
     ssh.enable = true;
   };

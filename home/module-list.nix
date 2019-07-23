@@ -12,6 +12,7 @@
 
   programs/chromium.nix
   programs/emacs.nix
+  programs/emacs-init.nix
   programs/git.nix
   programs/ssh.nix
 

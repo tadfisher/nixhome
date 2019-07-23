@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     sha256 = "1zicq0a7mnnglyiz7lv9qx1kfqwyhsrqyf2z48w8gypi06ifqk5g";
   };
 
-  meta = with lib; {
+  meta = with stdenv.lib; {
     description = "Processor monitoring software with a kernel module inside";
     platforms = [ platforms.linux ];
     license = licenses.gpl2;

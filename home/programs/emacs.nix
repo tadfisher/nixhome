@@ -2,17 +2,22 @@
 
 with lib;
 
-mkIf config.programs.emacs.enable {
-  home.packages = with pkgs; [
-    ditaa
-    graphviz
-    (hunspellWithDicts [ hunspellDicts.en-us])
-    jre
-    plantuml
-    silver-searcher
-  ];
+let
+  cfg = config.programs.emacs;
 
-  programs.emacs = {
-    package = if (config.profiles.desktop.enable) then pkgs.emacs else pkgs.emacs25-nox;
+in {
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      ditaa
+      graphviz
+      (hunspellWithDicts [ hunspellDicts.en-us])
+      jre
+      plantuml
+      silver-searcher
+    ];
+  
+    programs.emacs = {
+      package = if (config.profiles.desktop.enable) then pkgs.emacs else pkgs.emacs26-nox;
+    };
   };
 }

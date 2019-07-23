@@ -43,7 +43,8 @@ in {
         gitRepo
       ];
       pam.sessionVariables = {
-        ANDROID_HOME = "${androidSdk}/share/android-sdk";
+        ANDROID_HOME = "${config.xdg.dataHome}/android";
+	ANDROID_SDK_ROOT = "${config.xdg.dataHome}/android";
       };
     })
 
