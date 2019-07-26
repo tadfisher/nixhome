@@ -42,6 +42,12 @@ with lib;
       firefox.enable = true;
     };
 
-    services.unclutter.enable = true;
+    services = {
+      emacs = {
+        enable = true;
+        defaultEditor = true;
+      };
+      unclutter.enable = true;
+    };
   };
 }

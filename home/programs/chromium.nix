@@ -3,11 +3,19 @@
 {
   programs.chromium = {
     package = pkgs.chromium.override {
-      commandLineArgs = [ "--enable-viz" ];
+      commandLineArgs = [ 
+        "--enable-features=OverlayScrollbar"
+        "--enable-native-gpu-memory-buffers"
+        "--enable-gpu-rasterization"
+        "--enable-oop-rasterization"
+        "--enable-viz"
+        "--ignore-gpu-blacklist"
+      ];
       pulseSupport = true;
     };
     extensions = [
       "naepdomgkenhinolocfifgehidddafch" # browserpass-ce
+      "afjjoildnccgmjbblnklbohcbjehjaph" # Browserpass OTP
       "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
     ];
   };

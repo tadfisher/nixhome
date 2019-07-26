@@ -11,7 +11,7 @@ in {
     XDG_DOWNLOAD_DIR="${homeDirectory}/download"
     XDG_MUSIC_DIR="${homeDirectory}/media/music"
     XDG_PICTURES_DIR="${homeDirectory}/media/image"
-    XDG_PUBLICSHARE_DIR="${homeDirectory}"
+    XDG_PUBLICSHARE_DIR="${homeDirectory}/public"
     XDG_TEMPLATES_DIR="${configHome}/templates"
     XDG_VIDEOS_DIR="${homeDirectory}/media/video"
   '';

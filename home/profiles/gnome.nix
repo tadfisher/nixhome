@@ -2,8 +2,39 @@
 
 with lib;
 
-{
-  options.profiles.gnome.enable = lib.mkEnableOption "gnome desktop";
+let
+  cfg = config.profiles.gnome;
+
+in {
+  options.profiles.gnome = {
+    enable = lib.mkEnableOption "gnome desktop";
+
+    extensions = {
+      packages = mkOption {
+        type = types.listOf types.package;
+        default = [];
+        description = ''
+          List of Gnome extension packages to install and enable.
+        '';
+      };
+
+      ids = mkOption {
+        type = types.listOf types.str;
+        default = [];
+        example = literalExample ''
+          [
+            "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
+            "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+          ]
+        '';
+        description = ''
+          List of Gnome extensions to enable by ID.
+        '';
+      };
+    };
+  };
 
   config = mkIf config.profiles.gnome.enable {
     dconf.settings = {
@@ -13,6 +44,7 @@ with lib;
       };
 
       "org/gnome/desktop/interface" = {
+        clock-format = "12h";
         cursor-blink = false;
         cursor-size = 16;
         cursor-theme = "Paper";
@@ -72,6 +104,7 @@ with lib;
       };
 
       "org/gnome/mutter/keybindings" = {
+        switch-monitor = [ "" ];
         toggle-tiled-left = [ "<Shift><Super>h" ];
         toggle-tiled-right = [ "<Shift><Super>l" ];
       };
@@ -81,21 +114,8 @@ with lib;
       };
 
       "org/gnome/shell" = {
-        enabled-extensions = [
-          "apps-menu@gnome-shell-extensions.gcampax.github.com"
-          "caffeine@patapon.info"
-          "dash-to-panel@jderose9.github.com"
-          "drive-menu@gnome-shell-extensions.gcampax.github.com"
-          "freon@UshakovVasilii_Github.yahoo.com"
-          "mediaplayer@patapon.info"
-          "places-menu@gnome-shell-extensions.gcampax.github.com"
-          "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
-          "scroll-workspaces@gfxmonk.net"
-          "transmission-daemon@patapon.info"
-          "user-theme@gnome-shell-extensions.gcampax.github.com"
-          "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
-          "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        ];
+        enabled-extensions = cfg.extensions.ids
+          ++ map (p: p.uuid) cfg.extensions.packages;
       };
 
       "org/gnome/shell/extensions/user-theme" = {
@@ -107,22 +127,52 @@ with lib;
       };
     };
 
+    profiles.gnome.extensions = {
+      packages = with pkgs.gnomeExtensions; [
+        caffeine
+        (dash-to-panel // { uuid = "dash-to-panel@jderose9.github.com"; })
+        freon
+        (gsconnect // { uuid = "gsconnect@andyholmes.github.io"; })
+        (mediaplayer // { uuid = "mediaplayer@patapon.info"; })
+        top-panel-workspace-scroll
+      ];
+      ids = [
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+      ];
+    };
+
     home.packages = with pkgs; [
+      chrome-gnome-shell
+      gnome3.gnome-shell-extensions
       gnome3.gnome-boxes
       virtmanager
-    ];
+    ] ++ cfg.extensions.packages;
 
     # Prevent clobbering SSH_AUTH_SOCK
     pam.sessionVariables.GSM_SKIP_SSH_AGENT_WORKAROUND = "1";
+
+    programs.chromium.extensions = [
+      "gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell integration
+      "jfnifeihccihocjbfcfhicmmgpjicaec" # GSConnect
+    ];
 
     services.gpg-agent.extraConfig = ''
       pinentry-program ${pkgs.pinentry_gnome}/bin/pinentry-gnome3
     '';
 
     # Disable gnome-keyring ssh-agent
-    xdg.configFile."autostart/gnome-keyring-ssh.desktop".text = ''
-      ${lib.fileContents "${pkgs.gnome3.gnome-keyring}/etc/xdg/autostart/gnome-keyring-ssh.desktop"}
-      Hidden=true
-    '';
+    xdg.configFile = {
+      "autostart/gnome-keyring-ssh.desktop".text = ''
+        ${lib.fileContents "${pkgs.gnome3.gnome-keyring}/etc/xdg/autostart/gnome-keyring-ssh.desktop"}
+        Hidden=true
+      '';
+
+      "chromium/native-messaging-hosts/org.gnome.chrome_gnome_shell.json".source =
+        "${pkgs.chrome-gnome-shell}/etc/chromium/native-messaging-hosts/org.gnome.chrome_gnome_shell.json";
+
+      "chromium/native-messaging-hosts/org.gnome.shell.extensions.gsconnect.json".source =
+        "${pkgs.gnomeExtensions.gsconnect}/etc/chromium/native-messaging-hosts/org.gnome.shell.extensions.gsconnect.json";
+    };
   };
 }

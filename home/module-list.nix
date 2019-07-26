@@ -9,6 +9,7 @@
   profiles/games.nix
   profiles/gnome.nix
   profiles/nixos.nix
+  profiles/work.nix
 
   programs/chromium.nix
   programs/emacs.nix
@@ -16,6 +17,7 @@
   programs/git.nix
   programs/ssh.nix
 
+  services/emacs.nix
   services/gpg-agent.nix
   services/inset.nix
   services/keybase.nix

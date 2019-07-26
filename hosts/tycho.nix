@@ -1,6 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
+
+  dconf.settings = {
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "transmission-daemon@patapon.info"
+      ];
+    };
+  };
+
   home.packages = with pkgs; [
     brasero
     inkscape

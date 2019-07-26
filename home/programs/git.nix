@@ -7,7 +7,7 @@ mkIf config.programs.git.enable {
     package = pkgs.gitAndTools.gitFull;
     userName = "Tad Fisher";
     userEmail = "tadfisher@gmail.com";
-    ignores = ["*~" "#*#"];
+    ignores = [ "*~" "#*#" ];
     signing.key = "tadfisher@gmail.com";
     extraConfig = {
       github.user = "tadfisher";
