@@ -7,15 +7,6 @@ let
 
   cfg = config.profiles.dev;
 
-  # androidSdk = androidPkgs.sdk.canary (p: with p; [
-  #   tools
-  #   build-tools-29-0-0
-  #   platform-tools
-  #   platforms.android-29
-  #   emulator
-  #   system-images.android-29.google_apis_playstore.x86
-  # ]);
-
 in {
   options.profiles.dev = {
     enable = mkEnableOption "dev tools";
@@ -46,7 +37,15 @@ in {
       };
     };
     go.enable = mkEnableOption "go dev tools";
-    jvm.enable = mkEnableOption "jvm dev tools";
+    jvm = {
+      enable = mkEnableOption "jvm dev tools";
+
+      gradleProperties = mkOption {
+        type = types.lines;
+        default = "";
+        description = "Gradle properties.";
+      };
+    };
     hardware.enable = mkEnableOption "hardware dev tools";
     nix.enable = mkEnableOption "nix dev tools";
     python.enable = mkEnableOption "python dev tools";
@@ -80,6 +79,12 @@ in {
           (import <android> {}).sdk.${cfg.android.sdk.channel}
             cfg.android.sdk.packages;
 
+        profiles.dev.jvm.enable = mkDefault true;
+
+        profiles.dev.jvm.gradleProperties = ''
+          org.gradle.jvmargs=-Xms512m -Xmx4096m -XX:+CMSClassUnloadingEnabled
+        '';
+
         programs.chromium.extensions = [
           "hgcbffeicehlpmgmnhnkjbjoldkfhoin" # Android SDK Search
         ];
@@ -111,6 +116,8 @@ in {
     })
 
     (mkIf cfg.jvm.enable {
+      home.file.".gradle/gradle.properties".text = cfg.jvm.gradleProperties;
+
       home.packages = with pkgs; [
         gradle
         gradle-completion
@@ -118,7 +125,13 @@ in {
       ];
 
       pam.sessionVariables = {
-        JAVA_HOME = "${pkgs.openjdk8.home}";
+        JAVA_HOME = "${pkgs.openjdk11.home}";
+      };
+
+      xdg.dataFile = {
+        "java/openjdk8".source = pkgs.openjdk8.home;
+        "java/openjdk11".source = pkgs.openjdk11.home;
+        "java/jetbrains".source = pkgs.jetbrains.jdk;
       };
     })
 

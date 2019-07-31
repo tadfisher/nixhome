@@ -15,6 +15,7 @@
   programs/emacs.nix
   programs/emacs-init.nix
   programs/git.nix
+  programs/gnome-terminal.nix
   programs/ssh.nix
 
   services/emacs.nix

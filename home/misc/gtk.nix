@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-lib.mkIf (config.gtk.enable) {
+with lib;
+
+mkIf (config.gtk.enable) {
   gtk = {
      font = {
       name = "Roboto 9.75";
@@ -22,5 +24,10 @@ lib.mkIf (config.gtk.enable) {
       gtk-cursor-blink = false;
       gtk-key-theme-name = "Emacs";
     };
+  };
+
+  qt = {
+    enable = mkDefault true;
+    platformTheme = mkDefault "gtk";
   };
 }

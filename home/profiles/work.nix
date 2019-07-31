@@ -44,6 +44,16 @@ in {
       zoom-us
     ];
 
+    programs.emacs.init.usePackage = {
+      org-jira = {
+        enable = true;
+        package = epkgs: (pkgs.emacsPackagesCustom epkgs).org-jira;
+        config = ''
+          (setq jiralib-url "https://banksimple.atlassian.net")
+        '';
+      };
+    };
+
     programs.git = {
       includes = [
         { path = "${config.xdg.configHome}/git/config-work"; condition = "gitdir:~/simple/"; }

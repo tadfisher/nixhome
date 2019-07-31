@@ -32,6 +32,11 @@ mkIf cfg.enable {
     recommendedGcSettings = true;
 
     prelude = ''
+      ;; Debugging
+      (setq debug-on-error t)
+      (add-hook 'after-init-hook
+                '(lambda () (setq debug-on-error t)))
+
       ;; Disable startup message.
       (setq inhibit-startup-message t
             inhibit-startup-echo-area-message (user-login-name))
@@ -44,6 +49,9 @@ mkIf cfg.enable {
       (scroll-bar-mode -1)
       (menu-bar-mode -1)
       (blink-cursor-mode 0)
+
+      ;; Customize cursor.
+      (setq-default cursor-type 'bar)
 
       ;; Set up fonts early.
       (set-face-attribute 'default
@@ -70,6 +78,14 @@ mkIf cfg.enable {
       ;; Stop creating backup and autosave files.
       (setq make-backup-files nil
             auto-save-default nil)
+
+      ;; Save frame and window configurations.
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (with-selected-frame frame
+                    (unless desktop-save-mode
+                      (desktop-save-mode 1)
+                      (desktop-read)))))
 
       ;; Always show line and column number in the mode line.
       (line-number-mode)
@@ -191,12 +207,19 @@ mkIf cfg.enable {
         package = epkgs: (pkgs.emacsPackagesCustom epkgs).base16-plata-theme;
         after = [ "base16-theme" ];
         config = ''
-          (and load-file-name
-               (boundp 'custom-theme-load-path)
-               (add-to-list 'custom-theme-load-path
-                            (file-name-as-directory
-                            (file-name-directory load-file-name))))
-          (load-theme 'base16-plata-noir)
+          (when-let* ((dir (file-name-directory
+                            (locate-file "base16-plata-noir-theme"
+                                         load-path
+                                         (get-load-suffixes)))))
+            (add-to-list 'custom-theme-load-path dir)
+            (if (daemonp)
+                (add-hook 'after-make-frame-functions
+                          (lambda (frame)
+                            (select-frame frame)
+                            (if (member 'base16-plata-noir custom-known-themes)
+                                (enable-theme 'base16-plata-noir)
+                              (load-theme 'base16-plata-noir t))))
+              (load-theme 'base16-plata-noir t)))
         '';
       };
 
@@ -249,7 +272,11 @@ mkIf cfg.enable {
         enable = true;
         hook = [ "(after-init . doom-modeline-mode)" ];
         config = ''
+          (set-face-background 'doom-modeline-inactive-bar "#8c8c8c")
           (setq doom-modeline-buffer-file-name-style 'truncate-except-project)
+          (add-hook 'after-make-frame-functions
+                    (lambda (frame)
+                            (setq doom-modeline-icon (display-graphic-p))))
         '';
       };
 
@@ -433,6 +460,14 @@ mkIf cfg.enable {
                                            (woman . "^")))
 
           (ivy-mode 1)
+        '';
+      };
+
+      ivy-prescient = {
+        enable = true;
+        after = [ "ivy" ];
+        config = ''
+          (ivy-prescient-mode 1)
         '';
       };
 
@@ -762,6 +797,9 @@ mkIf cfg.enable {
             "C-c C-c" = "pandoc-run-pandoc";
           };
         };
+        config = ''
+          (setq pandoc-binary "${pkgs.pandoc}/bin/pandoc")
+        '';
       };
 
       nix-mode = {
@@ -774,6 +812,9 @@ mkIf cfg.enable {
       ripgrep = {
         enable = true;
         command = [ "ripgrep-regexp" ];
+        config = ''
+          (setq ripgrep-executable "${pkgs.ripgrep}/bin/rg")
+        '';
       };
 
       org = {
@@ -797,7 +838,7 @@ mkIf cfg.enable {
           (setq org-reverse-note-order t
                 org-use-fast-todo-selection t)
 
-          (setq org-tag-alist rah-org-tag-alist)
+          ;; (setq org-tag-alist rah-org-tag-alist)
 
           ;; Refiling should include not only the current org buffer but
           ;; also the standard org files. Further, set up the refiling to
@@ -819,7 +860,7 @@ mkIf cfg.enable {
                             "CANCELED(c@!)")))
 
           ;; Setup org capture.
-          (setq org-default-notes-file (rah-org-file "capture"))
+          ;; (setq org-default-notes-file (rah-org-file "capture"))
 
           ;; Active Org-babel languages
           (org-babel-do-load-languages 'org-babel-load-languages
@@ -840,7 +881,7 @@ mkIf cfg.enable {
         defer = true;
         config = ''
           ;; Set up agenda view.
-          (setq org-agenda-files (rah-all-org-files)
+          (setq ;; org-agenda-files (rah-all-org-files)
                 org-agenda-span 5
                 org-deadline-warning-days 14
                 org-agenda-show-all-dates t
@@ -850,11 +891,11 @@ mkIf cfg.enable {
         '';
       };
 
-      org-mobile = {
-        enable = true;
-        after = [ "org" ];
-        defer = true;
-      };
+      # org-mobile = {
+      #   enable = true;
+      #   after = [ "org" ];
+      #   defer = true;
+      # };
 
       ob-http = {
         enable = true;
@@ -866,6 +907,9 @@ mkIf cfg.enable {
         enable = true;
         after = [ "org" ];
         defer = true;
+        config = ''
+          (setq org-plantuml-jar-path "${pkgs.plantuml}/lib/plantuml.jar")
+        '';
       };
 
       org-table = {
@@ -907,7 +951,7 @@ mkIf cfg.enable {
         enable = true;
         after = [ "org" ];
         config = ''
-          (setq org-capture-templates rah-org-capture-templates)
+          ;; (setq org-capture-templates rah-org-capture-templates)
         '';
       };
 
@@ -967,6 +1011,8 @@ mkIf cfg.enable {
         hook = [ "ggtags-mode" ];
         command = [ "cperl-set-style" ];
         config = ''
+          (setq ggtags-executable-directory "${pkgs.global}/bin")
+
           ;; Avoid deep indentation when putting function across several
           ;; lines.
           (setq cperl-indent-parens-as-block t)
@@ -1076,6 +1122,9 @@ mkIf cfg.enable {
       plantuml-mode = {
         enable = true;
         mode = [ ''"\\.puml\\'"'' ];
+        config = ''
+          (setq plantuml-jar-path "${pkgs.plantuml}/lib/plantuml.jar")
+        '';
       };
 
       ace-window = {
@@ -1280,8 +1329,8 @@ mkIf cfg.enable {
           ''
             (lambda ()
                   (auto-fill-mode)     ; Avoid having to M-q all the time.
-                  (rah-mail-flyspell)  ; I spel funily soemtijms.
-                  (rah-mail-reftex)    ; Make it easy to include references.
+                  ;; (rah-mail-flyspell)  ; I spel funily soemtijms.
+                  ;; (rah-mail-reftex)    ; Make it easy to include references.
                   (mail-text))         ; Jump to the actual text.
           ''
         ];

@@ -9,6 +9,7 @@ with pkgs;
 
   emacsPackagesCustom = epkgs: with epkgs; {
     base16-plata-theme = callPackage ./emacs/base16-plata-theme {};
+    org-jira = callPackage ./emacs/org-jira.nix {};
   };
 
   gnomeExtensions = super.gnomeExtensions // {

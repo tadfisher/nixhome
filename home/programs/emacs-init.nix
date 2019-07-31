@@ -313,8 +313,6 @@ let
 in
 
 {
-  imports = [ ./emacs-init-defaults.nix ];
-
   options.programs.emacs.init = {
     enable = mkEnableOption "Emacs configuration";
 

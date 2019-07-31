@@ -8,7 +8,6 @@
         "--enable-native-gpu-memory-buffers"
         "--enable-gpu-rasterization"
         "--enable-oop-rasterization"
-        "--enable-viz"
         "--ignore-gpu-blacklist"
       ];
       pulseSupport = true;

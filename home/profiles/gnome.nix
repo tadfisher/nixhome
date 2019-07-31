@@ -133,7 +133,6 @@ in {
         (dash-to-panel // { uuid = "dash-to-panel@jderose9.github.com"; })
         freon
         (gsconnect // { uuid = "gsconnect@andyholmes.github.io"; })
-        (mediaplayer // { uuid = "mediaplayer@patapon.info"; })
         top-panel-workspace-scroll
       ];
       ids = [
@@ -156,6 +155,13 @@ in {
       "gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell integration
       "jfnifeihccihocjbfcfhicmmgpjicaec" # GSConnect
     ];
+
+    programs.gnome-terminal.enable = true;
+
+    qt = {
+      enable = true;
+      platformTheme = "gnome";
+    };
 
     services.gpg-agent.extraConfig = ''
       pinentry-program ${pkgs.pinentry_gnome}/bin/pinentry-gnome3
