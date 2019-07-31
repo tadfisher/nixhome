@@ -16,4 +16,7 @@ with pkgs;
     freon = callPackage ./gnome/freon.nix {};
     top-panel-workspace-scroll = callPackage ./gnome/top-panel-workspace-scroll.nix {};
   };
+
+  # https://github.com/NixOS/nixpkgs/pull/65573
+  zoom-us = pkgs.libsForQt59.callPackage ./zoom-us {};
 }
