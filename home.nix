@@ -22,10 +22,7 @@ in {
     unzip
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true;
-  };
+  nixpkgs.config = import ./config.nix;
 
   passthru = {
     dataDir = ./data;
