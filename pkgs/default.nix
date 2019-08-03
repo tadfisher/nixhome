@@ -15,6 +15,7 @@ with pkgs;
   gnomeExtensions = super.gnomeExtensions // {
     freon = callPackage ./gnome/freon.nix {};
     top-panel-workspace-scroll = callPackage ./gnome/top-panel-workspace-scroll.nix {};
+    transmission-daemon = callPackage ./gnome/transmission-daemon.nix {};
   };
 
   # https://github.com/NixOS/nixpkgs/pull/65573
