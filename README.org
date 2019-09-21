@@ -2,12 +2,15 @@
 
 ** Setup
 
-#+begin_example
-sh
+#+BEGIN_SRC sh
+nix-channel --add https://tadfisher.github.io/android-nixpkgs android
+nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
 git clone https://github.com/tadfisher/nixhome ~/.config/nixpkgs
-nix-shell "~/.config/nixpkgs/home-manager" -A install --run 'home-manager switch'
+nix-shell '<home-manager>' -A install
 gpg --recv-keys 3977AC09
 gpg --edit-key 3977AC09 # trust; 5; y; quit
 keybase login
-git clone keybase://private/tad/pass ~/.password-store
-#+end_example
+git clone keybase://private/tad/pass ~/.local/share/pass/personal
+git clone keybase://private/tad/pass-work ~/.local/share/pass/work # optional
+#+END_SRC
