@@ -21,6 +21,7 @@ with pkgs;
   gnomeExtensions = super.gnomeExtensions // {
     freon = callPackage ./gnome/freon.nix {};
     top-panel-workspace-scroll = callPackage ./gnome/top-panel-workspace-scroll.nix {};
+    transmission-daemon = callPackage ./gnome/transmission-daemon.nix {};
   };
 
   gnupg-pkcs11-scd = callPackage ./gnupg-pkcs11-scd {};

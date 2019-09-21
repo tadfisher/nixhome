@@ -32,6 +32,9 @@
     };
     electronics.enable = true;
     games.enable = true;
+
+    gnome.extensions.packages = [ pkgs.gnomeExtensions.transmission-daemon ];
+
     nixos.enable = true;
   };
 
