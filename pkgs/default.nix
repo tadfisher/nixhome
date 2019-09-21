@@ -7,6 +7,10 @@ with pkgs;
 {
   base16-builder-go = callPackage ./base16-builder-go {};
 
+  corefreq = callPackage ./corefreq {};
+
+  fetchsteam = callPacakge ./fetchsteam {};
+
   emacsPackagesCustom = epkgs: with epkgs; {
     base16-plata-theme = callPackage ./emacs/base16-plata-theme {};
     org-jira = callPackage ./emacs/org-jira.nix {};
@@ -20,6 +24,8 @@ with pkgs;
   };
 
   gnupg-pkcs11-scd = callPackage ./gnupg-pkcs11-scd {};
+
+  inset = callPackage ./inset {};
 
   mkdocs-env = callPackage ./python/mkdocs-env.nix {
     python = python37;
@@ -35,4 +41,6 @@ with pkgs;
   };
 
   rust-analyzer = callPackage ./rust-analyzer {};
+
+  simpleburn = callPackage ./simpleburn {};
 }
