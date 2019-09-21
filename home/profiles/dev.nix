@@ -13,6 +13,14 @@ in {
 
     android = {
       enable = mkEnableOption "android dev tools";
+      pkgs = mkOption {
+        type = types.path;
+        default = <android>;
+        defaultText = "<android>";
+        description = ''
+          Path to android-nixpkgs.
+        '';
+      };
       sdk = {
         channel = mkOption {
           type = types.enum [ "stable" "beta" "preview" "canary" ];
@@ -34,6 +42,20 @@ in {
             The Android SDK package including SDK packages.
           '';
         };
+      };
+
+      emulator = mkOption {
+        type = types.submodule {
+          options = {
+            enableVulkan = mkEnableOption "Vulkan support";
+          };
+        };
+        default = {
+          enableVulkan = false;
+        };
+        description = ''
+          Settings for the Android emulator.
+        '';
       };
     };
     go.enable = mkEnableOption "go dev tools";
@@ -61,33 +83,41 @@ in {
     })
 
     (mkIf cfg.android.enable {
-        home.packages = with pkgs; [
-          androidStudioPackages.beta
-          androidStudioPackages.canary
-          cfg.android.sdk.finalPackage
-          gitRepo
-        ];
+      home.packages = with pkgs; [
+        androidStudioPackages.stable
+        androidStudioPackages.beta
+        androidStudioPackages.canary
+        cfg.android.sdk.finalPackage
+        gitRepo
+      ];
 
-        xdg.dataFile."android".source = "${cfg.android.sdk.finalPackage}/share/android-sdk";
+      home.file = mkIf cfg.android.emulator.enableVulkan {
+        ".android/advancedFeatures.ini".text = ''
+          Vulkan = on
+          GLDirectMem = on
+        '';
+      };
 
-        pam.sessionVariables = {
-          ANDROID_HOME = "${config.xdg.dataHome}/android";
-          ANDROID_SDK_ROOT = "${config.xdg.dataHome}/android";
-        };
+      xdg.dataFile."android".source = "${cfg.android.sdk.finalPackage}/share/android-sdk";
 
-        profiles.dev.android.sdk.finalPackage = 
-          (import <android> {}).sdk.${cfg.android.sdk.channel}
-            cfg.android.sdk.packages;
+      pam.sessionVariables = {
+        ANDROID_HOME = "${config.xdg.dataHome}/android";
+        ANDROID_SDK_ROOT = "${config.xdg.dataHome}/android";
+      };
 
-        profiles.dev.jvm.enable = mkDefault true;
+      profiles.dev.android.sdk.finalPackage =
+        (import cfg.android.pkgs {}).sdk.${cfg.android.sdk.channel}
+          cfg.android.sdk.packages;
 
-        profiles.dev.jvm.gradleProperties = ''
+      profiles.dev.jvm.enable = mkDefault true;
+
+      profiles.dev.jvm.gradleProperties = ''
           org.gradle.jvmargs=-Xms512m -Xmx4096m -XX:+CMSClassUnloadingEnabled
         '';
 
-        programs.chromium.extensions = [
-          "hgcbffeicehlpmgmnhnkjbjoldkfhoin" # Android SDK Search
-        ];
+      programs.chromium.extensions = [
+        "hgcbffeicehlpmgmnhnkjbjoldkfhoin" # Android SDK Search
+      ];
     })
 
     (mkIf cfg.go.enable {
@@ -148,7 +178,11 @@ in {
 
     (mkIf cfg.python.enable {
       home.packages = with pkgs; [
-        python3
+        (python3.withPackages (p: with p; [
+          pip
+          virtualenvwrapper
+        ]))
+        pipenv
       ];
     })
 

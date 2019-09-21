@@ -43,6 +43,10 @@ in {
         picture-options = "zoom";
       };
 
+      "org/gnome/desktop/input-sources" = {
+        xkb-options = [ "ctrl:nocaps" "compose:sclk" ];
+      };
+
       "org/gnome/desktop/interface" = {
         clock-format = "12h";
         cursor-blink = false;
@@ -145,6 +149,7 @@ in {
       chrome-gnome-shell
       gnome3.gnome-shell-extensions
       gnome3.gnome-boxes
+      gnome3.gnome-tweaks
       virtmanager
     ] ++ cfg.extensions.packages;
 

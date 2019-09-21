@@ -12,11 +12,27 @@ with pkgs;
     org-jira = callPackage ./emacs/org-jira.nix {};
   };
 
+  fakeos = callPackage ./fakeos {};
+
   gnomeExtensions = super.gnomeExtensions // {
     freon = callPackage ./gnome/freon.nix {};
     top-panel-workspace-scroll = callPackage ./gnome/top-panel-workspace-scroll.nix {};
   };
 
-  # https://github.com/NixOS/nixpkgs/pull/65573
-  zoom-us = pkgs.libsForQt59.callPackage ./zoom-us {};
+  gnupg-pkcs11-scd = callPackage ./gnupg-pkcs11-scd {};
+
+  mkdocs-env = callPackage ./python/mkdocs-env.nix {
+    python = python37;
+  };
+
+  python37 = let
+    packageOverrides = pself: psuper: import ./python/default.nix {
+      inherit (pkgs) mkdocs;
+      python = super.python37;
+    };
+  in super.python37.override {
+    inherit packageOverrides;
+  };
+
+  rust-analyzer = callPackage ./rust-analyzer {};
 }

@@ -32,11 +32,6 @@ mkIf cfg.enable {
     recommendedGcSettings = true;
 
     prelude = ''
-      ;; Debugging
-      (setq debug-on-error t)
-      (add-hook 'after-init-hook
-                '(lambda () (setq debug-on-error t)))
-
       ;; Disable startup message.
       (setq inhibit-startup-message t
             inhibit-startup-echo-area-message (user-login-name))
@@ -48,7 +43,7 @@ mkIf cfg.enable {
       (tool-bar-mode -1)
       (scroll-bar-mode -1)
       (menu-bar-mode -1)
-      (blink-cursor-mode 0)
+      (blink-cursor-mode -1)
 
       ;; Customize cursor.
       (setq-default cursor-type 'bar)
@@ -78,14 +73,6 @@ mkIf cfg.enable {
       ;; Stop creating backup and autosave files.
       (setq make-backup-files nil
             auto-save-default nil)
-
-      ;; Save frame and window configurations.
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (with-selected-frame frame
-                    (unless desktop-save-mode
-                      (desktop-save-mode 1)
-                      (desktop-read)))))
 
       ;; Always show line and column number in the mode line.
       (line-number-mode)
@@ -157,6 +144,9 @@ mkIf cfg.enable {
 
       ;; Handle urls from the command line (also via emacsclient).
       (url-handler-mode 1)
+
+      ;; Just use bash, don't ask.
+      (setq explicit-shell-file-name "${pkgs.bashInteractive}/bin/bash")
     '';
 
     usePackage = {
@@ -270,13 +260,16 @@ mkIf cfg.enable {
 
       doom-modeline = {
         enable = true;
-        hook = [ "(after-init . doom-modeline-mode)" ];
+        init = ''
+          (add-hook 'after-make-frame-functions
+                    (lambda (frame)
+                            (with-selected-frame frame
+                                                 (unless doom-modeline-mode (doom-modeline-mode 1))
+                                                 (setq doom-modeline-icon (display-graphic-p)))))
+        '';
         config = ''
           (set-face-background 'doom-modeline-inactive-bar "#8c8c8c")
           (setq doom-modeline-buffer-file-name-style 'truncate-except-project)
-          (add-hook 'after-make-frame-functions
-                    (lambda (frame)
-                            (setq doom-modeline-icon (display-graphic-p))))
         '';
       };
 
@@ -308,9 +301,6 @@ mkIf cfg.enable {
         command = [ "electric-indent-local-mode" ];
         hook = [
           "(prog-mode . electric-indent-mode)"
-
-          # Disable for some modes.
-          "(nix-mode . (lambda () (electric-indent-local-mode -1)))"
         ];
       };
 
@@ -605,6 +595,13 @@ mkIf cfg.enable {
         '';
       };
 
+      direnv = {
+        enable = true;
+        config = ''
+          (direnv-mode 1)
+        '';
+      };
+
       company-lsp = {
         enable = true;
         after = [ "company" ];
@@ -691,6 +688,14 @@ mkIf cfg.enable {
       lsp-treemacs = {
         enable = true;
         after = [ "lsp-mode" "treemacs" ];
+      };
+
+      rustic = {
+        enable = true;
+        after = [ "lsp-mode" ];
+        config = ''
+          (setq rustic-lsp-server 'rust-analyzer)
+        '';
       };
 
       dap-mode = {
@@ -802,9 +807,42 @@ mkIf cfg.enable {
         '';
       };
 
+      meson-mode = {
+        enable = true;
+      };
+
       nix-mode = {
         enable = true;
-        mode = [ ''"\\.nix\\'"'' ];
+        mode = [ ''"\\.nix\\'"'' ''"\\.nix.in\\'"'' ];
+      };
+
+      nix-buffer = {
+        enable = true;
+      };
+
+      nix-build = {
+        enable = true;
+        command = [ "nix-build" ];
+      };
+
+      nix-drv-mode = {
+        enable = true;
+        mode = [ ''"\\.drv\\'"'' ];
+      };
+
+      nix-prettify-mode = {
+        enable = true;
+        config = ''
+          (nix-prettify-global-mode 1)
+        '';
+      };
+
+      nix-repl = {
+        enable = true;
+      };
+
+      nix-shell = {
+        enable = true;
       };
 
       # Use ripgrep for fast text search in projects. I usually use
@@ -1194,6 +1232,10 @@ mkIf cfg.enable {
         '';
       };
 
+      json-mode = {
+        enable = true;
+      };
+
       php-mode = {
         enable = true;
         mode = [ ''"\\.php\\'"'' ];
@@ -1352,6 +1394,26 @@ mkIf cfg.enable {
       treemacs-projectile = {
         enable = true;
         after = [ "treemacs" "projectile" ];
+      };
+
+      hide-mode-line = {
+        enable = true;
+      };
+
+      vterm = {
+        enable = true;
+        package = epkgs: epkgs.emacs-libvterm;
+        init = ''
+          (defvar vterm-current-title)
+        '';
+        config = ''
+          (add-hook 'vterm-exit-functions
+                    (lambda (buffer) (when buffer (kill-buffer buffer))))
+          (add-hook 'vterm-mode-hook (lambda ()
+                                       (blink-cursor-mode -1)
+                                       (setq-local confirm-kill-processes nil)
+                                       (setq-local global-hl-line-mode -1)))
+        '';
       };
     };
   };

@@ -36,6 +36,20 @@
 ;; Add all the faces to the theme
 (base16-theme-define 'base16-plata-noir base16-plata-noir-colors)
 
+(custom-theme-set-variables
+ 'base16-plata-noir
+ (ansi-term-color-vector
+  [term
+   term-color-black
+   term-color-red
+   term-color-green
+   term-color-yellow
+   term-color-blue
+   term-color-magenta
+   term-color-cyan
+   term-color-white
+   ]))
+
 ;; Mark the theme as provided
 (provide-theme 'base16-plata-noir)
 

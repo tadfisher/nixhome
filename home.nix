@@ -13,7 +13,6 @@ in {
     dosfstools
     gnupg
     lm_sensors
-    (pass.withExtensions (e: [ e.pass-otp ]))
     ripgrep
     rw
     telnet
@@ -38,10 +37,15 @@ in {
 
   programs = {
     bash.enable = true;
+    direnv.enable = true;
     emacs.enable = true;
     emacs.init.enable = true;
     firefox.enable = true;
     git.enable = true;
+    pass = {
+      enable = true;
+      package = pkgs.pass.withExtensions (e: [ e.pass-audit e.pass-otp ]);
+    };
     ssh.enable = true;
   };
 

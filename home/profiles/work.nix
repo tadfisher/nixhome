@@ -30,18 +30,29 @@ let
   };
 
 in {
-  imports = [ ../programs/firefox.nix ];
-
   options = {
     profiles.work.enable = mkEnableOption "work profile";
   };
 
   config = mkIf cfg.enable {
 
+    accounts.email.accounts."tad@simple.com" = {
+      address = "tad@simple.com";
+      flavor = "gmail.com";
+      gpg = {
+        key = "tad@simple.com";
+        signByDefault = true;
+      };
+      msmtp.enable = true;
+      notmuch.enable = true;
+      passwordCommand = "pass show mail.google.com/tad@simple.com | head -n 1";
+      realName = "Tad Fisher";
+      userName = "tad@simple.com";
+    };
+
     home.packages = with pkgs; [
       slack
       simple-vpn
-      zoom-us
     ];
 
     programs.emacs.init.usePackage = {
@@ -75,6 +86,15 @@ in {
         } // config.programs.firefox.commonProfileConfig;
       };
     };
+
+    programs.pass.stores = {
+      ".local/share/pass/work" = {
+        primary = true;
+        alias = "pw";
+      };
+    };
+
+    programs.zoom-us.enable = true;
 
     xdg.configFile."git/config-work".text = ''
       [user]

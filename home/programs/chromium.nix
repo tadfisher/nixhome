@@ -5,7 +5,7 @@
     package = pkgs.chromium.override {
       commandLineArgs = [ 
         "--enable-features=OverlayScrollbar"
-        "--enable-native-gpu-memory-buffers"
+#        "--enable-native-gpu-memory-buffers"
         "--enable-gpu-rasterization"
         "--enable-oop-rasterization"
         "--ignore-gpu-blacklist"

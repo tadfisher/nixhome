@@ -18,7 +18,6 @@ with lib;
     '';
 
     home.packages = with pkgs; [
-      calibre
       gksu
       gparted
       keybase
@@ -47,7 +46,6 @@ with lib;
         enable = true;
         defaultEditor = true;
       };
-      unclutter.enable = true;
     };
   };
 }

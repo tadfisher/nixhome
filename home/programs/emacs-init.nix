@@ -268,9 +268,7 @@ let
       '';
 
   initFile = ''
-    ;;; hm-init.el --- Emacs configuration à la Home Manager.
-    ;;
-    ;; -*- lexical-binding: t; -*-
+    ;;; hm-init.el --- Emacs configuration à la Home Manager. -*- lexical-binding: t; -*-
     ;;
     ;;; Commentary:
     ;;

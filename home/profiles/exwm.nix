@@ -14,6 +14,8 @@ in {
       vSync = "opengl-mswc";
     };
 
+    services.unclutter.enable = true;
+
     services.gpg-agent.extraConfig = ''
       allow-emacs-pinentry
       allow-loopback-pinentry

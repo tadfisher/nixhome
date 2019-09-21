@@ -72,7 +72,6 @@ in
       xdg.dataFile."applications/firefox.desktop".text = ''
         ${fileContents "${cfg.package}/share/applications/firefox.desktop"}
         Actions=NewWindow;NewPrivateWindow;${concatMapStrings (p: p.name + ";") (builtins.attrValues cfg.profiles)}
-        
       '';
     }
   ]);

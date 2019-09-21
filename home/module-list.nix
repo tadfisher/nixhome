@@ -1,5 +1,6 @@
 [
   misc/gtk.nix
+  misc/mail.nix
   misc/xdg.nix
 
   profiles/desktop.nix
@@ -14,9 +15,12 @@
   programs/chromium.nix
   programs/emacs.nix
   programs/emacs-init.nix
+  programs/firefox.nix
   programs/git.nix
   programs/gnome-terminal.nix
+  programs/pass.nix
   programs/ssh.nix
+  programs/zoom-us.nix
 
   services/emacs.nix
   services/gpg-agent.nix
