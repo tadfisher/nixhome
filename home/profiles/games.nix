@@ -14,9 +14,7 @@ with lib;
       steam-run
       stockfish
       vkquake
-      winetricks
-      winePackages.full
-      # wineWowPackages.staging
+      yquake2
       yquake2-all-games
     ];
   };

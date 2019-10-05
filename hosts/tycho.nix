@@ -12,10 +12,12 @@
 
   home.packages = with pkgs; [
     brasero
+    celestia
     inkscape
     OVMF
     pencil
     plex-media-player
+    rpmextract
     simpleburn
     transmission-remote-gtk
     ubootTools

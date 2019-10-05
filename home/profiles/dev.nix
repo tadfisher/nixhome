@@ -154,7 +154,7 @@ in {
       ];
 
       pam.sessionVariables = {
-        JAVA_HOME = "${pkgs.openjdk11.home}";
+        JAVA_HOME = "${pkgs.openjdk8.home}";
       };
 
       xdg.dataFile = {

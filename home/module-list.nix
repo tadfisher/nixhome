@@ -12,6 +12,7 @@
   profiles/nixos.nix
   profiles/work.nix
 
+  programs/bash.nix
   programs/chromium.nix
   programs/direnv.nix
   programs/emacs.nix
