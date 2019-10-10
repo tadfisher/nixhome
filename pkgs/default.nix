@@ -9,7 +9,7 @@ with pkgs;
 
   corefreq = callPackage ./corefreq {};
 
-  fetchsteam = callPacakge ./fetchsteam {};
+  fetchsteam = callPackage ./fetchsteam {};
 
   emacsPackagesCustom = epkgs: with epkgs; {
     base16-plata-theme = callPackage ./emacs/base16-plata-theme {};

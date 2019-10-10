@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 
+with lib;
+
 let
   cfg = config.programs.direnv;
 
@@ -10,13 +12,13 @@ mkIf cfg.enable {
     use_nix() {
       local path="$(nix-instantiate --find-file nixpkgs)"
 
-      if [ -f "${path}/.version-suffix" ]; then
+      if [ -f "''${path}/.version-suffix" ]; then
         local version="$(< $path/.version-suffix)"
-      elif [ -f "${path}/.git" ]; then
-        local version="$(< $(< ${path}/.git/HEAD))"
+      elif [ -f "''${path}/.git" ]; then
+        local version="$(< $(< ''${path}/.git/HEAD))"
       fi
 
-      local cache=".direnv/cache-${version:-unknown}"
+      local cache=".direnv/cache-''${version:-unknown}"
 
       local update_drv=0
       if [[ ! -e "$cache" ]] || \
@@ -32,30 +34,30 @@ mkIf cfg.enable {
         log_status using cached derivation
       fi
       local term_backup=$TERM path_backup=$PATH
-      if [ -z ${TMPDIR+x} ]; then
+      if [ -z ''${TMPDIR+x} ]; then
         local tmp_backup=$TMPDIR
       fi
 
-      if [ -z ${SSL_CERT_FILE+x} ]; then
+      if [ -z ''${SSL_CERT_FILE+x} ]; then
         local ssl_cert_file_backup=$SSL_CERT_FILE
       fi
-      if [ -z ${NIX_SSL_CERT_FILE+x} ]; then
+      if [ -z ''${NIX_SSL_CERT_FILE+x} ]; then
         local nix_ssl_cert_file_backup=$NIX_SSL_CERT_FILE
       fi
       eval "$(< $cache)"
       export PATH=$PATH:$path_backup TERM=$term_backup TMPDIR=$tmp_backup
-      if [ -z ${tmp_backup+x} ]; then
-        export TMPDIR=${tmp_backup}
+      if [ -z ''${tmp_backup+x} ]; then
+        export TMPDIR=''${tmp_backup}
       else
         unset TMPDIR
       fi
-      if [ -z ${ssl_cert_file_backup+x} ]; then
-        export SSL_CERT_FILE=${ssl_cert_file_backup}
+      if [ -z ''${ssl_cert_file_backup+x} ]; then
+        export SSL_CERT_FILE=''${ssl_cert_file_backup}
       else
         unset SSL_CERT_FILE
       fi
-      if [ -z ${nix_ssl_cert_file_backup+x} ]; then
-        export NIX_SSL_CERT_FILE=${nix_ssl_cert_file_backup}
+      if [ -z ''${nix_ssl_cert_file_backup+x} ]; then
+        export NIX_SSL_CERT_FILE=''${nix_ssl_cert_file_backup}
       else
         unset NIX_SSL_CERT_FILE
       fi

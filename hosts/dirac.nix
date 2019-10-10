@@ -37,13 +37,14 @@
             sources.android-27
             sources.android-28
             sources.android-29
-            system-images.android-23.google_apis.x86
-            system-images.android-24.google_apis_playstore.x86
-            system-images.android-25.google_apis_playstore.x86
-            system-images.android-26.google_apis_playstore.x86
-            system-images.android-27.google_apis_playstore.x86
-            system-images.android-28.google_apis_playstore.x86
-            system-images.android-29.google_apis_playstore.x86
+            system-images.android-23.google-apis.x86
+            system-images.android-24.google-apis-playstore.x86
+            system-images.android-25.google-apis-playstore.x86
+            system-images.android-26.google-apis-playstore.x86
+            system-images.android-27.google-apis-playstore.x86
+            system-images.android-28.google-apis-playstore.x86
+            system-images.android-28.google-apis.x86
+            system-images.android-29.google-apis-playstore.x86
           ];
         };
 

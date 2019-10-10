@@ -52,7 +52,7 @@ in {
         export _JAVA_AWT_WM_NONREPARENTING=1
       '';
       windowManager.command = ''
-        ${pkgs.emacs}/bin/emacs
+        ${config.programs.emacs.finalPackage}/bin/emacs
       '';
     };
   };

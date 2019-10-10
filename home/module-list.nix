@@ -13,6 +13,7 @@
   profiles/work.nix
 
   programs/chromium.nix
+  programs/direnv.nix
   programs/emacs.nix
   programs/emacs-init.nix
   programs/firefox.nix

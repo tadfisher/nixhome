@@ -106,8 +106,7 @@ in {
       };
 
       profiles.dev.android.sdk.finalPackage =
-        (import cfg.android.pkgs {}).sdk.${cfg.android.sdk.channel}
-          cfg.android.sdk.packages;
+        (import cfg.android.pkgs {}).sdk (p: cfg.android.sdk.packages p.${cfg.android.sdk.channel});
 
       profiles.dev.jvm.enable = mkDefault true;
 

@@ -150,6 +150,9 @@ in {
       gnome3.gnome-shell-extensions
       gnome3.gnome-boxes
       gnome3.gnome-tweaks
+      plata-theme
+      paper-icon-theme
+      roboto
       virtmanager
     ] ++ cfg.extensions.packages;
 
