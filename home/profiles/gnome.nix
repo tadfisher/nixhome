@@ -58,6 +58,10 @@ in {
         scaling-factor = 1;
       };
 
+      "org/gnome/desktop/lockdown" = {
+        disable-lock-screen = false;
+      };
+
       "org/gnome/desktop/screensaver" = {
         picture-uri = "file://${config.passthru.dataDir}/Seattle%20Museum%20of%20Pop%20Culture.jpg";
         picture-options = "zoom";
@@ -133,21 +137,17 @@ in {
 
     profiles.gnome.extensions = {
       packages = with pkgs.gnomeExtensions; [
-        caffeine
-        (dash-to-panel // { uuid = "dash-to-panel@jderose9.github.com"; })
+        dash-to-panel
         freon
-        (gsconnect // { uuid = "gsconnect@andyholmes.github.io"; })
-        top-panel-workspace-scroll
-      ];
-      ids = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+        gsconnect
+        user-themes
+        workspace-indicator
       ];
     };
 
     home.packages = with pkgs; [
       chrome-gnome-shell
-      gnome3.gnome-shell-extensions
+      gnome3.dconf-editor
       gnome3.gnome-boxes
       gnome3.gnome-tweaks
       plata-theme
