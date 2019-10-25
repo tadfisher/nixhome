@@ -38,7 +38,7 @@
 
 (custom-theme-set-variables
  'base16-plata-noir
- (ansi-term-color-vector
+ `(ansi-term-color-vector
   [term
    term-color-black
    term-color-red
