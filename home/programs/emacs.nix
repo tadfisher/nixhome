@@ -17,6 +17,7 @@ in
 
 mkIf cfg.enable {
   home.packages = with pkgs; [
+    cquery
     ditaa
     graphviz
     (hunspellWithDicts [ hunspellDicts.en-us])
@@ -246,6 +247,11 @@ mkIf cfg.enable {
                                (c-set-offset 'arglist-intro '++)))
           ''
         ];
+      };
+
+      coffee-mode = {
+        enable = true;
+        mode = [ ''"\\.coffee\\'"'' ];
       };
 
       dhall-mode = {
@@ -495,6 +501,12 @@ mkIf cfg.enable {
         diminish = [ "counsel-mode" ];
       };
 
+      counsel-projectile = {
+        config = ''
+          (counsel-projectile-mode 1)
+        '';
+      };
+
       nyan-mode = {
         enable = true;
         command = [ "nyan-mode" ];
@@ -690,6 +702,18 @@ mkIf cfg.enable {
         after = [ "lsp-mode" "treemacs" ];
       };
 
+      cquery = {
+        enable = true;
+        after = [ "lsp-mode" ];
+        hook = [
+          "(c-mode-hook . #'((lsp)))"
+          "(c++-mode-hook . #'((lsp)))"
+        ];
+        config = ''
+          (setq cquery-executable "${pkgs.cquery}/bin/cquery")
+        '';
+      };
+
       rustic = {
         enable = true;
         after = [ "lsp-mode" ];
@@ -828,13 +852,6 @@ mkIf cfg.enable {
       nix-drv-mode = {
         enable = true;
         mode = [ ''"\\.drv\\'"'' ];
-      };
-
-      nix-prettify-mode = {
-        enable = true;
-        config = ''
-          (nix-prettify-global-mode 1)
-        '';
       };
 
       nix-repl = {
