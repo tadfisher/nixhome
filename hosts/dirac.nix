@@ -47,8 +47,6 @@
             system-images.android-29.google-apis-playstore.x86
           ];
         };
-
-        emulator.enableVulkan = true;
       };
 
       go.enable = true;
