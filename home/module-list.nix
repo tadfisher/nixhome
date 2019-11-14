@@ -1,4 +1,5 @@
 [
+  misc/gnome-paths.nix
   misc/gtk.nix
   misc/mail.nix
   misc/xdg.nix
