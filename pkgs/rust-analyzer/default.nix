@@ -7,8 +7,8 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "rust-analyzer";
     repo = "rust-analyzer";
-    rev = "87608904f697a3f58ddb71a7f6828dac80f8b3ce";
-    sha256 = "17jgacfzc4lw2rrcixahpj4cdd3q8mq208h9nxs8y9vqw685f7xs";
+    rev = "5451bfb9a1c6482822bdd7883434b9230affd2ea";
+    sha256 = "01ygfknqlya5pv6mrbfsdflj7qvsvgpl6p9p0lqbcp9p8hilqlq0";
   };
   cargoBuildFlags = [ "--features" "jemalloc" "-p" "ra_lsp_server" ];
 
@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
 
   RUST_SRC_PATH = rustPlatform.rustcSrc;
 
-  cargoSha256 = "1919qa4mhwskbj82qxszi4ba48x3xp019bx466h2rflwmznwgg3i";
+  cargoSha256 = "1sryylax0y2sq70a6wcf5vmz3gfxsdiv9r6zdi7jv5zvdxsrqvxc";
 
   doCheck = false;
 
