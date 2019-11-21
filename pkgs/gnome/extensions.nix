@@ -34,11 +34,12 @@ let
 
       meta = with stdenv.lib; e.meta // {
         maintainers = [ maintainers.tadfisher ];
-        license = licenses.gpl2;
         platforms = pkgs.gnome3.gnome-shell.meta.platforms;
       };
     } // args);
 
   extensions = mapAttrs (n: e: mkExtension e) extensionsMap;
 
-in extensions
+in extensions // {
+  paperwm = pkgs.callPackage ./paperwm.nix {};
+}

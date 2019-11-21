@@ -65,6 +65,9 @@ mkIf cfg.enable {
                                           (abbreviate-file-name (buffer-file-name))
                                         "%b"))))
 
+      ;; Resize frames per-pixel.
+      (setq frame-resize-pixelwise t)
+
       ;; Accept 'y' and 'n' rather than 'yes' and 'no'.
       (defalias 'yes-or-no-p 'y-or-n-p)
 

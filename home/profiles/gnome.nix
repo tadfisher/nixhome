@@ -69,52 +69,65 @@ in {
 
       "org/gnome/desktop/wm/keybindings" = {
         activate-window-menu = [ "" ];
-	      move-to-corner-ne = [ "<Super><Control>u" ];
-	      move-to-corner-nw = [ "<Super><Control>y" ];
-	      move-to-corner-se = [ "<Super><Control>n" ];
-	      move-to-corner-sw = [ "<Super><Control>b" ];
-	      move-to-side-e = [ "<Super><Control>l" ];
-	      move-to-side-n = [ "<Super><Control>k" ];
-	      move-to-side-s = [ "<Super><Control>j" ];
-	      move-to-side-w = [ "<Super><Control>n" ];
-	      move-to-workspace-1 = [ "<Super><Shift>1" ];
-	      move-to-workspace-2 = [ "<Super><Shift>2" ];
-	      move-to-workspace-3 = [ "<Super><Shift>3" ];
-	      move-to-workspace-4 = [ "<Super><Shift>4" ];
-	      move-to-workspace-5 = [ "<Super><Shift>5" ];
-	      move-to-workspace-6 = [ "<Super><Shift>6" ];
-	      move-to-workspace-7 = [ "<Super><Shift>7" ];
-	      move-to-workspace-8 = [ "<Super><Shift>8" ];
-	      move-to-workspace-9 = [ "<Super><Shift>9" ];
-	      move-to-workspace-10 = [ "<Super><Shift>0" ];
-	      move-to-workspace-down = [ "<Super><Shift>n" ];
-	      move-to-workspace-left = [ "<Super><Shift>b" ];
-	      move-to-workspace-right = [ "<Super><Shift>f" ];
-	      move-to-workspace-up = [ "<Super><Shift>p" ];
-	      switch-to-workspace-1 = [ "<Super>1" ];
-	      switch-to-workspace-2 = [ "<Super>2" ];
-	      switch-to-workspace-3 = [ "<Super>3" ];
-	      switch-to-workspace-4 = [ "<Super>4" ];
-	      switch-to-workspace-5 = [ "<Super>5" ];
-	      switch-to-workspace-6 = [ "<Super>6" ];
-	      switch-to-workspace-7 = [ "<Super>7" ];
-	      switch-to-workspace-8 = [ "<Super>8" ];
-	      switch-to-workspace-9 = [ "<Super>9" ];
-	      switch-to-workspace-10 = [ "<Super>0" ];
-	      switch-to-workspace-down = [ "<Super>n" ];
-	      switch-to-workspace-left = [ "<Super>b" ];
-	      switch-to-workspace-right = [ "<Super>f" ];
-	      switch-to-workspace-up = [ "<Super>p" ];
+        minimize = [ "" ];
+	      move-to-corner-ne = [ "" ];
+	      move-to-corner-nw = [ "" ];
+	      move-to-corner-se = [ "" ];
+	      move-to-corner-sw = [ "" ];
+	      move-to-side-e = [ "" ];
+	      move-to-side-n = [ "" ];
+	      move-to-side-s = [ "" ];
+	      move-to-side-w = [ "" ];
+	      move-to-workspace-1 = [ "" ];
+	      move-to-workspace-2 = [ "" ];
+	      move-to-workspace-3 = [ "" ];
+	      move-to-workspace-4 = [ "" ];
+	      move-to-workspace-5 = [ "" ];
+	      move-to-workspace-6 = [ "" ];
+	      move-to-workspace-7 = [ "" ];
+	      move-to-workspace-8 = [ "" ];
+	      move-to-workspace-9 = [ "" ];
+	      move-to-workspace-10 = [ "" ];
+	      move-to-workspace-down = [ "" ];
+	      move-to-workspace-left = [ "" ];
+	      move-to-workspace-right = [ "" ];
+	      move-to-workspace-up = [ "" ];
+        switch-applications = [ "<Alt>Tab" ];
+        switch-applications-backward = [ "<Primary><Alt>Tab" ];
+        switch-group = [ "<Alt>Above_Tab" ];
+        switch-group-backward = [ "<Primary><Alt>Above_Tab" ];
+	      switch-to-workspace-1 = [ "" ];
+	      switch-to-workspace-2 = [ "" ];
+	      switch-to-workspace-3 = [ "" ];
+	      switch-to-workspace-4 = [ "" ];
+	      switch-to-workspace-5 = [ "" ];
+	      switch-to-workspace-6 = [ "" ];
+	      switch-to-workspace-7 = [ "" ];
+	      switch-to-workspace-8 = [ "" ];
+	      switch-to-workspace-9 = [ "" ];
+	      switch-to-workspace-10 = [ "" ];
+	      switch-to-workspace-down = [ "" ];
+	      switch-to-workspace-left = [ "" ];
+	      switch-to-workspace-right = [ "" ];
+	      switch-to-workspace-up = [ "" ];
       };
 
       "org/gnome/desktop/wm/preferences" = {
         resize-with-right-button = true;
       };
 
+      "org/gnome/mutter" = {
+        auto-maximize = false;
+      };
+
       "org/gnome/mutter/keybindings" = {
-        switch-monitor = [ "" ];
-        toggle-tiled-left = [ "<Shift><Super>h" ];
-        toggle-tiled-right = [ "<Shift><Super>l" ];
+        switch-monitor = [];
+        toggle-tiled-left = [];
+        toggle-tiled-right = [];
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        screensaver = [ "<Primary><Alt>BackSpace" ];
       };
 
       "org/gnome/settings-daemon/peripherals/mouse" = {
@@ -126,22 +139,68 @@ in {
           ++ map (p: p.uuid) cfg.extensions.packages;
       };
 
+      "org/gnome/shell/overrides" = {
+        attach-modal-dialogs = false;
+        edge-tiling = false;
+        workspaces-only-on-primary = false;
+      };
+
+      "org/gnome/shell/extensions/paperwm" = {
+        horizontal-margin = 0;
+        use-default-background = true;
+        vertical-margin = 0;
+        vertical-margin-bottom = 0;
+        window-gap = 0;
+      };
+
+      "org/gnome/shell/extensions/paperwm/keybindings" = {
+        close-window = [ "<Super>BackSpace" ];
+        move-down = [ "<Shift><Super>k" ];
+        move-down-workspace = [ "<Shift><Super>n" ];
+        move-left = [ "<Shift><Super>j" ];
+        move-monitor-left = [ "<Shift><Super>h" ];
+        move-monitor-right = [ "<Super>colon" ];
+        move-previous-workspace = [ "<Shift><Super>Above_Tab" ];
+        move-previous-workspace-backward = [ "<Primary><Shift><Super>Above_Tab" ];
+        move-right = [ "<Shift><Super>l" ];
+        move-up = [ "<Shift><Super>i" ];
+        move-up-workspace = [ "<Shift><Super>p" ];
+        new-window = [ "<Super>Return" ];
+        previous-workspace = [ "<Super>Above_Tab" ];
+        previous-workspace-backward = [ "<Primary><Super>Above_Tab" ];
+        slurp-in = [ "<Super>u" ];
+        switch-down = [ "<Super>k" ];
+        switch-down-workspace = [ "<Super>n" ];
+        switch-first = [ "<Primary><Super>j" ];
+        switch-last = [ "<Primary><Super>k" ];
+        switch-left = [ "<Super>j" ];
+        switch-monitor-left = [ "<Super>h" ];
+        switch-monitor-right = [ "<Super>semicolon" ];
+        switch-right = [ "<Super>l" ];
+        switch-up = [ "<Super>i" ];
+        switch-up-workspace = [ "<Super>p" ];
+        toggle-scratch = [ "<Shift><Super>s" ];
+        toggle-scratch-layer = [ "<Super>s" ];
+      };
+
       "org/gnome/shell/extensions/user-theme" = {
         name = "Plata-Noir";
       };
 
       "org/gnome/shell/keybindings" = {
         focus-active-notification = [ "" ];
+        toggle-overview = [ "" ];
       };
     };
 
     profiles.gnome.extensions = {
       packages = with pkgs.gnomeExtensions; [
-        dash-to-panel
-        freon
+        # dash-to-panel
+        # freon
         gsconnect
         user-themes
-        workspace-indicator
+        # workspace-indicator
+        paperwm
       ];
     };
 
