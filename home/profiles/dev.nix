@@ -154,12 +154,12 @@ in {
       ];
 
       pam.sessionVariables = {
-        JAVA_HOME = "${pkgs.openjdk8.home}";
+        JAVA_HOME = "${pkgs.adoptopenjdk-hotspot-bin-8.home}";
       };
 
       xdg.dataFile = {
-        "java/openjdk8".source = pkgs.openjdk8.home;
-        "java/openjdk11".source = pkgs.openjdk11.home;
+        "java/openjdk8".source = pkgs.adoptopenjdk-hotspot-bin-8.home;
+        "java/openjdk11".source = pkgs.adoptopenjdk-hotspot-bin-11.home;
         "java/jetbrains".source = pkgs.jetbrains.jdk;
       };
     })
