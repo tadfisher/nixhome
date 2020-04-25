@@ -10,7 +10,7 @@ let
       set -e
       vpn="simple-vpn-udp"
       nmcli con down "$vpn" &> /dev/null || true
-      pass otp show bastion/tad | ${pkgs.networkmanager}/bin/nmcli --ask con up "$vpn" &> /dev/null
+      ${pkgs.networkmanager}/bin/nmcli --ask con up "$vpn" &> /dev/null
     '';
     desktopItem = pkgs.makeDesktopItem {
       name = "simple-vpn";
@@ -42,6 +42,11 @@ in {
       gpg = {
         key = "tad@simple.com";
         signByDefault = true;
+      };
+      lieer = {
+        enable = true;
+        dropNonExistingLabels = true;
+        sync.enable = true;
       };
       msmtp.enable = true;
       notmuch.enable = true;

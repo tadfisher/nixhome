@@ -69,6 +69,18 @@ in
     })
 
     {
+      programs.firefox.commonProfileConfig = {
+        settings = {
+          "browser.tabs.drawInTitlebar" = true;
+          "browser.uidensity" = 0;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        };
+
+        userChrome = ''
+          @import "/home/tad/proj/plata-theme/src/extra/firefox/dark.css";
+        '';
+      };
+
       xdg.dataFile."applications/firefox.desktop".text = ''
         ${fileContents "${cfg.package}/share/applications/firefox.desktop"}
         Actions=NewWindow;NewPrivateWindow;${concatMapStrings (p: p.name + ";") (builtins.attrValues cfg.profiles)}

@@ -2,15 +2,18 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "rust-analyzer";
-  version = "unstable-2019-08-08";
+  version = "unstable-2020-02-28";
 
   src = fetchFromGitHub {
     owner = "rust-analyzer";
     repo = "rust-analyzer";
-    rev = "5451bfb9a1c6482822bdd7883434b9230affd2ea";
-    sha256 = "01ygfknqlya5pv6mrbfsdflj7qvsvgpl6p9p0lqbcp9p8hilqlq0";
+    rev = "d2bf2adc272197eafa56f77363edaa6c410b39cf";
+    sha256 = "0aan927z47v13dpr93i58sgkndb57a6p4bbpyg3ppx3b63661bdz";
   };
-  cargoBuildFlags = [ "--features" "jemalloc" "-p" "ra_lsp_server" ];
+  cargoBuildFlags = [
+    "--package" "rust-analyzer"
+    "--bin" "rust-analyzer"
+  ];
 
   buildInputs = [
     rustPlatform.rustcSrc
@@ -18,7 +21,7 @@ rustPlatform.buildRustPackage rec {
 
   RUST_SRC_PATH = rustPlatform.rustcSrc;
 
-  cargoSha256 = "1sryylax0y2sq70a6wcf5vmz3gfxsdiv9r6zdi7jv5zvdxsrqvxc";
+  cargoSha256 = "0lqvkakhjjfr9zq1c68scfpxj4713mwxvx0gdspp8n58gw0ajvg6";
 
   doCheck = false;
 

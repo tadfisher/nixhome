@@ -2,15 +2,15 @@
 
 stdenv.mkDerivation rec {
   pname = "paperwm";
-  version = "unstable-2019-11-13";
+  version = "unstable-2020-03-02";
 
   uuid = "paperwm@hedning:matrix.org";
 
   src = fetchFromGitHub {
     owner = "paperwm";
     repo = "PaperWM";
-    rev = "b58050f7f5915634fe67faeec1dfa113f6df7d1c";
-    sha256 = "1l8y79fdhp2d8pha73yaf385ag49hx1lvajq154fqx84ha361mpj";
+    rev = "42a69e6c8b748723fcf06e0c4219b8fc2a40fc04";
+    sha256 = "05k884k3c4vck4fvca3cx8hrrpkqdyc7hkyshq7pb560pdfklm97";
   };
 
   buildPhase = ''
@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     schemas="$out/share/gsettings-schemas/${pname}-${version}/glib-2.0/schemas"
     mkdir -p "$base" "$schemas"
     cp -a * "$base"/
-    mv "$base/schemas/{*.xml,gschemas.compiled}" "$schemas"
+    ln -s "$base/schemas/{*.xml,gschemas.compiled}" "$schemas"
   '';
 
   meta = with stdenv.lib; {

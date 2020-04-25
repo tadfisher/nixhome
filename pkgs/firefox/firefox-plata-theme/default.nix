@@ -1,0 +1,1 @@
+{}: ~/proj/firefox-plata-theme

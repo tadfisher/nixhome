@@ -1,11 +1,11 @@
 {
   "move-clock": {
     "pname": "move-clock",
-    "version": 20,
+    "version": 21,
     "uuid": "Move_Clock@rmy.pobox.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/Move_Clock%40rmy.pobox.com.shell-extension.zip?version_tag=12184#move-clock.shell-extension.zip",
-      "sha256": "1agx7y8jhz6nihnk7vm1fb747m4l453mz16n9zk7fwq518s4g3xb"
+      "url": "https://extensions.gnome.org/extension-data/Move_Clockrmy.pobox.com.v21.shell-extension.zip",
+      "sha256": "1bk3an1yki17am8fzjzkhcaxh0cq2qh7ahph7fs2i11mcil88c3s"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/2/move-clock/",
@@ -15,11 +15,11 @@
   },
   "bottom-panel": {
     "pname": "bottom-panel",
-    "version": 46,
+    "version": 47,
     "uuid": "Bottom_Panel@rmy.pobox.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/Bottom_Panel%40rmy.pobox.com.shell-extension.zip?version_tag=12334#bottom-panel.shell-extension.zip",
-      "sha256": "0lyxnabkqx07pxh6ybkpbrhg2fh900vjlyhg5xfcv64psijy06s0"
+      "url": "https://extensions.gnome.org/extension-data/Bottom_Panelrmy.pobox.com.v47.shell-extension.zip",
+      "sha256": "1lswzs8bi5nvxqmxn7n8wbqrncmss9c1jq3wpdvzzsa3h3y6dbpj"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/3/bottom-panel/",
@@ -29,11 +29,11 @@
   },
   "panel-favorites": {
     "pname": "panel-favorites",
-    "version": 34,
+    "version": 35,
     "uuid": "Panel_Favorites@rmy.pobox.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/Panel_Favorites%40rmy.pobox.com.shell-extension.zip?version_tag=12187#panel-favorites.shell-extension.zip",
-      "sha256": "0jpyzy6hbjbna18wbqn0nirsf70vagjdv2xf7ngvb84cwv71kjp4"
+      "url": "https://extensions.gnome.org/extension-data/Panel_Favoritesrmy.pobox.com.v35.shell-extension.zip",
+      "sha256": "0xj4v8f6bh4rkxj14j8a8l3swn9m3fw9j42xavvmpkgsz4qjbfpz"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/4/panel-favorites/",
@@ -43,11 +43,11 @@
   },
   "applications-menu": {
     "pname": "applications-menu",
-    "version": 37,
+    "version": 38,
     "uuid": "Applications_Menu@rmy.pobox.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/Applications_Menu%40rmy.pobox.com.shell-extension.zip?version_tag=12460#applications-menu.shell-extension.zip",
-      "sha256": "1lllk9zys3k3k1jw9989gbbs4f2rcsy9bcdx5q6z60k07jnbw404"
+      "url": "https://extensions.gnome.org/extension-data/Applications_Menurmy.pobox.com.v38.shell-extension.zip",
+      "sha256": "1gf6psfgb4npxmkr77gk9sm93jrwfhydyw8j97x3y7hkb0pny9kp"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/13/applications-menu/",
@@ -57,11 +57,11 @@
   },
   "removable-drive-menu": {
     "pname": "removable-drive-menu",
-    "version": 41,
+    "version": 43,
     "uuid": "drive-menu@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/drive-menu%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11897#removable-drive-menu.shell-extension.zip",
-      "sha256": "0px4sbgdzvvc6x25kmjlid2wra9jyvxw1rap9vshrfi29r234jp9"
+      "url": "https://extensions.gnome.org/extension-data/drive-menugnome-shell-extensions.gcampax.github.com.v43.shell-extension.zip",
+      "sha256": "00m2mz7lybdjnialr7hi75w7by3qd221b1ilyb0dlrzbsxi3g7vi"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/7/removable-drive-menu/",
@@ -71,11 +71,11 @@
   },
   "places-status-indicator": {
     "pname": "places-status-indicator",
-    "version": 44,
+    "version": 46,
     "uuid": "places-menu@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/places-menu%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11882#places-status-indicator.shell-extension.zip",
-      "sha256": "0b61pmss9p4glrzx600jhz8pchgw5lmzh4n14hak06f6qx5qh7vg"
+      "url": "https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v46.shell-extension.zip",
+      "sha256": "0nzjrzpc2pcl1a4x63fxkqzxsxji30zrma6r6c48bnixk1abj82r"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/8/places-status-indicator/",
@@ -85,11 +85,11 @@
   },
   "windownavigator": {
     "pname": "windownavigator",
-    "version": 45,
+    "version": 47,
     "uuid": "windowsNavigator@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/windowsNavigator%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11867#windownavigator.shell-extension.zip",
-      "sha256": "1h9zshgjqpdmlkz25ggjmcf0xibcjh0z84h96rli220i50hzfdps"
+      "url": "https://extensions.gnome.org/extension-data/windowsNavigatorgnome-shell-extensions.gcampax.github.com.v47.shell-extension.zip",
+      "sha256": "1jc7x3s2mcyf4fgknp8f7crlp9knvfx9yja930z6gpwng2736l5h"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/10/windownavigator/",
@@ -99,11 +99,11 @@
   },
   "auto-move-windows": {
     "pname": "auto-move-windows",
-    "version": 40,
+    "version": 42,
     "uuid": "auto-move-windows@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/auto-move-windows%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11900#auto-move-windows.shell-extension.zip",
-      "sha256": "0pjb1szfg5gf9wm43i2skfv7xxjx175vymyrs8a0jmxm6c7mlcf6"
+      "url": "https://extensions.gnome.org/extension-data/auto-move-windowsgnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip",
+      "sha256": "0cp2izq0l2p7kzib4lncp1nny36v1aibgapgcnz5bqp9dpsp1km5"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/16/auto-move-windows/",
@@ -113,11 +113,11 @@
   },
   "native-window-placement": {
     "pname": "native-window-placement",
-    "version": 41,
+    "version": 43,
     "uuid": "native-window-placement@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/native-window-placement%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11885#native-window-placement.shell-extension.zip",
-      "sha256": "0aw0l3v1y6pa0qxapqyjxxyabs26rk9ay2md5z0msgnpffw2n7pl"
+      "url": "https://extensions.gnome.org/extension-data/native-window-placementgnome-shell-extensions.gcampax.github.com.v43.shell-extension.zip",
+      "sha256": "1hwrgjbp0h0ab4rp3ci2f0yr5ahxln0jims7lml78sjd1cbj1ail"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/18/native-window-placement/",
@@ -127,11 +127,11 @@
   },
   "user-themes": {
     "pname": "user-themes",
-    "version": 38,
+    "version": 40,
     "uuid": "user-theme@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/user-theme%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11876#user-themes.shell-extension.zip",
-      "sha256": "0z52vdls6z34v72i4irxkzxqkk7fqvrwsfw70f1daxyr45r460xs"
+      "url": "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip",
+      "sha256": "0iybgyqlxh25bg4abw52f4f03bpf3l70dnqzcjcdj2nd7cj7gzbf"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/19/user-themes/",
@@ -141,11 +141,11 @@
   },
   "workspace-indicator": {
     "pname": "workspace-indicator",
-    "version": 40,
+    "version": 42,
     "uuid": "workspace-indicator@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/workspace-indicator%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11864#workspace-indicator.shell-extension.zip",
-      "sha256": "1y1h40cn6hnlxy0clymflghfdahx36hgcmjpvxmpfi6icvg8ywbm"
+      "url": "https://extensions.gnome.org/extension-data/workspace-indicatorgnome-shell-extensions.gcampax.github.com.v42.shell-extension.zip",
+      "sha256": "1gccqll1mx1h1n6i7cf23nrkqv31i30q3p6wkd5l0qd8jp9zxhg7"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/21/workspace-indicator/",
@@ -153,55 +153,83 @@
       "longDescription": "Put an indicator on the panel signaling in which workspace you are, and give you the possibility of switching to another one."
     }
   },
-  "netspeed": {
-    "pname": "netspeed",
-    "version": 31,
-    "uuid": "netspeed@hedayaty.gmail.com",
+  "gtile": {
+    "pname": "gtile",
+    "version": 34,
+    "uuid": "gTile@vibou",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/netspeed%40hedayaty.gmail.com.shell-extension.zip?version_tag=12577#netspeed.shell-extension.zip",
-      "sha256": "0nfk89zcsgkkx1vch17ya2dlsp0p8131l0lydm92w85bb1jaff28"
+      "url": "https://extensions.gnome.org/extension-data/gTilevibou.v34.shell-extension.zip",
+      "sha256": "1h1kpccw1favjv2sdqn9plxv7b4fsayx6iy8pjarkdc3r2xx87za"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/104/netspeed/",
-      "description": "Displays Internet Speed",
-      "longDescription": "Displays Internet Speed"
+      "homepage": "https://extensions.gnome.org/extension/28/gtile/",
+      "description": "Tile windows on a grid.",
+      "longDescription": "Tile windows on a grid."
     }
   },
-  "impatience": {
-    "pname": "impatience",
-    "version": 15,
-    "uuid": "impatience@gfxmonk.net",
+  "lock-keys": {
+    "pname": "lock-keys",
+    "version": 38,
+    "uuid": "lockkeys@vaina.lt",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/impatience%40gfxmonk.net.shell-extension.zip?version_tag=12094#impatience.shell-extension.zip",
-      "sha256": "1kf8hc452gk75flkpy04hqkw8w4ak86irckp4xgs41il76fd11kg"
+      "url": "https://extensions.gnome.org/extension-data/lockkeysvaina.lt.v38.shell-extension.zip",
+      "sha256": "19ckhsiqabkrfclfq0g6y6m29v5ii9j6aij065gjj7hlzw8jjg6x"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/277/impatience/",
-      "description": "Speed up the gnome-shell animation speed",
-      "longDescription": "Speed up the gnome-shell animation speed"
+      "homepage": "https://extensions.gnome.org/extension/36/lock-keys/",
+      "description": "Numlock & Capslock status on the panel",
+      "longDescription": "Numlock & Capslock status on the panel"
     }
   },
-  "dash-to-dock": {
-    "pname": "dash-to-dock",
-    "version": 67,
-    "uuid": "dash-to-dock@micxgx.gmail.com",
+  "trash": {
+    "pname": "trash",
+    "version": 17,
+    "uuid": "gnome-shell-trash-extension",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/dash-to-dock%40micxgx.gmail.com.shell-extension.zip?version_tag=12397#dash-to-dock.shell-extension.zip",
-      "sha256": "0kdripax2yv5myz48ghmy6xaia238c950wsc8ydc3wr2msa0p3m6"
+      "url": "https://extensions.gnome.org/extension-data/gnome-shell-trash-extension.v17.shell-extension.zip",
+      "sha256": "0c5ng9aivld0lxg84r89xzck8n22jv6w80dddnsq1dvv2c9gwsny"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/307/dash-to-dock/",
-      "description": "A dock for the Gnome Shell. This extension moves the dash out of the overview transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops. Side and bottom placement options are available.",
-      "longDescription": "A dock for the Gnome Shell. This extension moves the dash out of the overview transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops. Side and bottom placement options are available."
+      "homepage": "https://extensions.gnome.org/extension/48/trash/",
+      "description": "A Trash button for the GNOME shell panel",
+      "longDescription": "A Trash button for the GNOME shell panel"
+    }
+  },
+  "persian-calendar": {
+    "pname": "persian-calendar",
+    "version": 68,
+    "uuid": "PersianCalendar@oxygenws.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/PersianCalendaroxygenws.com.v68.shell-extension.zip",
+      "sha256": "1iw06c14kicixy7ax0rrypsqfcr1351ykz648l0hfif895lj88yj"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/240/persian-calendar/",
+      "description": "Shows Persian date in the top panel.",
+      "longDescription": "Shows Persian date in the top panel.\n\nIt shows:\n1- Persian calendar\n2- It can show, today is holiday or not!\n3- Show notification onDayChanged!\n4- Date converter between Persian, Gregorian and Lunar Hijri\n5- Events:\n5-1- Official solar events.\n5-2- Official lunar events.\n5-3- Official international events.\n5-4- Traditional Persian events.\n5-5- Persian personages.\n\nPlease \"rate\" here and \"star\" project in GitHub.\nPlease open an issue in GitHub if you found something or have an idea!"
+    }
+  },
+  "kimpanel": {
+    "pname": "kimpanel",
+    "version": 47,
+    "uuid": "kimpanel@kde.org",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/kimpanelkde.org.v47.shell-extension.zip",
+      "sha256": "0slfqhhvgm0hlni9cr33s4dyq73wm0mjrwm2zn35bl0bvlybdpc3"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/261/kimpanel/",
+      "description": "Input Method Panel using KDE's kimpanel protocol for Gnome-Shell",
+      "longDescription": "Input Method Panel using KDE's kimpanel protocol for Gnome-Shell"
     }
   },
   "activities-configurator": {
     "pname": "activities-configurator",
-    "version": 76,
+    "version": 84,
     "uuid": "activities-config@nls1729",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/activities-config%40nls1729.shell-extension.zip?version_tag=12037#activities-configurator.shell-extension.zip",
-      "sha256": "17gq30313d3axd5wnykh7a76fchnhcijxmcmmkmzjrb9schdjak5"
+      "url": "https://extensions.gnome.org/extension-data/activities-confignls1729.v84.shell-extension.zip",
+      "sha256": "02v5d7715a7kl52y7zfqk8zxlfnwakx16ddbvmh96gp8sbp5np92"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/358/activities-configurator/",
@@ -211,11 +239,11 @@
   },
   "dash-hotkeys": {
     "pname": "dash-hotkeys",
-    "version": 20,
+    "version": 21,
     "uuid": "unitylike-hotkey@webgyerek.net",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/unitylike-hotkey%40webgyerek.net.shell-extension.zip?version_tag=12205#dash-hotkeys.shell-extension.zip",
-      "sha256": "0z6931q69bgcll0i7vwg5kwfl9i7cwg0w953fcla25ld9ghvlgxv"
+      "url": "https://extensions.gnome.org/extension-data/unitylike-hotkeywebgyerek.net.v21.shell-extension.zip",
+      "sha256": "1r2lg6b4rga85zh1n0lpwkd5bx1pdg3spywxs8x6lf2zxnzcsqbq"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/413/dash-hotkeys/",
@@ -223,41 +251,69 @@
       "longDescription": "Adds Super+NUM hotkeys for activating application based on Dash. Like in Ubuntu, the Unity hotkeys.\nWorks with keypad and numbers.\n\nSo pressing Super+1 has the same affect as clicking on the first app in dash, Super+2 the same as clicking on the second, etc.\nTo start a new instance of the respective application use Shift+Super+NUM.\n\nUse configuration to disable any option you don't like."
     }
   },
-  "workspaces-to-dock": {
-    "pname": "workspaces-to-dock",
-    "version": 52,
-    "uuid": "workspaces-to-dock@passingthru67.gmail.com",
+  "caffeine": {
+    "pname": "caffeine",
+    "version": 35,
+    "uuid": "caffeine@patapon.info",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/workspaces-to-dock%40passingthru67.gmail.com.shell-extension.zip?version_tag=12319#workspaces-to-dock.shell-extension.zip",
-      "sha256": "1alp96kfr908h89vla3hdpy6lma5l6k9i692ld9rwh0ffpdris6p"
+      "url": "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v35.shell-extension.zip",
+      "sha256": "0qbafl0i1bsfg1mpd52x8gz8x27m5nwin9p15110jgllq5hvf59v"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/427/workspaces-to-dock/",
-      "description": "Transform Gnome Shell's overview workspaces into an intelligent dock.",
-      "longDescription": "Transform Gnome Shell's overview workspaces into an intelligent dock."
+      "homepage": "https://extensions.gnome.org/extension/517/caffeine/",
+      "description": "Disable the screensaver and auto suspend",
+      "longDescription": "Disable the screensaver and auto suspend"
     }
   },
-  "text-translator": {
-    "pname": "text-translator",
-    "version": 34,
-    "uuid": "text_translator@awamper.gmail.com",
+  "hide-top-bar": {
+    "pname": "hide-top-bar",
+    "version": 68,
+    "uuid": "hidetopbar@mathieu.bidon.ca",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/text_translator%40awamper.gmail.com.shell-extension.zip?version_tag=12526#text-translator.shell-extension.zip",
-      "sha256": "16aq6kap1nlkqsi7nq65lygvnfsg4i2im2v9m33bq256jj3i93ls"
+      "url": "https://extensions.gnome.org/extension-data/hidetopbarmathieu.bidon.ca.v68.shell-extension.zip",
+      "sha256": "13kac0pbpzmxlybqax9dirkdkql47jpa157spjqmsbay8m50b198"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/593/text-translator/",
-      "description": "** Needs the package translate-shell **",
-      "longDescription": "** Needs the package translate-shell **\nTranslation of the text by different translators (currently Google.Translate, Yandex.Translate).\nShortcuts:\nSuper+T - open translator dialog.\nSuper+Shift+T - open translator dialog and translate text from clipboard.\nSuper+Alt+T - open translator dialog and translate from primary selection.\nCtrl+Enter+ - Translate text.\nCtrl+Shift+C - copy translated text to clipboard.\nCtrl+S - swap languages.\nCtrl+D - reset languages to default\nTab+ - toggle transliteration of result text."
+      "homepage": "https://extensions.gnome.org/extension/545/hide-top-bar/",
+      "description": "Hides the top bar, except in overview. However, there is an option to show the panel whenever the mouse pointer approaches the edge of the screen. And if \"intellihide\" is enabled, the panel only hides when a window takes the space.",
+      "longDescription": "Hides the top bar, except in overview. However, there is an option to show the panel whenever the mouse pointer approaches the edge of the screen. And if \"intellihide\" is enabled, the panel only hides when a window takes the space."
+    }
+  },
+  "todotxt": {
+    "pname": "todotxt",
+    "version": 30,
+    "uuid": "todo.txt@bart.libert.gmail.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/todo.txtbart.libert.gmail.com.v30.shell-extension.zip",
+      "sha256": "1h4din8n8mw6d26cra8mkbggkb0833bcrm2x9bqdfmrq0kj7g8ka"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/570/todotxt/",
+      "description": "A Gnome shell interface for todo.txt. ",
+      "longDescription": "A Gnome shell interface for todo.txt. \n\nTodo.txt is a future-proof syntax for tasks (not made by me), for more info: http://todotxt.com/\n\nSome examples:\nTask: Basic task\n(A) Task: High priority task\nTask @project +context: Task is part of project and has a certain context\nx 2013-08-22 Task: Task was completed on the 22nd of August\n\nFor more info about the syntax: https://github.com/ginatrapani/todo.txt-cli/wiki/The-Todo.txt-Format\n\nQuick start:\nWhen you first enable the extension, chances are high you'll see a [X] in your top panel. If you click the [X], you will be able to choose between creating the necessary files automatically or selecting your own existing files to be used with the extension.\n\nPlease use the issue tracker on the homepage to report bugs and/or file feature requests, this makes tracking easier for me. Thanks!\n\nSee the included CHANGELOG.md for info about changes between different versions, or see it online: https://gitlab.com/bartl/todo-txt-gnome-shell-extension/raw/master/CHANGELOG.md"
+    }
+  },
+  "autohide-battery": {
+    "pname": "autohide-battery",
+    "version": 16,
+    "uuid": "autohide-battery@sitnik.ru",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/autohide-batterysitnik.ru.v16.shell-extension.zip",
+      "sha256": "0iky9wc86fp693f2jcxy0xgaz2gl4v080s4ly15si8xn56x19xh4"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/595/autohide-battery/",
+      "description": "Hide battery icon in top panel, if battery is fully charged and AC is connected",
+      "longDescription": "Hide battery icon in top panel, if battery is fully charged and AC is connected"
     }
   },
   "launch-new-instance": {
     "pname": "launch-new-instance",
-    "version": 25,
+    "version": 27,
     "uuid": "launch-new-instance@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/launch-new-instance%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11888#launch-new-instance.shell-extension.zip",
-      "sha256": "0xayxs6s953bwgp3qbfypdzxrs064nqhhvkkzpnm31r15zlark21"
+      "url": "https://extensions.gnome.org/extension-data/launch-new-instancegnome-shell-extensions.gcampax.github.com.v27.shell-extension.zip",
+      "sha256": "106k8r0smkbw2wbj97fw5pvgla3ah6jqk852jipgnf94l168cc4z"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/600/launch-new-instance/",
@@ -267,11 +323,11 @@
   },
   "window-list": {
     "pname": "window-list",
-    "version": 28,
+    "version": 31,
     "uuid": "window-list@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/window-list%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11870#window-list.shell-extension.zip",
-      "sha256": "0zzacsw5lvzr9kksm7rncwd9vyq3dyh16dg0vfwr1m2c9q70mbba"
+      "url": "https://extensions.gnome.org/extension-data/window-listgnome-shell-extensions.gcampax.github.com.v31.shell-extension.zip",
+      "sha256": "1q1x8pkvbpn0lknys470smsgp1qslmpp4d4n3ifdvbw4f6mz5p37"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/602/window-list/",
@@ -281,11 +337,11 @@
   },
   "appindicator-support": {
     "pname": "appindicator-support",
-    "version": 30,
+    "version": 33,
     "uuid": "appindicatorsupport@rgcjonas.gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/appindicatorsupport%40rgcjonas.gmail.com.shell-extension.zip?version_tag=11546#appindicator-support.shell-extension.zip",
-      "sha256": "13x27snxjyw2hzng5gpglilj9jlcp8m4lkf5xsmmzgvfv67szr6g"
+      "url": "https://extensions.gnome.org/extension-data/appindicatorsupportrgcjonas.gmail.com.v33.shell-extension.zip",
+      "sha256": "04i8w5hl1ps40xf89clg26kcskwvniw91bc2br2yld5px1l6j1a3"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/615/appindicator-support/",
@@ -293,181 +349,69 @@
       "longDescription": "Adds KStatusNotifierItem support to the Shell"
     }
   },
-  "bitcoin-markets": {
-    "pname": "bitcoin-markets",
-    "version": 47,
-    "uuid": "bitcoin-markets@ottoallmendinger.github.com",
+  "lunar-calendar": {
+    "pname": "lunar-calendar",
+    "version": 22,
+    "uuid": "lunarcal@ailin.nemui",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/bitcoin-markets%40ottoallmendinger.github.com.shell-extension.zip?version_tag=11846#bitcoin-markets.shell-extension.zip",
-      "sha256": "1lz9wkxb8qk6zb3ixfj4avwa9m7ncwah7w9vl1j76qi89499aikk"
+      "url": "https://extensions.gnome.org/extension-data/lunarcalailin.nemui.v22.shell-extension.zip",
+      "sha256": "19ybj8cl1dqdml3975ix6zllk4skiqvq1nz7cs72mkxc265szdw5"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/648/bitcoin-markets/",
-      "description": "Display info on various crypto-currency exchanges.",
-      "longDescription": "Display info on various crypto-currency exchanges."
+      "homepage": "https://extensions.gnome.org/extension/675/lunar-calendar/",
+      "description": "Display Chinese Lunar Calendar in panel",
+      "longDescription": "Display Chinese Lunar Calendar in panel\n\n⚠⚠⚠ dependency: typelib-1_0-LunarDate-2_0 / gir1.2-lunar-date-2.0"
     }
   },
-  "panel-osd": {
-    "pname": "panel-osd",
-    "version": 37,
-    "uuid": "panel-osd@berend.de.schouwer.gmail.com",
+  "openweather": {
+    "pname": "openweather",
+    "version": 102,
+    "uuid": "openweather-extension@jenslody.de",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/panel-osd%40berend.de.schouwer.gmail.com.shell-extension.zip?version_tag=12586#panel-osd.shell-extension.zip",
-      "sha256": "1dma0nnjs3bkrg8vb0kzipmqjp6wpxf8agj0sd0mlbssahnpl4kw"
+      "url": "https://extensions.gnome.org/extension-data/openweather-extensionjenslody.de.v102.shell-extension.zip",
+      "sha256": "11x5xn45f84n9hjnhb7vjpab9k3qlga71vpxxhc30qrnggn999kz"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/708/panel-osd/",
-      "description": "Configuring where on the (main) screen notifications will appear, instead of just above the message tray",
-      "longDescription": "Configuring where on the (main) screen notifications will appear, instead of just above the message tray"
-    }
-  },
-  "hide-activities-button": {
-    "pname": "hide-activities-button",
-    "version": 8,
-    "uuid": "Hide_Activities@shay.shayel.org",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/Hide_Activities%40shay.shayel.org.shell-extension.zip?version_tag=12208#hide-activities-button.shell-extension.zip",
-      "sha256": "01ibhj1sibsvlz81hi121hgfglypp61jn482dxvzwmvpk42dq87v"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/744/hide-activities-button/",
-      "description": "Hides the Activities button from the status bar (the hot corner and keyboard shortcut keeps working). To disable top left hot corner use 'No Topleft Hot Corner' extension — https://extensions.gnome.org/extension/118/no-topleft-hot-corner/ .",
-      "longDescription": "Hides the Activities button from the status bar (the hot corner and keyboard shortcut keeps working). To disable top left hot corner use 'No Topleft Hot Corner' extension — https://extensions.gnome.org/extension/118/no-topleft-hot-corner/ ."
-    }
-  },
-  "audio-output-switcher": {
-    "pname": "audio-output-switcher",
-    "version": 10,
-    "uuid": "audio-output-switcher@anduchs",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/audio-output-switcher%40anduchs.shell-extension.zip?version_tag=12295#audio-output-switcher.shell-extension.zip",
-      "sha256": "1bavls8dngpv9iagwd9azlm1y6klyjbcp1vacdm53q8zn65dfh3v"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/751/audio-output-switcher/",
-      "description": "Adds a switch for choosing audio output to the system menu.",
-      "longDescription": "Adds a switch for choosing audio output to the system menu."
-    }
-  },
-  "clipboard-indicator": {
-    "pname": "clipboard-indicator",
-    "version": 33,
-    "uuid": "clipboard-indicator@tudmotu.com",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/clipboard-indicator%40tudmotu.com.shell-extension.zip?version_tag=12556#clipboard-indicator.shell-extension.zip",
-      "sha256": "011jq8s1v1mfk1bblwg50i36hjmnvzb9qkx6lfphf5gcmnbs2q78"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/779/clipboard-indicator/",
-      "description": "Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history.",
-      "longDescription": "Clipboard Manager extension for Gnome-Shell - Adds a clipboard indicator to the top panel, and caches clipboard history."
+      "homepage": "https://extensions.gnome.org/extension/750/openweather/",
+      "description": "Weather extension to display weather information from https://openweathermap.org/ or https://darksky.net for almost all locations in the world.",
+      "longDescription": "Weather extension to display weather information from https://openweathermap.org/ or https://darksky.net for almost all locations in the world.\nFor openweathermap.org, you can either use the extensions default-key or register at https://openweathermap.org/appid and set the appropriate switch in the preferences dialog to \"off\".\nFor Dark Sky you have to register at https://darksky.net/dev/register and get a personal API-key.\n\nSince version 29 this extensions uses coordinates to store the locations and makes the names editable to support multiple weather-providers!\nIf you update from versions prior to 29 to 29 or greater (with darksky.net - support) you have to recreate your locations."
     }
   },
   "shutdowntimer": {
     "pname": "shutdowntimer",
-    "version": 6,
-    "uuid": "shutdown-timer-gnome-shell-extension",
+    "version": 26,
+    "uuid": "ShutdownTimer@neumann",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/shutdown-timer-gnome-shell-extension.shell-extension.zip?version_tag=12190#shutdowntimer.shell-extension.zip",
-      "sha256": "0n6phqa6b3yf06lriw4mnc3s6xm9cbkn765lyray0zl9i61al743"
+      "url": "https://extensions.gnome.org/extension-data/ShutdownTimerneumann.v26.shell-extension.zip",
+      "sha256": "0avbcnywx9naaqzx0zdva99ifk4hmry93iipwa3z33zzfwpzaqgz"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1152/shutdowntimer/",
-      "description": "Allows to shutdown, restart and suspend computer after selected amount of time or in selected time.",
-      "longDescription": "Allows to shutdown, restart and suspend computer after selected amount of time or in selected time."
-    }
-  },
-  "remove-dropdown-arrows": {
-    "pname": "remove-dropdown-arrows",
-    "version": 13,
-    "uuid": "remove-dropdown-arrows@mpdeimos.com",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/remove-dropdown-arrows%40mpdeimos.com.shell-extension.zip?version_tag=11993#remove-dropdown-arrows.shell-extension.zip",
-      "sha256": "163gi8g5vq63kjcpkn4gch39badgkjmpracbvp1973cm344q38h3"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/800/remove-dropdown-arrows/",
-      "description": "Removes the dropdown arrows which were introduced in Gnome 3.10 from the App Menu, System Menu, Input Menu, Access Menu, Places Menu, Applications Menu and any other extension that wants to add dropdown arrows.",
-      "longDescription": "Removes the dropdown arrows which were introduced in Gnome 3.10 from the App Menu, System Menu, Input Menu, Access Menu, Places Menu, Applications Menu and any other extension that wants to add dropdown arrows."
-    }
-  },
-  "suspend-button": {
-    "pname": "suspend-button",
-    "version": 22,
-    "uuid": "suspend-button@laserb",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/suspend-button%40laserb.shell-extension.zip?version_tag=12367#suspend-button.shell-extension.zip",
-      "sha256": "07rja6np697f4dq06rv91cyfwws90xck1km8rm7fjl08wcggx08j"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/826/suspend-button/",
-      "description": "Allows to modify the suspend/shutdown button in the status menu.",
-      "longDescription": "Allows to modify the suspend/shutdown button in the status menu."
-    }
-  },
-  "alsa-mixer": {
-    "pname": "alsa-mixer",
-    "version": 33,
-    "uuid": "Alsa_Mixer@fasdfasdas.gmail.com",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/Alsa_Mixer%40fasdfasdas.gmail.com.shell-extension.zip?version_tag=12157#alsa-mixer.shell-extension.zip",
-      "sha256": "0xjavjb0bbw6r25wvw2pmgq5x5a950fiwd85qdll5rnwgqj6a6ni"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/835/alsa-mixer/",
-      "description": "Control Alsa master volume from status menu.",
-      "longDescription": "Control Alsa master volume from status menu.\n\nRequires 'amixer', provided by alsa-utils package."
-    }
-  },
-  "internet-radio": {
-    "pname": "internet-radio",
-    "version": 12,
-    "uuid": "radio@hslbck.gmail.com",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/radio%40hslbck.gmail.com.shell-extension.zip?version_tag=12139#internet-radio.shell-extension.zip",
-      "sha256": "1q955pdr9jnwidx5k5n4id1lf2pzv00bmnz3rkxqp0pm5000aqzc"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/836/internet-radio/",
-      "description": "Listen to an Internet Radio Stream",
-      "longDescription": "Listen to an Internet Radio Stream"
-    }
-  },
-  "freon": {
-    "pname": "freon",
-    "version": 39,
-    "uuid": "freon@UshakovVasilii_Github.yahoo.com",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/freon%40UshakovVasilii_Github.yahoo.com.shell-extension.zip?version_tag=12250#freon.shell-extension.zip",
-      "sha256": "1fvlg2gls2q3s93yzvvw903393arw234irjw1h0ibmj9jpy2kkpl"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/841/freon/",
-      "description": "Shows CPU temperature, disk temperature, video card temperature (NVIDIA/Catalyst/Bumblebee&NVIDIA), voltage and fan RPM (forked from xtranophilist/gnome-shell-extension-sensors)",
-      "longDescription": "Shows CPU temperature, disk temperature, video card temperature (NVIDIA/Catalyst/Bumblebee&NVIDIA), voltage and fan RPM (forked from xtranophilist/gnome-shell-extension-sensors)"
+      "homepage": "https://extensions.gnome.org/extension/792/shutdowntimer/",
+      "description": "Shutdown your device after a specific time. This extension adds a submenu to the status area.",
+      "longDescription": "Shutdown your device after a specific time. This extension adds a submenu to the status area.\n\nMaximum timer value und slider position can be modified in the settings."
     }
   },
   "volume-mixer": {
     "pname": "volume-mixer",
-    "version": 28,
+    "version": 34,
     "uuid": "shell-volume-mixer@derhofbauer.at",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/shell-volume-mixer%40derhofbauer.at.shell-extension.zip?version_tag=12082#volume-mixer.shell-extension.zip",
-      "sha256": "0w9l1xx4rq1d6figzimnqb8i79n84vf636g5xfchdk69i1625z8l"
+      "url": "https://extensions.gnome.org/extension-data/shell-volume-mixerderhofbauer.at.v34.shell-extension.zip",
+      "sha256": "1pcd3fkxcs41n5rmjj8iz5w1z20by25marbbmqx9haalqiy5zizl"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/858/volume-mixer/",
-      "description": "Applet allowing separate configuration of pulseaudio mixers.",
-      "longDescription": "Applet allowing separate configuration of pulseaudio mixers.\n\nShell Volume Mixer is an extension for GNOME Shell allowing separate configuration of PulseAudio devices and output switches. It features a profile switcher to quickly switch between pinned profiles and devices.\n\nMiddle mouse click on a slider mutes the selected stream.\n\nPlease file bugs and feature requests on the GitHub page."
+      "description": "Applet allowing separate configuration of PulseAudio mixers.",
+      "longDescription": "Applet allowing separate configuration of PulseAudio mixers.\n\nShell Volume Mixer is an extension for GNOME Shell allowing separate configuration of PulseAudio devices and output switches. It features a profile switcher to quickly switch between pinned profiles and devices.\n\nMiddle mouse click on a slider mutes the selected stream.\n\nPlease file bugs and feature requests on the GitHub page."
     }
   },
   "screenshot-window-sizer": {
     "pname": "screenshot-window-sizer",
-    "version": 18,
+    "version": 20,
     "uuid": "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/screenshot-window-sizer%40gnome-shell-extensions.gcampax.github.com.shell-extension.zip?version_tag=11879#screenshot-window-sizer.shell-extension.zip",
-      "sha256": "0c8195a3nb8wg053ai8l2hf2lky2pq958pa61j1gwxyxnpxfkm6c"
+      "url": "https://extensions.gnome.org/extension-data/screenshot-window-sizergnome-shell-extensions.gcampax.github.com.v20.shell-extension.zip",
+      "sha256": "1w12dzrqkkk03ngxsqd0b3v7r5hsdzw7lmkm2k2nbj95x5dqlgx5"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/881/screenshot-window-sizer/",
@@ -475,41 +419,27 @@
       "longDescription": "Resize windows for GNOME Software screenshots"
     }
   },
-  "disconnect-wifi": {
-    "pname": "disconnect-wifi",
-    "version": 21,
-    "uuid": "disconnect-wifi@kgshank.net",
+  "mailnag": {
+    "pname": "mailnag",
+    "version": 18,
+    "uuid": "mailnag@pulb.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/disconnect-wifi%40kgshank.net.shell-extension.zip?version_tag=12028#disconnect-wifi.shell-extension.zip",
-      "sha256": "1i6nk46qsr4zq2mvwiqv7ah0mabjyvna0gzlz7fs7vjjxa23fw3x"
+      "url": "https://extensions.gnome.org/extension-data/mailnagpulb.github.com.v18.shell-extension.zip",
+      "sha256": "1b1m35wkf09868p73s95ywi5gkg5h7cibvkz24zlvc01zhc6qq79"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/904/disconnect-wifi/",
-      "description": "Adds a Disconnect option for Wifi in status menu, when a network is connected. Shows a Reconnect option, after network is disconnected.",
-      "longDescription": "Adds a Disconnect option for Wifi in status menu, when a network is connected. Shows a Reconnect option, after network is disconnected."
-    }
-  },
-  "refresh-wifi-connections": {
-    "pname": "refresh-wifi-connections",
-    "version": 11,
-    "uuid": "refresh-wifi@kgshank.net",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/refresh-wifi%40kgshank.net.shell-extension.zip?version_tag=12034#refresh-wifi-connections.shell-extension.zip",
-      "sha256": "1y8wbjy7zax6bq6ci29swk5xk4mb21pa0q80gj2czjja5fa83cma"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/905/refresh-wifi-connections/",
-      "description": "This extension adds a refresh button to the Wifi connection selection dialog to request for a network scan manually.",
-      "longDescription": "This extension adds a refresh button to the Wifi connection selection dialog to request for a network scan manually."
+      "homepage": "https://extensions.gnome.org/extension/886/mailnag/",
+      "description": "Mail indicator (GMail, IMAP, POP) for GNOME 3.",
+      "longDescription": "Mail indicator (GMail, IMAP, POP) for GNOME 3.\n\nPlease note that this extension requires the mailnag daemon.\nInstall it from your distros package repositories or get it here:\nhttps://github.com/pulb/mailnag\n\nPlease also note that this version of the extension does not support avatars (as shown in the screenshot).\nIf you like to have avatar support install this extension from your distros package repositories or get a package from here:\nhttps://github.com/pulb/mailnag-gnome-shell\n\nIMPORTANT:\nI do not get notifications for user comments. Please always report bugs here:\nhttps://github.com/pulb/mailnag-gnome-shell/issues"
     }
   },
   "sound-output-device-chooser": {
     "pname": "sound-output-device-chooser",
-    "version": 25,
+    "version": 29,
     "uuid": "sound-output-device-chooser@kgshank.net",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/sound-output-device-chooser%40kgshank.net.shell-extension.zip?version_tag=12112#sound-output-device-chooser.shell-extension.zip",
-      "sha256": "1mflm49c7ip29azpx5y6p0hf3pghbi8qr5a3g72ag958xvvakp2m"
+      "url": "https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v29.shell-extension.zip",
+      "sha256": "0kmgz0s4lls6gwdknrf4yc4f8jhka7q6xdgqnnyn90di5wm0jjak"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/906/sound-output-device-chooser/",
@@ -517,41 +447,27 @@
       "longDescription": "Shows a list of sound output and input devices (similar to gnome sound settings) in the status menu below the volume slider. Various active ports like HDMI , Speakers etc. of the same device are also displayed for selection. V20+ needs python as dependency. If you want to continue with the old method without Python, use options to switch off New Port identification. But it works with only English"
     }
   },
-  "multi-monitors-add-on": {
-    "pname": "multi-monitors-add-on",
-    "version": 19,
-    "uuid": "multi-monitors-add-on@spin83",
+  "files-menu": {
+    "pname": "files-menu",
+    "version": 14,
+    "uuid": "files-menu",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/multi-monitors-add-on%40spin83.shell-extension.zip?version_tag=12469#multi-monitors-add-on.shell-extension.zip",
-      "sha256": "1k22kxj3sp0a48msr90rsn6wz2cxsvc5gvpl7dfdi5rf3xkpcv7x"
+      "url": "https://extensions.gnome.org/extension-data/files-menu.v14.shell-extension.zip",
+      "sha256": "0m34brqdn2vyp1m0cjj32x7zrcq4bbl21k6lbpqsyjmsmsk5d6a0"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/921/multi-monitors-add-on/",
-      "description": "Add multiple monitors overview and panel for gnome-shell.",
-      "longDescription": "Add multiple monitors overview and panel for gnome-shell."
-    }
-  },
-  "cpu-power-manager": {
-    "pname": "cpu-power-manager",
-    "version": 15,
-    "uuid": "cpupower@mko-sl.de",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/cpupower%40mko-sl.de.shell-extension.zip?version_tag=12124#cpu-power-manager.shell-extension.zip",
-      "sha256": "1xym583gqcgaj5ij32j6ikhgzi021h158v6crf0jk99qpfv9k4ma"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/945/cpu-power-manager/",
-      "description": "Manage Intel_pstate CPU Frequency scaling driver",
-      "longDescription": "Manage Intel_pstate CPU Frequency scaling driver"
+      "homepage": "https://extensions.gnome.org/extension/907/files-menu/",
+      "description": "Quickly navigate your file system and open files through a menu.",
+      "longDescription": "Quickly navigate your file system and open files through a menu."
     }
   },
   "dim-on-battery-power": {
     "pname": "dim-on-battery-power",
-    "version": 21,
+    "version": 22,
     "uuid": "dim-on-battery@nailfarmer.nailfarmer.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/dim-on-battery%40nailfarmer.nailfarmer.com.shell-extension.zip?version_tag=11963#dim-on-battery-power.shell-extension.zip",
-      "sha256": "09m01yq1z06q4wj5zf76v9vh110f2f8qjf9r7hx4cixhcsp8ziib"
+      "url": "https://extensions.gnome.org/extension-data/dim-on-batterynailfarmer.nailfarmer.com.v22.shell-extension.zip",
+      "sha256": "0mfz9dkmnkmlqs391wnnz01mai4y18giw655qc7d39imvp65sg81"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/947/dim-on-battery-power/",
@@ -561,11 +477,11 @@
   },
   "do-not-disturb-button": {
     "pname": "do-not-disturb-button",
-    "version": 34,
+    "version": 38,
     "uuid": "donotdisturb-button@nls1729",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/donotdisturb-button%40nls1729.shell-extension.zip?version_tag=12241#do-not-disturb-button.shell-extension.zip",
-      "sha256": "0cdg46rx591dfzdwa0xxhv3mdirc17ibd1rnbgpz0kwghhlh9hbv"
+      "url": "https://extensions.gnome.org/extension-data/donotdisturb-buttonnls1729.v38.shell-extension.zip",
+      "sha256": "0jjf9xdysj2azw8wj4i2igz377fa90qgj2ngw51ghma82iipdg13"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/964/do-not-disturb-button/",
@@ -573,27 +489,69 @@
       "longDescription": "Indicate busy status to block display of notifications and mute sounds. User options are provided to automatically set busy status at session start and schedule timeout of busy status."
     }
   },
-  "glassy-gnome": {
-    "pname": "glassy-gnome",
-    "version": 17,
-    "uuid": "glassygnome@emiapwil",
+  "switcher": {
+    "pname": "switcher",
+    "version": 28,
+    "uuid": "switcher@landau.fi",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/glassygnome%40emiapwil.shell-extension.zip?version_tag=12226#glassy-gnome.shell-extension.zip",
-      "sha256": "13zaqbgby3h23i9qmz439inmb0gsy8gwr6dmccymsnwrg99l0kif"
+      "url": "https://extensions.gnome.org/extension-data/switcherlandau.fi.v28.shell-extension.zip",
+      "sha256": "0hva591359n3dycq4xm4356yhhnv2616f32r58fzxf4c1jjvxdb4"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/982/glassy-gnome/",
-      "description": "A tool to change the transparency of windows in GNOME 3. If you encounter any problem, please report a bug or submit an issue on Github.",
-      "longDescription": "A tool to change the transparency of windows in GNOME 3. If you encounter any problem, please report a bug or submit an issue on Github."
+      "homepage": "https://extensions.gnome.org/extension/973/switcher/",
+      "description": "Switch windows or launch applications quickly by typing",
+      "longDescription": "Switch windows or launch applications quickly by typing\n\nUse the configured global hotkey (Super+w by default) to open a list of current windows. Type a part of the name or title of the application window you want to activate and hit enter or click on the item you wish to activate. You can use the arrow keys to navigate among the filtered selection and type several space separated search terms to filter further. Use Esc or click anywhere outside the switcher to cancel.\n\nUse the configured global hotkey (Super+x by default) to open the application launcher. Type a part of the name of the application you want to launch and hit enter. You can use Ctrl+Space or Ctrl+Tab to switch between the switcher and the launcher, or when there are no open windows matching a name but there are apps the mode is switched automatically.\n\nYou can customize the look and feel and functionality in the preferences."
+    }
+  },
+  "harddisk-led": {
+    "pname": "harddisk-led",
+    "version": 20,
+    "uuid": "harddiskled@bijidroid.gmail.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/harddiskledbijidroid.gmail.com.v20.shell-extension.zip",
+      "sha256": "1gi0qlvka2zqlfmhfljig97drzzzhl5hz8hs1xbzlnscrps9f9qf"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/988/harddisk-led/",
+      "description": "Show harddisk activity (IO speed read/write and LED). Click to change led size",
+      "longDescription": "Show harddisk activity (IO speed read/write and LED). Click to change led size"
+    }
+  },
+  "syncthing-icon": {
+    "pname": "syncthing-icon",
+    "version": 28,
+    "uuid": "syncthingicon@jay.strict@posteo.de",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/syncthingiconjay.strictposteo.de.v28.shell-extension.zip",
+      "sha256": "0s30207hbksg14q9vz0zwzx2jyz8kr9qhr3467nrmh9wn6vfc1cw"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/989/syncthing-icon/",
+      "description": "Display Syncthing Icon in Top Bar",
+      "longDescription": "Display Syncthing Icon in Top Bar"
+    }
+  },
+  "window-is-ready-notification-remover": {
+    "pname": "window-is-ready-notification-remover",
+    "version": 8,
+    "uuid": "windowIsReady_Remover@nunofarruca@gmail.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/windowIsReady_Removernunofarrucagmail.com.v8.shell-extension.zip",
+      "sha256": "0gljqfj1kvi8zh4jyghr25rjk0h7p2ddsz3qfjgw8hjsgqg8lvv8"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1007/window-is-ready-notification-remover/",
+      "description": "Removes window is ready Notification",
+      "longDescription": "Removes window is ready Notification"
     }
   },
   "archlinux-updates-indicator": {
     "pname": "archlinux-updates-indicator",
-    "version": 33,
+    "version": 35,
     "uuid": "arch-update@RaphaelRochet",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/arch-update%40RaphaelRochet.shell-extension.zip?version_tag=12280#archlinux-updates-indicator.shell-extension.zip",
-      "sha256": "14fsqga12rj9x792mpas25pbv49dmc37dr8xp45xqj8ic72szrg8"
+      "url": "https://extensions.gnome.org/extension-data/arch-updateRaphaelRochet.v35.shell-extension.zip",
+      "sha256": "0gg290g0yz5lcxbilkhgzjsmnc6yivbzyhr8hlq9bn8vv8h8vw2a"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1010/archlinux-updates-indicator/",
@@ -601,55 +559,55 @@
       "longDescription": "Update indicator for Arch Linux and GNOME Shell.\n** Note : you now need to install the package pacman-contrib to use the checkupdates script. **\n  Can support AUR or other distros by changing command used to check for and apply updates."
     }
   },
-  "dynamic-panel-transparency": {
-    "pname": "dynamic-panel-transparency",
-    "version": 32,
-    "uuid": "dynamic-panel-transparency@rockon999.github.io",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/dynamic-panel-transparency%40rockon999.github.io.shell-extension.zip?version_tag=12061#dynamic-panel-transparency.shell-extension.zip",
-      "sha256": "13hdkn336npg0fvmzr2lx5vrq2g2bfd4nmn8vkzzmppiy7m5gp4h"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1011/dynamic-panel-transparency/",
-      "description": "Miss dynamic panel transparency in 3.32 and up? Try the original dynamic panel extension on all recent Gnome versions and with much more customization! This extension will fade your top panel to nothingness when there are no maximized windows present! Never again will the panel be abruptly darkened.",
-      "longDescription": "Miss dynamic panel transparency in 3.32 and up? Try the original dynamic panel extension on all recent Gnome versions and with much more customization! This extension will fade your top panel to nothingness when there are no maximized windows present! Never again will the panel be abruptly darkened.\n\nMay be incompatible with some extensions that make extensive changes to the panel.\n\nIf your theme isn't working correctly with this extension enable 'Remove Excessive Panel Styling' in the Background section of preferences. This particularly impacts the default *Ubuntu* theme!\n\nNew in v32 (in review)\n- Initial support for 3.34.\n- Fixes deprecation warnings on 3.34!\n- Fixes occasional errors when windows are closed.\n\nNew in v31\n- Fixes errors in 3.24 on lock and unlock.\n- Fix support for 3.28.\n\nNew in v29\n- Initial 3.32 support.\n\nGeneral Features:\n- Theme detection (works with 99% of all themes).\n- Per-app customization (panel color, opacity)\n- Configurable text and panel coloring\n- Configurable text and icon shadowing\n- Customizable transition times\n- Window tracking with support for shortcuts"
-    }
-  },
-  "text-scaler": {
-    "pname": "text-scaler",
+  "icinga-checker": {
+    "pname": "icinga-checker",
     "version": 8,
-    "uuid": "text-scaler@gnome-shell-extensions.mariospr.org",
+    "uuid": "icinga-checker@sosulski.net",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/text-scaler%40gnome-shell-extensions.mariospr.org.shell-extension.zip?version_tag=12211#text-scaler.shell-extension.zip",
-      "sha256": "0xav5zcp4n2nmm1b440dpsicygaci87fh6pzq3js1jpydjk946gs"
+      "url": "https://extensions.gnome.org/extension-data/icinga-checkersosulski.net.v8.shell-extension.zip",
+      "sha256": "0zm4119vl7ann8q561mi77wyfldxn9nlfbs2av4fdd3npxm3gzs1"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1018/text-scaler/",
-      "description": "Simple extension to easily define arbitrary values for the text scaling factor",
-      "longDescription": "Simple extension to easily define arbitrary values for the text scaling factor"
+      "homepage": "https://extensions.gnome.org/extension/1029/icinga-checker/",
+      "description": "Icinga/Nagios checker",
+      "longDescription": "Icinga/Nagios checker"
     }
   },
-  "random-wallpaper": {
-    "pname": "random-wallpaper",
-    "version": 18,
-    "uuid": "randomwallpaper@iflow.space",
+  "taskwhisperer": {
+    "pname": "taskwhisperer",
+    "version": 14,
+    "uuid": "taskwhisperer-extension@infinicode.de",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/randomwallpaper%40iflow.space.shell-extension.zip?version_tag=12022#random-wallpaper.shell-extension.zip",
-      "sha256": "1ri4c85k3l42qicabginjx8rr90dsib8gkpylv1f9rfwvy4akbrb"
+      "url": "https://extensions.gnome.org/extension-data/taskwhisperer-extensioninfinicode.de.v14.shell-extension.zip",
+      "sha256": "0limw86ayac93498z9kx3q2d9q97k9nmif4a96n179nbll54a13f"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1040/random-wallpaper/",
-      "description": "Random Wallpapers for Gnome 3 is a gnome-shell extension that fetches a random wallpaper from an online source and sets it as desktop background.",
-      "longDescription": "Random Wallpapers for Gnome 3 is a gnome-shell extension that fetches a random wallpaper from an online source and sets it as desktop background.\n\nFeatures:\n* Many different online sources with filters\n* History of previous images\n* Set lock screen image\n* Automatic renewal (Auto-Fetching)"
+      "homepage": "https://extensions.gnome.org/extension/1039/taskwhisperer/",
+      "description": "Taskwhisperer is a extension for TaskWarrior Application https://taskwarrior.org. It is to display upcoming tasks and task details as well as to create and modify them.",
+      "longDescription": "Taskwhisperer is a extension for TaskWarrior Application https://taskwarrior.org. It is to display upcoming tasks and task details as well as to create and modify them.\n"
+    }
+  },
+  "invert-window-color": {
+    "pname": "invert-window-color",
+    "version": 7,
+    "uuid": "invert-window@maiself",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/invert-windowmaiself.v7.shell-extension.zip",
+      "sha256": "09cvxvynkknmm5n9w5zyvk77mma0lwh6zilrksijp8yp9k4misif"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1041/invert-window-color/",
+      "description": "Inverts the color of individual windows",
+      "longDescription": "Inverts the color of individual windows\nDefault shortcut is Super+I"
     }
   },
   "haguichi-indicator": {
     "pname": "haguichi-indicator",
-    "version": 11,
+    "version": 12,
     "uuid": "gse-haguichi-indicator@ztefn.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/gse-haguichi-indicator%40ztefn.github.com.shell-extension.zip?version_tag=12553#haguichi-indicator.shell-extension.zip",
-      "sha256": "1f96sw9fwnqjfi66dql9p9rl11a8n8n53jhnrdrfhjv547fvfglp"
+      "url": "https://extensions.gnome.org/extension-data/gse-haguichi-indicatorztefn.github.com.v12.shell-extension.zip",
+      "sha256": "1m2lknnkfca06xws66m13rp4g5fgb17jzx784ywr9sjs6yp5v7b3"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1045/haguichi-indicator/",
@@ -659,11 +617,11 @@
   },
   "applications-overview-tooltip": {
     "pname": "applications-overview-tooltip",
-    "version": 6,
+    "version": 7,
     "uuid": "applications-overview-tooltip@RaphaelRochet",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/applications-overview-tooltip%40RaphaelRochet.shell-extension.zip?version_tag=12274#applications-overview-tooltip.shell-extension.zip",
-      "sha256": "150khir47z6r28jpdfa0lkd5280z20m0vfh1h9spkx4srl1f6qam"
+      "url": "https://extensions.gnome.org/extension-data/applications-overview-tooltipRaphaelRochet.v7.shell-extension.zip",
+      "sha256": "17d4gg31482zwjhn0ql6lsfi3hyv3w3s45xv612vmm406gnq03gw"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1071/applications-overview-tooltip/",
@@ -671,27 +629,27 @@
       "longDescription": "Shows a tooltip over applications icons on applications overview with complete application name and description."
     }
   },
-  "scroll-panel": {
-    "pname": "scroll-panel",
-    "version": 7,
-    "uuid": "scroll-panel@mreditor.github.com",
+  "go-to-last-workspace": {
+    "pname": "go-to-last-workspace",
+    "version": 5,
+    "uuid": "gnome-shell-go-to-last-workspace@github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/scroll-panel%40mreditor.github.com.shell-extension.zip?version_tag=12316#scroll-panel.shell-extension.zip",
-      "sha256": "1fn0ryjanafg35lhbv881fhv80pwzhcgsg8y34abz6j74083cwaj"
+      "url": "https://extensions.gnome.org/extension-data/gnome-shell-go-to-last-workspacegithub.com.v5.shell-extension.zip",
+      "sha256": "19wazfv2x676q80ss9fy3xl05vg8y15vw1akp0i8lc3nsmgi31q6"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1096/scroll-panel/",
-      "description": "Scroll above an application's title to switch between windows on the active workspace, above the clock to switch between virtual workspaces, and abovethe window title to move it to another workspace.",
-      "longDescription": "Scroll above an application's title to switch between windows on the active workspace, above the clock to switch between virtual workspaces, and abovethe window title to move it to another workspace."
+      "homepage": "https://extensions.gnome.org/extension/1089/go-to-last-workspace/",
+      "description": "Quickly toggle between two workspaces with one key",
+      "longDescription": "Quickly toggle between two workspaces with one key"
     }
   },
   "screenshot-tool": {
     "pname": "screenshot-tool",
-    "version": 40,
+    "version": 43,
     "uuid": "gnome-shell-screenshot@ttll.de",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/gnome-shell-screenshot%40ttll.de.shell-extension.zip?version_tag=12307#screenshot-tool.shell-extension.zip",
-      "sha256": "1bj7w7d415va2fk4kyk6h8qahifbqyhaaam0ahcl6l3prl6n6jj9"
+      "url": "https://extensions.gnome.org/extension-data/gnome-shell-screenshotttll.de.v43.shell-extension.zip",
+      "sha256": "0h54lgj4bzkafqgy940359pz7vbgj68paif8j9648d0x2r7y2dm4"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1112/screenshot-tool/",
@@ -699,13 +657,41 @@
       "longDescription": "Conveniently create, copy, store and upload screenshots"
     }
   },
+  "nothing-to-say": {
+    "pname": "nothing-to-say",
+    "version": 4,
+    "uuid": "nothing-to-say@extensions.gnome.wouter.bolsterl.ee",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/nothing-to-sayextensions.gnome.wouter.bolsterl.ee.v4.shell-extension.zip",
+      "sha256": "1nbr783alsh1ian9g23z5a1dxdd2g56g1kxfj0s4xwh0sly5b5aa"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1113/nothing-to-say/",
+      "description": "Unmute the microphone only when you have something to say.",
+      "longDescription": "Unmute the microphone only when you have something to say."
+    }
+  },
+  "desk-changer": {
+    "pname": "desk-changer",
+    "version": 18,
+    "uuid": "desk-changer@eric.gach.gmail.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/desk-changereric.gach.gmail.com.v18.shell-extension.zip",
+      "sha256": "05byvhfmgd16sfv0skq99gbjw16smcrbi0p4m3vhj12r7dkxhs8a"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1131/desk-changer/",
+      "description": "Simple wallpaper changer with multiple profile support. Supports integration into the system menu or its own panel icon. The daemon was previously written in Python, separately of the extension. Now it is integrated into the extension with the ability to run in the background.",
+      "longDescription": "Simple wallpaper changer with multiple profile support. Supports integration into the system menu or its own panel icon. The daemon was previously written in Python, separately of the extension. Now it is integrated into the extension with the ability to run in the background."
+    }
+  },
   "gnome-shell-extension-reloader": {
     "pname": "gnome-shell-extension-reloader",
-    "version": 10,
+    "version": 11,
     "uuid": "extension-reloader@nls1729",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/extension-reloader%40nls1729.shell-extension.zip?version_tag=12235#gnome-shell-extension-reloader.shell-extension.zip",
-      "sha256": "05shdh2wlp0yqan9adhnffymrza1p4kx9gzwd89q0n86ynaj72j6"
+      "url": "https://extensions.gnome.org/extension-data/extension-reloadernls1729.v11.shell-extension.zip",
+      "sha256": "02v2srscya52w46x0h8pw9j7r0hy1gh3lcxqj8kda2k8zqc2yk1v"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1137/gnome-shell-extension-reloader/",
@@ -713,27 +699,13 @@
       "longDescription": "Reload selected extension with the Gnome Shell Extension Reloader in Wayland and Xorg without restarting the shell with [Alt F2 r]. Limitations: This extension will reload an extension from the extension disk files only when the extension is in the error state; othewise, the Gnome Shell session must be restarted.  See Extension Homepage for additional information."
     }
   },
-  "logout-button": {
-    "pname": "logout-button",
-    "version": 4,
-    "uuid": "LogOutButton@kyle.aims.ac.za",
-    "src": {
-      "url": "https://extensions.gnome.org/download-extension/LogOutButton%40kyle.aims.ac.za.shell-extension.zip?version_tag=12610#logout-button.shell-extension.zip",
-      "sha256": "08pk5vnajwjn2rch8q07f4mizbc8irikyn1i84nslxzqp5w3sbs9"
-    },
-    "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1143/logout-button/",
-      "description": "Add log-out button to the action tray",
-      "longDescription": "Add log-out button to the action tray"
-    }
-  },
   "sensory-perception": {
     "pname": "sensory-perception",
-    "version": 11,
+    "version": 12,
     "uuid": "sensory-perception@HarlemSquirrel.github.io",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/sensory-perception%40HarlemSquirrel.github.io.shell-extension.zip?version_tag=12163#sensory-perception.shell-extension.zip",
-      "sha256": "07x3rcs4p2cxspfbsiwk3vgzyri46w39j3ph5kccl1ssgckwsp07"
+      "url": "https://extensions.gnome.org/extension-data/sensory-perceptionHarlemSquirrel.github.io.v12.shell-extension.zip",
+      "sha256": "09lsnkvwhp3mndfi9p58hpxyq2zkn46gdwiwb7ya6ih1yw1bdxhh"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1145/sensory-perception/",
@@ -743,11 +715,11 @@
   },
   "dash-to-panel": {
     "pname": "dash-to-panel",
-    "version": 23,
+    "version": 35,
     "uuid": "dash-to-panel@jderose9.github.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/dash-to-panel%40jderose9.github.com.shell-extension.zip?version_tag=11762#dash-to-panel.shell-extension.zip",
-      "sha256": "015ymlfx0fvq7f3q1sdn6sqpzpvba5cyps64zx37w63n9z540f5g"
+      "url": "https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v35.shell-extension.zip",
+      "sha256": "0lqv7nl7di9zdq0ankp8xwy3idycahvkbrf7sjc2pvr7skk5d936"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1160/dash-to-panel/",
@@ -755,12 +727,26 @@
       "longDescription": "An icon taskbar for the Gnome Shell. This extension moves the dash into the gnome main panel so that the application launchers and system tray are combined into a single panel, similar to that found in KDE Plasma and Windows 7+. A separate dock is no longer needed for easy access to running and favorited applications.\n\nFor a more traditional experience, you may also want to use Tweak Tool to enable Windows > Titlebar Buttons > Minimize & Maximize.\n\nFor the best support, please report any issues on Github. Dash-to-panel is developed and maintained by @jderose9 and @charlesg99."
     }
   },
+  "nasa-apod": {
+    "pname": "nasa-apod",
+    "version": 19,
+    "uuid": "nasa_apod@elinvention.ovh",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/nasa_apodelinvention.ovh.v19.shell-extension.zip",
+      "sha256": "0qq5fr4jkpvl04mhf4n63yvmya0ifqasyc1lnsgy4gwjbh7shb25"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1202/nasa-apod/",
+      "description": "Change your wallpaper daily to the NASA's astronomy picture of the day",
+      "longDescription": "Change your wallpaper daily to the NASA's astronomy picture of the day"
+    }
+  },
   "printers": {
     "pname": "printers",
     "version": 10,
     "uuid": "printers@linux-man.org",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/printers%40linux-man.org.shell-extension.zip?version_tag=12406#printers.shell-extension.zip",
+      "url": "https://extensions.gnome.org/extension-data/printerslinux-man.org.v10.shell-extension.zip",
       "sha256": "1sw8pvh6av619g4qjd1yvh3aak14i6rcmys4kviv0qdk9zzirinb"
     },
     "meta": {
@@ -771,25 +757,39 @@
   },
   "arc-menu": {
     "pname": "arc-menu",
-    "version": 35,
+    "version": 44,
     "uuid": "arc-menu@linxgem33.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/arc-menu%40linxgem33.com.shell-extension.zip?version_tag=12565#arc-menu.shell-extension.zip",
-      "sha256": "0qhxdfzdvp2glhv656q79fw1ass4vv6dy9rvhgarbmpmcw05b2fv"
+      "url": "https://extensions.gnome.org/extension-data/arc-menulinxgem33.com.v44.shell-extension.zip",
+      "sha256": "0w0spkjfwpnhddh6in91gimk9k2v1kxbfrw4hzpgwnr4lb7zn7da"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1228/arc-menu/",
-      "description": "ArcMenu is a Gnome shell extension designed to replace the menu found in Gnome.",
-      "longDescription": "ArcMenu is a Gnome shell extension designed to replace the menu found in Gnome.\n\n== DEPENDENCIES ==\n\nPlease note: For ArcMenu to work properly, your GNOME Desktop must have the following dependencies installed (please see below).\n\nsudo apt install gnome-shell-extensions \n\nsudo apt install gnome-tweak-tool\n\nsudo apt install gnome-menus\n\nsudo apt install gir1.2-gmenu-3.0 (Maybe required on some distro’s)\n\n== REPORTING ISSUES ==\n\nPlease Note: We do not offer support on extensions.gnome.org, so please open a issue on our GitLab issue tracker for support (Extension homepage URL below)."
+      "description": "A Dynamic, Traditional, Modern Menu for GNOME",
+      "longDescription": "A Dynamic, Traditional, Modern Menu for GNOME\n\n== DEPENDENCIES ==\n\nPlease note: For ArcMenu to work properly, your GNOME Desktop must have the following dependencies installed (please see below).\n\nsudo apt install gnome-shell-extensions gnome-menus gir1.2-gmenu-3.0\n\n== UPGRADE ISSUES ==\n\nIf the upgrade isn't working, try uninstalling Arc Menu reloading GNOME shell and then downloading the latest version again.\n\nReload GNOME shell with == ALT + F2 == type \"r\" == Press Enter\n\n== REPORTING ISSUES ==\n\nPlease Note: We do not offer support on extensions.gnome.org, so please open a issue on our GitLab issue tracker for support (Extension homepage URL below).\n\n ArcMenu is developed and maintained by @LinxGem33 and @AndrewZaech."
+    }
+  },
+  "gmail-message-tray": {
+    "pname": "gmail-message-tray",
+    "version": 19,
+    "uuid": "GmailMessageTray@shuming0207.gmail.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/GmailMessageTrayshuming0207.gmail.com.v19.shell-extension.zip",
+      "sha256": "1p15rmb75321i3b36yiijgzy9221pddk5dhmxqk1ampwpfhyzja8"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1230/gmail-message-tray/",
+      "description": "Shows Gmail and Outlook notifications in Gnome Message Tray using Gnome Online Accounts",
+      "longDescription": "Shows Gmail and Outlook notifications in Gnome Message Tray using Gnome Online Accounts"
     }
   },
   "switch-workspace": {
     "pname": "switch-workspace",
-    "version": 25,
+    "version": 28,
     "uuid": "switchWorkSpace@sun.wxg@gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/switchWorkSpace%40sun.wxg%40gmail.com.shell-extension.zip?version_tag=12412#switch-workspace.shell-extension.zip",
-      "sha256": "1qz0rpndjracaxc1wylxxy366xm1y4386lk9848b8schxfmsr0ry"
+      "url": "https://extensions.gnome.org/extension-data/switchWorkSpacesun.wxggmail.com.v28.shell-extension.zip",
+      "sha256": "01mizj7c1a70jwqpxa3fqz6j8k3akcsn9ki29z95vm4a8hcmd29m"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1231/switch-workspace/",
@@ -799,25 +799,25 @@
   },
   "somafm-internet-radio": {
     "pname": "somafm-internet-radio",
-    "version": 24,
+    "version": 27,
     "uuid": "SomaFm-Radio@alireza6677.gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/SomaFm-Radio%40alireza6677.gmail.com.shell-extension.zip?version_tag=11951#somafm-internet-radio.shell-extension.zip",
-      "sha256": "1zj4qn407ibhsgdyckkpl32nhg1rn4rf28mlzl9mgibncvl17729"
+      "url": "https://extensions.gnome.org/extension-data/SomaFm-Radioalireza6677.gmail.com.v27.shell-extension.zip",
+      "sha256": "1b3a9j9z5q80varkkwx0fs3y3cbcncz8spmm6416bbjcp17vyp42"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1237/somafm-internet-radio/",
       "description": "Listen to SomaFm free internet radio using Gnome",
-      "longDescription": "Listen to SomaFm free internet radio using Gnome\n* Featues:\n\n- 32 Channels\n- Volume slider\n- Favorites menu\n- Good sound quality\n- Supports most gnome-shell versions\n- Channel logos\n\n\n* Requirements:\n- Gstreamer: You need to install gstreamer and multimedia codecs/plugins for your distro."
+      "longDescription": "Listen to SomaFm free internet radio using Gnome\n\n* Featues:\n- 32 Channels\n- Volume slider\n- Favorites menu\n- Good sound quality\n- Supports most gnome-shell versions\n- Channel logos\n\n* Requirements:\n- Gstreamer and plugins:\nYou need to install 'gstreamer' and multimedia codecs/plugins for your distro.\n\n* Donation\nYou can donate if you like my work :)\n\nBTC: 1KXJPJSmXUocieC3neRZEDakpzfcyumLqS\nBCH : qzsf6jdju8pq5l4wm6e0r7ahc2hljeyn3sldew58l8\nETHER: 0xb6178080c8f0792e6370959909199647e26b8457"
     }
   },
   "blyr": {
     "pname": "blyr",
-    "version": 6,
+    "version": 7,
     "uuid": "blyr@yozoon.dev.gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/blyr%40yozoon.dev.gmail.com.shell-extension.zip?version_tag=12532#blyr.shell-extension.zip",
-      "sha256": "1rpngdgx3rr3njrqp0c0zzfc6sd9gy8b0nw932wd63sfkfa3lfgl"
+      "url": "https://extensions.gnome.org/extension-data/blyryozoon.dev.gmail.com.v7.shell-extension.zip",
+      "sha256": "0v6z6hkgdl0vfjy58zvjgq1rakp4b9h1vpbwk8pg7hh07zz125hx"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1251/blyr/",
@@ -825,55 +825,55 @@
       "longDescription": "Apply a Blur Effect to GNOME Shell UI elements."
     }
   },
-  "fuzzy-clock": {
-    "pname": "fuzzy-clock",
-    "version": 1,
-    "uuid": "fuzzy-clock@keepawayfromfire.co.uk",
+  "bing-wallpaper-changer": {
+    "pname": "bing-wallpaper-changer",
+    "version": 26,
+    "uuid": "BingWallpaper@ineffable-gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/fuzzy-clock%40keepawayfromfire.co.uk.shell-extension.zip?version_tag=7231#fuzzy-clock.shell-extension.zip",
-      "sha256": "0247pl5678jk7bna4q0fpkqk5qr68adr7rikdjiw86h4j6xxggp0"
+      "url": "https://extensions.gnome.org/extension-data/BingWallpaperineffable-gmail.com.v26.shell-extension.zip",
+      "sha256": "040w0h4j9bzpgx0r9d4pqk8xbxkbj2xicrhq7zypqaz43zdhgz01"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1281/fuzzy-clock/",
-      "description": "Make the top bar clock fuzzy",
-      "longDescription": "Make the top bar clock fuzzy"
+      "homepage": "https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/",
+      "description": "Lightweight GNOME shell extension to set your wallpaper once per day to today's Microsoft Bing image of the day (the image you see when you visit Bing.com).",
+      "longDescription": "Lightweight GNOME shell extension to set your wallpaper once per day to today's Microsoft Bing image of the day (the image you see when you visit Bing.com).\n\n *Disclaimer*: this extension is unofficial and not affiliated with Bing or Microsoft in any way. Images are protected by copyright and are licensed only for use as wallpapers.\n\nThis extension is based extensively on the NASA APOD extension by Elinvention (https://github.com/Elinvention) and inspired by Bing Desktop Wallpaper Changer by Utkarsh Gupta (https://github.com/UtkarshGpta).\n\nFeatures:\n* Fetches the Bing wallpaper of the day and sets as both lock screen and desktop wallpaper (these are both user selectable)\n* Optionally force a specific region (i.e. locale)\n* Automatically selects the highest resolution (and most appropriate wallpaper) in multiple monitor setups\n* Optionally clean up Wallpaper directory after between 1 and 7 days (delete oldest first)\n* Only attempts to download wallpapers when they have been updated\n* Doesn't poll continuously - only once per day and on startup (schedules a refresh when Bing is due to update)\n* English (en), German (de), Dutch (nl), Italian (it), Polish (pl), Chinese (zh_CN), French (fr_FR), Portugeuse (pt, pt_BR), Russian (ru_RU), Spanish (es), Korean (ko, ko_KR, ko_KP), Indonesian (id), Catalan (ca) and Norwegian Bokmål & Nynorsk - a HUGE thanks to the translators\n\nPlease report bugs to the GitHub page below"
     }
   },
-  "hotel-manager": {
-    "pname": "hotel-manager",
-    "version": 7,
-    "uuid": "hotel-manager@hardpixel.eu",
+  "night-light-slider": {
+    "pname": "night-light-slider",
+    "version": 14,
+    "uuid": "night-light-slider.timur@linux.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/hotel-manager%40hardpixel.eu.shell-extension.zip?version_tag=12379#hotel-manager.shell-extension.zip",
-      "sha256": "0ingq40aww9z6km6ncfw2z3i93r4k0ixa5lnq3hqwbsnhwqgz4qv"
+      "url": "https://extensions.gnome.org/extension-data/night-light-slider.timurlinux.com.v14.shell-extension.zip",
+      "sha256": "0biadsq1kkjvmp2ng8ffm3idmmay5726mxpqpm90461941i88jqa"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1285/hotel-manager/",
-      "description": "Hotel Manager allows to start and stop the Hotel daemon and your development servers via a menu in the status area.",
-      "longDescription": "Hotel Manager allows to start and stop the Hotel daemon and your development servers via a menu in the status area."
+      "homepage": "https://extensions.gnome.org/extension/1276/night-light-slider/",
+      "description": "Change night light temperature",
+      "longDescription": "Change night light temperature"
     }
   },
-  "tilingnome": {
-    "pname": "tilingnome",
-    "version": 4,
-    "uuid": "tilingnome@rliang.github.com",
+  "dual-shock-4-battery-percentage": {
+    "pname": "dual-shock-4-battery-percentage",
+    "version": 5,
+    "uuid": "ds4battery@slie.ru",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/tilingnome%40rliang.github.com.shell-extension.zip?version_tag=11306#tilingnome.shell-extension.zip",
-      "sha256": "0nrc8ssmn53937f9lbv0xnmn6k42k547hf29sfj02zj6q8c40v4n"
+      "url": "https://extensions.gnome.org/extension-data/ds4batteryslie.ru.v5.shell-extension.zip",
+      "sha256": "1jj0r0qa34vi2jb9wg2l12dahmic0m7lfr41zazq6253xnlg0vch"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1286/tilingnome/",
-      "description": "Tiling window manager",
-      "longDescription": "Tiling window manager"
+      "homepage": "https://extensions.gnome.org/extension/1283/dual-shock-4-battery-percentage/",
+      "description": "Show DS4/DS3 battery remaining power percentage at the top panel",
+      "longDescription": "Show DS4/DS3 battery remaining power percentage at the top panel"
     }
   },
   "unite": {
     "pname": "unite",
-    "version": 33,
+    "version": 40,
     "uuid": "unite@hardpixel.eu",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/unite%40hardpixel.eu.shell-extension.zip?version_tag=12418#unite.shell-extension.zip",
-      "sha256": "070y6955wby2lm9y1z1mb5fzs9kk1nppkbl5ch9pgi9cf9hdla7d"
+      "url": "https://extensions.gnome.org/extension-data/unitehardpixel.eu.v40.shell-extension.zip",
+      "sha256": "0ppz5v54qf1l6f5xsdxdc3vwg683zlsq604qjcl7rz5zifagfgya"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1287/unite/",
@@ -883,11 +883,11 @@
   },
   "gsconnect": {
     "pname": "gsconnect",
-    "version": 27,
+    "version": 36,
     "uuid": "gsconnect@andyholmes.github.io",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/gsconnect%40andyholmes.github.io.shell-extension.zip?version_tag=12589#gsconnect.shell-extension.zip",
-      "sha256": "1p1ry5lx3xx5ghzjk9fc6mnqdnpgvk6yac2sca2wshiddxzlyrx8"
+      "url": "https://extensions.gnome.org/extension-data/gsconnectandyholmes.github.io.v36.shell-extension.zip",
+      "sha256": "0ki97v46gi2s258171vva07178kfav217df275d5bl4jj9b6a13a"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1319/gsconnect/",
@@ -897,11 +897,11 @@
   },
   "custom-hot-corners": {
     "pname": "custom-hot-corners",
-    "version": 4,
+    "version": 7,
     "uuid": "custom-hot-corners@janrunx.gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/custom-hot-corners%40janrunx.gmail.com.shell-extension.zip?version_tag=12055#custom-hot-corners.shell-extension.zip",
-      "sha256": "17xc28xbpczn1i9sl1fjfj70k3r6jv2q0gnrggcsls2zyjwg0s5b"
+      "url": "https://extensions.gnome.org/extension-data/custom-hot-cornersjanrunx.gmail.com.v7.shell-extension.zip",
+      "sha256": "1azcs4c44v4vrnzr81q5zfsx8hjch8rm0f3axwxd46yg142kli3z"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1362/custom-hot-corners/",
@@ -909,69 +909,167 @@
       "longDescription": "Customizable hot corners."
     }
   },
+  "hide-frequent-view": {
+    "pname": "hide-frequent-view",
+    "version": 2,
+    "uuid": "hide-frequent-view@birros.github.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/hide-frequent-viewbirros.github.com.v2.shell-extension.zip",
+      "sha256": "0d85a5kjw9a48bx31nhk273g4n691mnp3sgbgqb6qv6gx6d7razj"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1367/hide-frequent-view/",
+      "description": "Hide controls to switch from the frequent view to the view of all applications in the GNOME Shell overview",
+      "longDescription": "Hide controls to switch from the frequent view to the view of all applications in the GNOME Shell overview"
+    }
+  },
   "mpris-indicator-button": {
     "pname": "mpris-indicator-button",
-    "version": 10,
+    "version": 14,
     "uuid": "mprisindicatorbutton@JasonLG1979.github.io",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/mprisindicatorbutton%40JasonLG1979.github.io.shell-extension.zip?version_tag=12559#mpris-indicator-button.shell-extension.zip",
-      "sha256": "1bgvgyv1wjv8ndgpvhrx9v3mpw6dlrak1rzz5izpmbh40gm7v4pw"
+      "url": "https://extensions.gnome.org/extension-data/mprisindicatorbuttonJasonLG1979.github.io.v14.shell-extension.zip",
+      "sha256": "0jlvldrw5ndgmc4l89ynwi77xp5ydgwpm5r1dqlq3a3b0hfc376x"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1379/mpris-indicator-button/",
-      "description": "A full featured MPRIS indicator button.",
-      "longDescription": "A full featured MPRIS indicator button.\n\nFor a full list of features please read the User Guide in the github wiki."
+      "description": "A full featured MPRIS indicator.",
+      "longDescription": "A full featured MPRIS indicator."
+    }
+  },
+  "weather-in-the-clock": {
+    "pname": "weather-in-the-clock",
+    "version": 6,
+    "uuid": "weatherintheclock@JasonLG1979.github.io",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/weatherintheclockJasonLG1979.github.io.v6.shell-extension.zip",
+      "sha256": "0fyrscg9vdkl4br3bsxkr164c35sqchsb9zrr6930wb06f3c44q8"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1380/weather-in-the-clock/",
+      "description": "Display the current Weather in the Clock. GNOME Weather is required for this extension to function.",
+      "longDescription": "Display the current Weather in the Clock. GNOME Weather is required for this extension to function."
     }
   },
   "lyrics-finder": {
     "pname": "lyrics-finder",
-    "version": 6,
+    "version": 10,
     "uuid": "LyricsFinder@alireza6677.gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/LyricsFinder%40alireza6677.gmail.com.shell-extension.zip?version_tag=11996#lyrics-finder.shell-extension.zip",
-      "sha256": "03fad9rk045zkzhc5gb8rbznrmb0aiiiflvljl6y83xiz907qbrp"
+      "url": "https://extensions.gnome.org/extension-data/LyricsFinderalireza6677.gmail.com.v10.shell-extension.zip",
+      "sha256": "0gxzw2c1kd8jmpikp1j6ajrihs2y9idfdl5f4vixcz73z1r6rc6p"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1383/lyrics-finder/",
-      "description": "Finding lyrics has never been easier",
-      "longDescription": "Finding lyrics has never been easier\nJust play a music!\n"
+      "description": "Finding lyrics has never been easier, Just play some music!",
+      "longDescription": "Finding lyrics has never been easier, Just play some music!\n\n* Features\n- Automatically find lyrics\n- Save for offline use\n- Modern and customizable ui\n- Fast search\n\n* Donation\nYou can donate if you like my work :)\n\nBTC: 1KXJPJSmXUocieC3neRZEDakpzfcyumLqS\nBCH : qzsf6jdju8pq5l4wm6e0r7ahc2hljeyn3sldew58l8\nETHER: 0xb6178080c8f0792e6370959909199647e26b8457"
+    }
+  },
+  "files-view": {
+    "pname": "files-view",
+    "version": 6,
+    "uuid": "files-view@argonauta.framagit.org",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/files-viewargonauta.framagit.org.v6.shell-extension.zip",
+      "sha256": "14cxrs26s48664skrjska95kjyjnvv7g2z9j008qhl2xm0q8xdsn"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1395/files-view/",
+      "description": "A files view for GNOME Shell.",
+      "longDescription": "A files view for GNOME Shell.\n\nThis extension displays a “Files” view similar to the Applications view, with the conveniences of a file manager. It is accessed through the combination SUPER + F."
+    }
+  },
+  "syspeek-gs": {
+    "pname": "syspeek-gs",
+    "version": 6,
+    "uuid": "syspeek-gs@gs.eros2.info",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/syspeek-gsgs.eros2.info.v6.shell-extension.zip",
+      "sha256": "0i28mxhsq7g1mf18bjav8mi96bzjzgd0igb0mk92fd1nm3ydjy1c"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1409/syspeek-gs/",
+      "description": "Simple CPU load monitor widget inspired by SysPeek indicator",
+      "longDescription": "Simple CPU load monitor widget inspired by SysPeek indicator"
+    }
+  },
+  "discrete-brightness": {
+    "pname": "discrete-brightness",
+    "version": 4,
+    "uuid": "discrete-brightness@gs.eros2.info",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/discrete-brightnessgs.eros2.info.v4.shell-extension.zip",
+      "sha256": "0jjbqvcwl1r0iqlkbq4axird5xs9d8mrmr1ijd0s8iamsm7334cf"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1410/discrete-brightness/",
+      "description": "Discrete brightness indicator change brightness in discrete steps, unlike default smooth brightness bar in Gnome Shell",
+      "longDescription": "Discrete brightness indicator change brightness in discrete steps, unlike default smooth brightness bar in Gnome Shell"
     }
   },
   "unblank": {
     "pname": "unblank",
-    "version": 15,
+    "version": 17,
     "uuid": "unblank@sun.wxg@gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/unblank%40sun.wxg%40gmail.com.shell-extension.zip?version_tag=12409#unblank.shell-extension.zip",
-      "sha256": "1n44iw353my855g724d5fgkdkla087wj9abq834y9s5y3b1xbj9v"
+      "url": "https://extensions.gnome.org/extension-data/unblanksun.wxggmail.com.v17.shell-extension.zip",
+      "sha256": "1nga00rhgcj4cgp10ph2c0qb53csxwm0hncdg3821pnaivj5ii1s"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1414/unblank/",
-      "description": "Unblank screen when screen saver becomes active. ",
-      "longDescription": "Unblank screen when screen saver becomes active. \n\n After you install extension, the extension will become enable. If you want to disable extension, you need to delete this extension or go to this extension settings to turn off switch."
+      "description": "Unblank lock screen. ",
+      "longDescription": "Unblank lock screen. \n\n After you install this extension, the extension will be enabled by default. If you want to disable this extension, you need to delete this extension or go to this extension settings to turn off switch."
     }
   },
-  "miniview": {
-    "pname": "miniview",
+  "virtualbox-applet": {
+    "pname": "virtualbox-applet",
     "version": 5,
-    "uuid": "miniview@thesecretaryofwar.com",
+    "uuid": "vbox-applet@gs.eros2.info",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/miniview%40thesecretaryofwar.com.shell-extension.zip?version_tag=12547#miniview.shell-extension.zip",
-      "sha256": "09c1n9np831w71f8f7n45xs1wjz4yz32gcih0sc95j7nxcz0k10c"
+      "url": "https://extensions.gnome.org/extension-data/vbox-appletgs.eros2.info.v5.shell-extension.zip",
+      "sha256": "0zn1jiam2wnv7ys2bicl4zbi86vl1538hx8k175207vlsrfcp54r"
     },
     "meta": {
-      "homepage": "https://extensions.gnome.org/extension/1459/miniview/",
-      "description": "Show a preview of another window (like picture-in-picture on a TV)",
-      "longDescription": "Show a preview of another window (like picture-in-picture on a TV)\n\nLeft-mouse drag: move preview window\nRight-mouse drag (or ctrl + left mouse drag): resize preview window\nScroll wheel: change target window\nDouble click: raise target window\nShift + F12: toggle preview window (can be changed in preferences)\nCtrl + scroll wheel: adjust opacity"
+      "homepage": "https://extensions.gnome.org/extension/1415/virtualbox-applet/",
+      "description": "Provide menu to run VirtualBox machines and switch between running VMs",
+      "longDescription": "Provide menu to run VirtualBox machines and switch between running VMs"
+    }
+  },
+  "thinkpad-x1-thermal": {
+    "pname": "thinkpad-x1-thermal",
+    "version": 8,
+    "uuid": "thinkpadx1thermal@jithurbide.baitosoft.ch",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/thinkpadx1thermaljithurbide.baitosoft.ch.v8.shell-extension.zip",
+      "sha256": "1r2x3n5j05hs7c8vgkmp36dw6ylzkkgv1liyp876aq50v4n8ccv8"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1419/thinkpad-x1-thermal/",
+      "description": "Display ThinkPad X1 YOGA (3rd gen) thermal sensors and Fan status",
+      "longDescription": "Display ThinkPad X1 YOGA (3rd gen) thermal sensors and Fan status"
+    }
+  },
+  "transparent-window-moving": {
+    "pname": "transparent-window-moving",
+    "version": 5,
+    "uuid": "transparent-window-moving@noobsai.github.com",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/transparent-window-movingnoobsai.github.com.v5.shell-extension.zip",
+      "sha256": "1824zrsmgq3qgr6508gv31yj7s49v29syadg1dqhrk95d4z78ir1"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1446/transparent-window-moving/",
+      "description": "Makes a window semi-transparent when moving or resizing",
+      "longDescription": "Makes a window semi-transparent when moving or resizing"
     }
   },
   "vitals": {
     "pname": "vitals",
-    "version": 24,
+    "version": 31,
     "uuid": "Vitals@CoreCoding.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/Vitals%40CoreCoding.com.shell-extension.zip?version_tag=12454#vitals.shell-extension.zip",
-      "sha256": "1paaa7rpnlr5p924b7wy5g0ndkzh45sd50b410finf5hdsvqzasp"
+      "url": "https://extensions.gnome.org/extension-data/VitalsCoreCoding.com.v31.shell-extension.zip",
+      "sha256": "19i1rp5r51bpi0qmv8y5lc80j5qka10zmn5vlsdf2fphh1s8q3wx"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1460/vitals/",
@@ -981,11 +1079,11 @@
   },
   "rdesktop-launcher": {
     "pname": "rdesktop-launcher",
-    "version": 7,
+    "version": 9,
     "uuid": "rdesktop-menu@bastien.git.geekwu.org",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/rdesktop-menu%40bastien.git.geekwu.org.shell-extension.zip?version_tag=12040#rdesktop-launcher.shell-extension.zip",
-      "sha256": "1w67h6zl9xprvjxmnvsyxs6pn648m5qzfpldpda6rkqw7brs5g6s"
+      "url": "https://extensions.gnome.org/extension-data/rdesktop-menubastien.git.geekwu.org.v9.shell-extension.zip",
+      "sha256": "0lcib4iy2wl227xchjaj9iqnavpg2mxj6jml3mjjh5b1rn61accm"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1467/rdesktop-launcher/",
@@ -993,18 +1091,88 @@
       "longDescription": "Add a servers status menu for quickly running rdesktop"
     }
   },
+  "battery-time": {
+    "pname": "battery-time",
+    "version": 5,
+    "uuid": "batime@martin.zurowietz.de",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/batimemartin.zurowietz.de.v5.shell-extension.zip",
+      "sha256": "0c6zvm229wzv6hiqgy3bjjd3sk399413gmr8iyjfql2ypkrrms13"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1475/battery-time/",
+      "description": "Show the remaining time until fully charged/discharged instead of the battery charge in percent in the panel.",
+      "longDescription": "Show the remaining time until fully charged/discharged instead of the battery charge in percent in the panel."
+    }
+  },
   "unlock-dialog-background": {
     "pname": "unlock-dialog-background",
-    "version": 11,
+    "version": 12,
     "uuid": "unlockDialogBackground@sun.wxg@gmail.com",
     "src": {
-      "url": "https://extensions.gnome.org/download-extension/unlockDialogBackground%40sun.wxg%40gmail.com.shell-extension.zip?version_tag=12502#unlock-dialog-background.shell-extension.zip",
-      "sha256": "08w0x5q8f98ljvnf869yrzh4q6zfh4m6jpka92aabwn2b1lqawj0"
+      "url": "https://extensions.gnome.org/extension-data/unlockDialogBackgroundsun.wxggmail.com.v12.shell-extension.zip",
+      "sha256": "1p37kkddqkpbr67vgxd64pmx40na14m2hm4i1r9v4x7hs2aa13p5"
     },
     "meta": {
       "homepage": "https://extensions.gnome.org/extension/1476/unlock-dialog-background/",
-      "description": "Change unlock dialog background.",
-      "longDescription": "Change unlock dialog background.\nYou can change background picture from extension settings.\nIf you use Ubuntu, install package gir1.2-clutter-1.0 first."
+      "description": "Change lock screen background.",
+      "longDescription": "Change lock screen background.\nIf you use Ubuntu, install package gir1.2-clutter-1.0 first."
+    }
+  },
+  "workspace-matrix": {
+    "pname": "workspace-matrix",
+    "version": 18,
+    "uuid": "wsmatrix@martin.zurowietz.de",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/wsmatrixmartin.zurowietz.de.v18.shell-extension.zip",
+      "sha256": "1xw28vf8rk6qdg7fk4xnjfjdifb0kzw8l1fdwf5mzpwh3scqim01"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1485/workspace-matrix/",
+      "description": "Arrange workspaces in a two dimensional grid with workspace thumbnails.",
+      "longDescription": "Arrange workspaces in a two dimensional grid with workspace thumbnails."
+    }
+  },
+  "extensions-sync": {
+    "pname": "extensions-sync",
+    "version": 6,
+    "uuid": "extensions-sync@elhan.io",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/extensions-syncelhan.io.v6.shell-extension.zip",
+      "sha256": "1qfhvvda9n8pbjz92ryalyb0grmmkkqkjpyqa8c2y7dsq350hsdl"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1486/extensions-sync/",
+      "description": "Sync all extensions and their configurations across all gnome instances",
+      "longDescription": "Sync all extensions and their configurations across all gnome instances"
+    }
+  },
+  "containers": {
+    "pname": "containers",
+    "version": 10,
+    "uuid": "containers@royg",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/containersroyg.v10.shell-extension.zip",
+      "sha256": "0smbg6ks3v6cg7qn80vnhxw2jr775y837l44isd9jmqrkkxll6aw"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1500/containers/",
+      "description": "Manage podman containers through a gnome-shell menu",
+      "longDescription": "Manage podman containers through a gnome-shell menu"
+    }
+  },
+  "new-mail-indicator": {
+    "pname": "new-mail-indicator",
+    "version": 16,
+    "uuid": "new-mail-indicator@fthx",
+    "src": {
+      "url": "https://extensions.gnome.org/extension-data/new-mail-indicatorfthx.v16.shell-extension.zip",
+      "sha256": "0h9n3im2wxv8hml1xpi5n076s2w7d7nnxcsyv2cbk9xqwaadjpzg"
+    },
+    "meta": {
+      "homepage": "https://extensions.gnome.org/extension/1505/new-mail-indicator/",
+      "description": "An icon beside the date in the topbar to show if there are unread emails when running your default email client.",
+      "longDescription": "An icon beside the date in the topbar to show if there are unread emails when running your default email client.\n\n It checks the notifications in the message tray related to a new mail, no extra configuration needed, very light extension. Do not disable the notifications of your default email client ! *** It is not a standalone mail checker, you need your email client to be running. *** Please check that the xdg-utils package is installed.\n\n  Email clients supported at the moment are : Thunderbird, Evolution, Geary, Mailspring. Please ask to add the client you need. If you report an error, please provide at least the distribution and the email client you use through the github link."
     }
   }
 }

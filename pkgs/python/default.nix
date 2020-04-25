@@ -26,6 +26,8 @@ rec {
 
   pep562 = callPackage ./pep562 {};
 
+  pykka = callPackage ./pykka.nix {};
+
   pymdown-extensions = callPackage ./pymdown-extensions {
     inherit pep562;
   };

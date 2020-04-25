@@ -23,8 +23,15 @@ mkIf (config.gtk.enable) {
     gtk3.extraConfig = {
       gtk-cursor-blink = false;
       gtk-key-theme-name = "Emacs";
+      gtk-application-prefer-dark-theme = 1;
     };
   };
+
+  home.packages = [
+    # paper-icon-theme doesn’t propagate these: https://github.com/NixOS/nixpkgs/issues/84983
+    pkgs.gnome3.adwaita-icon-theme
+    pkgs.gnome3.gnome-themes-extra
+  ];
 
   qt = {
     enable = mkDefault true;

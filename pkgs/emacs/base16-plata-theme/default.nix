@@ -1,4 +1,4 @@
-{ lib, trivialBuild, base16-theme }:
+{ lib, trivialBuild, base16-theme, pretty-tabs }:
 
 trivialBuild rec {
   pname = "base16-plata-theme";
@@ -7,10 +7,6 @@ trivialBuild rec {
   src = ./.;
 
   packageRequires = [ base16-theme ];
-
-  preBuild = ''
-    export EMACSLOADPATH=${base16-theme}/share/emacs/site-lisp/elpa/${base16-theme.pname}-${base16-theme.version}:$EMACSLOADPATH
-  '';
 
   meta = {
     description = "Plata themes for Emacs";

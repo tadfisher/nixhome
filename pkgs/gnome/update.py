@@ -19,11 +19,21 @@ versions = set(['.'.join(shellVersion.split('.')[:2]), shellVersion])
 
 extensions = filter(lambda e: (v in e['shell_version_map'] for v in versions), response.json()['extensions'])
 
+
 def getShellVersion(e):
     for v in versions:
         if v in e['shell_version_map']:
             return e['shell_version_map'][v]
     return None
+
+
+def getUrl(domain, name, tag, uuid):
+    r = requests.head(
+        f'{domain}/download-extension/{quote(uuid)}.shell-extension.zip',
+        params={'version_tag': tag}
+    )
+    return f'{domain}{r.headers["location"]}'
+
 
 for e in extensions:
     versionMeta = getShellVersion(e)
@@ -33,14 +43,15 @@ for e in extensions:
     version = versionMeta['version']
     tag = versionMeta['pk']
     uuid = e['uuid']
-    url = f'{domain}/download-extension/{quote(uuid)}.shell-extension.zip?version_tag={tag}#{name}.shell-extension.zip'
+    url = getUrl(domain, name, tag, uuid)
+
     out[name] = {
         'pname': name,
         'version': version,
         'uuid': uuid,
         'src': {
             'url': url,
-            'sha256': os.popen(f'nix-prefetch-url --unpack --name {name}.shell-extension.zip {url}').read().strip()
+            'sha256': os.popen(f'nix-prefetch-url --unpack {url}').read().strip()
         },
         'meta': {
             'homepage': f'{domain}{link}',

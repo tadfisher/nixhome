@@ -44,7 +44,7 @@ in {
       };
 
       "org/gnome/desktop/input-sources" = {
-        xkb-options = [ "ctrl:nocaps" "compose:sclk" ];
+        xkb-options = [ "ctrl:nocaps" "compose:prsc" ];
       };
 
       "org/gnome/desktop/interface" = {
@@ -197,7 +197,7 @@ in {
       packages = with pkgs.gnomeExtensions; [
         # dash-to-panel
         # freon
-        gsconnect
+        # gsconnect
         user-themes
         # workspace-indicator
         paperwm
@@ -216,11 +216,13 @@ in {
     ] ++ cfg.extensions.packages;
 
     # Prevent clobbering SSH_AUTH_SOCK
-    pam.sessionVariables.GSM_SKIP_SSH_AGENT_WORKAROUND = "1";
+    pam.sessionVariables = {
+      GSM_SKIP_SSH_AGENT_WORKAROUND = "1";
+    };
 
     programs.chromium.extensions = [
       "gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell integration
-      "jfnifeihccihocjbfcfhicmmgpjicaec" # GSConnect
+      # "jfnifeihccihocjbfcfhicmmgpjicaec" # GSConnect
     ];
 
     programs.gnome-terminal.enable = true;
@@ -244,8 +246,8 @@ in {
       "chromium/native-messaging-hosts/org.gnome.chrome_gnome_shell.json".source =
         "${pkgs.chrome-gnome-shell}/etc/chromium/native-messaging-hosts/org.gnome.chrome_gnome_shell.json";
 
-      "chromium/native-messaging-hosts/org.gnome.shell.extensions.gsconnect.json".source =
-        "${pkgs.gnomeExtensions.gsconnect}/etc/chromium/native-messaging-hosts/org.gnome.shell.extensions.gsconnect.json";
+      # "chromium/native-messaging-hosts/org.gnome.shell.extensions.gsconnect.json".source =
+      #   "${pkgs.gnomeExtensions.gsconnect}/etc/chromium/native-messaging-hosts/org.gnome.shell.extensions.gsconnect.json";
     };
   };
 }

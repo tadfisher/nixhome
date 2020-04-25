@@ -8,14 +8,24 @@ with lib;
   config = mkIf config.profiles.desktop.enable {
     gtk.enable = true;
 
-    home.keyboard.options = [ "ctrl:nocaps" ];
+    home.keyboard.options = [ "ctrl:nocaps" "compose:prsc" ];
 
-    home.file.".xprofile".text = ''
-      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-      if [[ -e "$HOME/.profile" ]]; then
-        . "$HOME/.profile"
-      fi
-    '';
+    home.file = {
+      ".Xcompose".text = ''
+        include "${pkgs.dotxcompose}/share/dotXCompose"
+        include "${pkgs.dotxcompose}/share/emoji.compose"
+        include "${pkgs.dotxcompose}/share/modletters.compose"
+        include "${pkgs.dotxcompose}/share/tags.compose"
+        include "${pkgs.dotxcompose}/share/maths.compose"
+      '';
+
+      ".xprofile".text = ''
+        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        if [[ -e "$HOME/.profile" ]]; then
+          . "$HOME/.profile"
+        fi
+      '';
+    };
 
     home.packages = with pkgs; [
       gksu

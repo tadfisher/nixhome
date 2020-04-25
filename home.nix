@@ -11,6 +11,7 @@ in {
 
   home.packages = with pkgs; [
     dosfstools
+    file
     gnupg
     lm_sensors
     ripgrep
@@ -33,12 +34,22 @@ in {
   };
 
   programs = {
-    bash.enable = true;
+    bash = {
+      enable = true;
+      shellAliases = {
+        nixf = "${pkgs.nixFlakes}/bin/nix";
+      };
+    };
     direnv.enable = true;
     emacs.enable = true;
     emacs.init.enable = true;
     firefox.enable = true;
     git.enable = true;
+    mercurial = {
+      enable = true;
+      userName = "Tad Fisher";
+      userEmail = "tadfisher@gmail.com";
+    };
     pass = {
       enable = true;
       package = pkgs.pass.withExtensions (e: [ e.pass-audit e.pass-otp ]);

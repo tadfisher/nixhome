@@ -17,7 +17,6 @@
   programs/chromium.nix
   programs/direnv.nix
   programs/emacs.nix
-  programs/emacs-init.nix
   programs/firefox.nix
   programs/git.nix
   programs/gnome-terminal.nix
@@ -29,6 +28,7 @@
   services/gpg-agent.nix
   services/inset.nix
   services/keybase.nix
+  services/mopidy.nix
   services/steam-controller.nix
 ] ++ (if builtins.pathExists ../local.nix then [
   ../local.nix
