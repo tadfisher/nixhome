@@ -27,7 +27,7 @@ rec {
   emacs27 = (emacs.override {
     withXwidgets = true;
   }).overrideAttrs (attrs: {
-    name = "emacs-27.0.90";
+    name = "emacs-27.0.91";
     src = fetchurl {
       url = "https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.0.91.tar.xz";
       sha256 = "1aj52fymw4iq9n5sahpb3wncm0cvshwmjr3833mirj6yhp9kv0cn";
@@ -51,12 +51,6 @@ rec {
   }));
 
   emacsPackagesCustom = epkgs: epkgs.overrideScope' (self: super: {
-    base16-theme = super.base16-theme.overrideAttrs (attrs: {
-      patches = [ (fetchpatch {
-        url = "https://patch-diff.githubusercontent.com/raw/belak/base16-emacs/pull/110.diff";
-        sha256 = "0jzrp53ki0yccyhn2xh4vcnvp25kmyyn5z1311zw7qpwb3wg7h19";
-      }) ];
-    });
     base16-plata-theme = self.callPackage ./emacs/base16-plata-theme {};
     pretty-tabs = self.callPackage ./emacs/pretty-tabs {};
     org-jira = self.callPackage ./emacs/org-jira.nix {};

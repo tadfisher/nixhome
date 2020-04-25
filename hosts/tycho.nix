@@ -1,14 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        "transmission-daemon@patapon.info"
-      ];
-    };
-  };
+  accounts.email.accounts."tadfisher@gmail.com".primary = true;
 
   home.packages = with pkgs; [
     brasero
@@ -35,11 +28,8 @@
     electronics.enable = true;
     games.enable = true;
 
-    gnome.extensions.packages = [ pkgs.gnomeExtensions.transmission-daemon ];
-
     nixos.enable = true;
   };
 
-
-  programs.home-manager.path = https://github.com/rycee/home-manager/archive/master.tar.gz;
+  programs.pass.stores.".local/share/pass/personal".primary = true;
 }
