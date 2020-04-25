@@ -113,6 +113,4 @@ rec {
   };
 
   rust-analyzer = callPackage ./rust-analyzer {};
-
-  simpleburn = callPackage ./simpleburn {};
 }
