@@ -92,6 +92,14 @@ in {
           relative to <varname>home.homeDirectory</varname>.
         '';
       };
+
+      primaryStore = mkOption {
+        type = types.attrs;
+        internal = true;
+        readOnly = true;
+        default = findFirst (s: s.primary) null
+            (attrValues cfg.stores);
+      };
     };
   };
 
@@ -118,10 +126,7 @@ in {
     home.packages = [ cfg.package ];
 
     home.sessionVariables = mkIf (cfg.stores != {}) {
-      PASSWORD_STORE_DIR =
-        getAttr "absPath"
-          (findFirst (s: s.primary) null
-            (attrValues cfg.stores));
+      PASSWORD_STORE_DIR = cfg.primaryStore.absPath;
     };
 
     programs.bash.shellAliases =

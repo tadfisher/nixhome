@@ -24,7 +24,9 @@ in {
     unzip
   ];
 
-  nixpkgs.config = import ./config.nix;
+  nixpkgs = {
+    config = import ./config.nix;
+  };
 
   passthru = {
     dataDir = ./data;

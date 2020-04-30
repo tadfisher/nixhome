@@ -3,7 +3,7 @@
 {
   programs.chromium = {
     package = pkgs.chromium.override {
-      commandLineArgs = [ 
+      commandLineArgs = [
         "--enable-features=OverlayScrollbar"
 #        "--enable-native-gpu-memory-buffers"
         "--enable-gpu-rasterization"
@@ -15,7 +15,9 @@
     extensions = [
       "naepdomgkenhinolocfifgehidddafch" # browserpass-ce
       "afjjoildnccgmjbblnklbohcbjehjaph" # Browserpass OTP
+      "ghbmnnjooekpmoecnnnilnnbdlolhkhi" # Google Docs Offline
       "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
     ];
   };
 }

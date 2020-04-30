@@ -63,9 +63,37 @@ in {
     programs.emacs.init.usePackage = {
       org-jira = {
         enable = true;
-        package = epkgs: (pkgs.emacsPackagesCustom epkgs).org-jira;
+        after = [ "org" "auth-source-pass" ];
+        init = ''
+          ;; https://github.com/ahungry/org-jira/pull/208
+          (defalias 'getf 'cl-getf)
+          (defalias 'reduce 'cl-reduce)
+        '';
         config = ''
-          (setq jiralib-url "https://banksimple.atlassian.net")
+          (setq jiralib-url "https://banksimple.atlassian.net"
+                jiralib-user-login-name "tad@simple.com"
+                jiralib-token `("Authorization" . ,(format "Basic %s" (base64-encode-string (concat "tad@simple.com" ":" (auth-source-pass-get 'secret "banksimple.atlassian.net/tad@simple.com")) t)))
+                org-jira-custom-jqls '(
+                  (:jql " assignee = currentUser() AND createdDate >= '2020-01-01' AND createdDate < '2021-01-01' ORDER BY status, priority DESC, created"
+                   :filename "jira-2020")
+                )
+                org-jira-done-states '("Closed" "Resolved" "Ready to Deploy" "Done")
+                org-jira-jira-status-to-org-keyword-alist '(
+                  ("In Triage" . "TODO")
+                  ("Backlog" . "TODO")
+                  ("Delivery Selected" . "READY")
+                  ("Ready for Eng" . "READY")
+                  ("In Progress" . "STARTED")
+                  ("Waiting for Third Party" . "WAITING")
+                  ("Peer Review" . "FEEDBACK")
+                  ("Test" . "FEEDBACK")
+                  ("Needs Review" . "FEEDBACK")
+                  ("Design QA" . "FEEDBACK")
+                  ("Ready to Deploy" . "DONE")
+                  ("Done" . "DONE")
+                )
+                org-jira-verbosity nil
+                org-jira-working-dir "${config.home.homeDirectory}/doc/org")
         '';
       };
     };

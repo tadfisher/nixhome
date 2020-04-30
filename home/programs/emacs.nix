@@ -9,8 +9,8 @@ let
 
   emacsPackage =
     if (config.profiles.desktop.enable)
-    then pkgs.emacs27
-    else pkgs.emacs27-nox;
+    then pkgs.emacsUnstable
+    else pkgs.emacsUnstable-nox;
 
 in
 
@@ -968,9 +968,10 @@ in
             ;; Add some todo keywords.
             (setq org-todo-keywords
                   '((sequence "TODO(t)"
+                              "READY(r)"
                               "STARTED(s!)"
-                              "WAITING(w@/!)"
-                              "DELEGATED(@!)"
+                              "WAITING(w@!)"
+                              "FEEDBACK(f!)"
                               "|"
                               "DONE(d!)"
                               "CANCELED(c@!)")))
@@ -997,7 +998,7 @@ in
           defer = true;
           config = ''
             ;; Set up agenda view.
-            (setq ;; org-agenda-files (rah-all-org-files)
+            (setq org-agenda-files '("${config.home.homeDirectory}/doc/org")
                   org-agenda-span 5
                   org-deadline-warning-days 14
                   org-agenda-show-all-dates t
@@ -1025,6 +1026,38 @@ in
           defer = true;
           config = ''
             (setq org-plantuml-jar-path "${pkgs.plantuml}/lib/plantuml.jar")
+          '';
+        };
+
+        org-roam = {
+          enable = true;
+          hook = [''(after-init . org-roam-mode)''];
+          bindLocal = {
+            org-roam-mode-map = {
+              "C-c n l" = "org-roam";
+              "C-c n f" = "org-roam-find-file";
+              "C-c n b" = "org-roam-switch-to-buffer";
+              "C-c n g" = "org-roam-graph";
+            };
+            org-mode-map = {
+              "C-c n i" = "org-roam-insert";
+            };
+          };
+          config = ''
+            (setq org-roam-directory "${config.home.homeDirectory}/doc/org"
+                  org-roam-graph-executable "${pkgs.graphviz}/bin/neato"
+                  org-roam-graph-extra-config '(("overlap" . "false"))
+                  org-roam-graph-viewer "${pkgs.xdg_utils}/bin/xdg-open"
+                  org-roam-completion-system 'ivy)
+            (require 'org-roam-protocol)
+          '';
+        };
+
+        company-org-roam = {
+          enable = true;
+          after = [ "company" ];
+          config = ''
+            (push 'company-org-roam company-backends);
           '';
         };
 
@@ -1383,8 +1416,10 @@ in
         dired = {
           enable = true;
           defer = true;
+          hook = [''(dired-mode . dired-hide-details-mode)''];
           config = ''
             (put 'dired-find-alternate-file 'disabled nil)
+            (setq dired-target-dwim t)
             ;; Use the system trash can.
             (setq delete-by-moving-to-trash t)
           '';
@@ -1406,7 +1441,22 @@ in
 
         dired-x = {
           enable = true;
-          after = [ "dired" ];
+          hook = [''(dired-mode . dired-omit-mode)''];
+        };
+
+        dired-hide-dotfiles = {
+          enable = true;
+          hook = [''(dired-mode . dired-hide-dotfiles-mode)''];
+          bindLocal = {
+            dired-mode-map = {
+              "C-c C-." = "dired-hide-dotfiles-mode";
+            };
+          };
+        };
+
+        all-the-icons-dired = {
+          enable = true;
+          hook = [''(dired-mode . all-the-icons-dired-mode)''];
         };
 
         recentf = {
@@ -1493,6 +1543,14 @@ in
 
         rainbow-mode = {
           enable = true;
+        };
+
+        auth-source-pass = {
+          enable = true;
+          config = ''
+            (setq auth-source-pass-filename "${config.programs.pass.primaryStore.absPath}")
+            (auth-source-pass-enable)
+          '';
         };
       };
     };

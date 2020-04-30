@@ -24,36 +24,9 @@ rec {
 
   faudio = callPackage ./faudio {};
 
-  emacs27 = (emacs.override {
-    withXwidgets = true;
-  }).overrideAttrs (attrs: {
-    name = "emacs-27.0.91";
-    src = fetchurl {
-      url = "https://alpha.gnu.org/gnu/emacs/pretest/emacs-27.0.91.tar.xz";
-      sha256 = "1aj52fymw4iq9n5sahpb3wncm0cvshwmjr3833mirj6yhp9kv0cn";
-    };
-    buildInputs = attrs.buildInputs ++ [
-      cairo harfbuzz gnome3.glib jansson lcms2 zlib
-    ];
-    patches = [
-      ./emacs/clean-env.patch
-      ./emacs/tramp-detect-wrapped-gvfsd.patch
-    ];
-  });
-
-  emacs27-nox = ((emacs27.override {
-    withX = false;
-    withXwidgets = false;
-    withGTK2 = false;
-    withGTK3 = false;
-  }).overrideAttrs(attrs: {
-    name = "emacs-nox-27.0.90";
-  }));
-
   emacsPackagesCustom = epkgs: epkgs.overrideScope' (self: super: {
     base16-plata-theme = self.callPackage ./emacs/base16-plata-theme {};
     pretty-tabs = self.callPackage ./emacs/pretty-tabs {};
-    org-jira = self.callPackage ./emacs/org-jira.nix {};
   });
 
   fakeos = callPackage ./fakeos {};
@@ -77,10 +50,6 @@ rec {
   };
 
   inset = callPackage ./inset {};
-
-  # inkscape = callPackage ./inkscape {
-  #   inherit (llvmPackages) openmp;
-  # };
 
   mkdocs-env = callPackage ./python/mkdocs-env.nix {
     python = python37;

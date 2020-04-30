@@ -3,6 +3,9 @@
 ;; Copyright (C) 2020  Tad Fisher
 
 ;; Author: Tad Fisher <tadfisher@gmail.com>
+;; URL: https://github.com/tadfisher/pretty-tabs.el
+;; Version 0.1
+;; Package-Requires: ((emacs "27"))
 ;; Keywords: frames
 
 ;; This program is free software; you can redistribute it and/or modify
