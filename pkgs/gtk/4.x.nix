@@ -58,7 +58,7 @@ with stdenv.lib;
 
 stdenv.mkDerivation rec {
   pname = "gtk4";
-  version = "3.98.0";
+  version = "3.98.3";
 
   outputs = [ "out" "dev" ] ++ optional withGtkDoc "devdoc";
   outputBin = "dev";
@@ -70,30 +70,8 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "mirror://gnome/sources/gtk/${stdenv.lib.versions.majorMinor version}/gtk-${version}.tar.xz";
-    sha256 = "1bn2knw9gcxiawcwsr61kiasx1fz1jxpcwskqf8wfixxkv1fdyym";
+    sha256 = "1zmq69ynvc3300n7sljm9qbyh7023ydsllsqjhsvhpvvab4fkmr5";
   };
-
-  patches = [
-    # ./patches/3.0-immodules.cache.patch
-    # (fetchpatch {
-    #   name = "Xft-setting-fallback-compute-DPI-properly.patch";
-    #   url = "https://bug757142.bugzilla-attachments.gnome.org/attachment.cgi?id=344123";
-    #   sha256 = "0g6fhqcv8spfy3mfmxpyji93k8d4p4q4fz1v9a1c1cgcwkz41d7p";
-    # })
-    # https://gitlab.gnome.org/GNOME/gtk/merge_requests/1002
-    ./patches/01-build-Fix-path-handling-in-pkgconfig.patch
-    (fetchpatch {
-      name = "install-gtkemojichooser-h.patch";
-      url = "https://gitlab.gnome.org/GNOME/gtk/-/commit/1b95cd27bc6a1a7a213a9587a56ffe1e60b85e6c.patch";
-      sha256 = "1706w2abrp5as696b2a6p4fvgx543irl7wqs7krsxmzdr3d9y4n3";
-    })
-  ];
-  # ++ optionals stdenv.isDarwin [
-    # X11 module requires <gio/gdesktopappinfo.h> which is not installed on Darwin
-    # let’s drop that dependency in similar way to how other parts of the library do it
-    # e.g. https://gitlab.gnome.org/GNOME/gtk/blob/3.24.4/gtk/gtk-launch.c#L31-33
-    # ./patches/3.0-darwin-x11.patch
-  # ];
 
   separateDebugInfo = stdenv.isLinux;
 
