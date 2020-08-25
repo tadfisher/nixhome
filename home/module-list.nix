@@ -2,7 +2,6 @@
   misc/gnome-paths.nix
   misc/gtk.nix
   misc/mail.nix
-  misc/xdg.nix
 
   profiles/desktop.nix
   profiles/dev.nix
@@ -21,6 +20,7 @@
   programs/git.nix
   programs/gnome-terminal.nix
   programs/pass.nix
+  programs/slack.nix
   programs/ssh.nix
   programs/zoom-us.nix
 

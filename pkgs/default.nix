@@ -15,6 +15,8 @@ rec {
 
   fetchsteam = callPackage ./fetchsteam {};
 
+  dart-sass = callPackage ./dart-sass {};
+
   dotxcompose = callPackage ./dotxcompose {};
 
   dxvk = callPackage ./dxvk {
@@ -27,6 +29,10 @@ rec {
   emacsPackagesCustom = epkgs: epkgs.overrideScope' (self: super: {
     base16-plata-theme = self.callPackage ./emacs/base16-plata-theme {};
     pretty-tabs = self.callPackage ./emacs/pretty-tabs {};
+
+    inherit (self.callPackage ./emacs/gnome-shell-mode {})
+      company-gnome-shell
+      gnome-shell-mode;
   });
 
   fakeos = callPackage ./fakeos {};
@@ -34,8 +40,6 @@ rec {
   firefox-gnome-theme = callPackage ./firefox/firefox-gnome-theme {};
 
   firefox-plata-theme = callPackage ./firefox/firefox-plata-theme {};
-
-  gnomeExtensions = callPackage ./gnome/extensions.nix {};
 
   gradle2nix = import ./gradle2nix;
 
@@ -51,14 +55,6 @@ rec {
 
   inset = callPackage ./inset {};
 
-  mkdocs-env = callPackage ./python/mkdocs-env.nix {
-    python = python37;
-  };
-
-  mopidy = python3Packages.callPackage ./mopidy {};
-
-  mopidy-gmusic = python3Packages.callPackage ./mopidy/gmusic.nix {};
-
   paper-icon-theme = super.paper-icon-theme.overrideAttrs (attrs: rec {
     version = "2020-03-12";
     name = "${attrs.pname}-${version}";
@@ -70,16 +66,11 @@ rec {
     };
   });
 
-  pythonPackages = python3Packages;
+  pass-git-helper = python3Packages.callPackage ./pass-git-helper {};
 
-  python37 = let
-    packageOverrides = pself: psuper: import ./python/default.nix {
-      inherit (pkgs) mkdocs;
-      python = super.python37;
-    };
-  in super.python37.override {
-    inherit packageOverrides;
-  };
+  python-3dsconv = python3Packages.callPackage ./3dsconv {};
 
-  rust-analyzer = callPackage ./rust-analyzer {};
+  sass-migrator = callPackage ./sass-migrator {};
+
+  mopidy-youtube-music = callPackage ./mopidy/youtube.nix {};
 }

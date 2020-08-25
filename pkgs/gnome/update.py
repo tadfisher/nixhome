@@ -11,7 +11,8 @@ shellVersion = sys.argv[1] if len(sys.argv) >= 2 else sys.exit('Usage: %s shell-
 
 domain = 'https://extensions.gnome.org'
 
-response = requests.get(f'{domain}/static/extensions.json')
+response = requests.get(f'{domain}/extension-query/',
+                        params={'n_per_page': '-1', 'sort': 'name', 'shell_version': shellVersion})
 
 out = {}
 
@@ -71,4 +72,4 @@ with open('extensions.json', 'w') as f:
 
 # cat extensions.json \
 #     | jq '@uri "https://extensions.gnome.org/download-extension/\(.uuid).shell-extension.zip?version_tag=\(.tag)"' \
-#     | nix-prefetch-url 
+#     | nix-prefetch-url

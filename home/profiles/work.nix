@@ -8,7 +8,7 @@ let
   simple-vpn = let
     script = pkgs.writeShellScriptBin "simple-vpn" ''
       set -e
-      vpn="simple-vpn-udp"
+      vpn="simple-vpn"
       nmcli con down "$vpn" &> /dev/null || true
       ${pkgs.networkmanager}/bin/nmcli --ask con up "$vpn" &> /dev/null
     '';
@@ -56,11 +56,21 @@ in {
     };
 
     home.packages = with pkgs; [
-      slack
       simple-vpn
+      zoom-us
     ];
 
     programs.emacs.init.usePackage = {
+      forge = {
+        config = ''
+          (add-to-list 'forge-alist
+                       '("github.banksimple.com"
+                         "github.banksimple.com/api"
+                         "github.banksimple.com"
+                         forge-github-repository))
+        '';
+      };
+
       org-jira = {
         enable = true;
         after = [ "org" "auth-source-pass" ];
@@ -120,6 +130,11 @@ in {
       };
     };
 
+    programs.slack = {
+      enable = true;
+      arguments = [ "--silent" ];
+    };
+
     programs.pass.stores = {
       ".local/share/pass/work" = {
         primary = true;
@@ -127,12 +142,29 @@ in {
       };
     };
 
-    programs.zoom-us.enable = true;
+    # programs.zoom-us.enable = true;
 
     xdg.configFile."git/config-work".text = ''
       [user]
-      email = tad@simple.com
-      signingKey = tad@simple.com
+          email = tad@simple.com
+          signingKey = tad@simple.com
+
+      [credential]
+          helper = ${pkgs.pass-git-helper}/bin/pass-git-helper
+
+      [github]
+          host = github.banksimple.com/api
+
+      [github "github.banksimple.com/api"]
+          user = tad
     '';
+
+    xdg.configFile."pass-git-helper/git-pass-mapping.ini".text = generators.toINI {} {
+      "github.com*" = {
+        target = "github.com/dirac";
+        line_username = 1;
+        skip_username = 6;
+      };
+    };
   };
 }

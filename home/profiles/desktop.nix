@@ -34,6 +34,7 @@ with lib;
       xorg.xhost
 
       emacs-all-the-icons-fonts
+      jetbrains-mono
       material-icons
       noto-fonts
       noto-fonts-cjk

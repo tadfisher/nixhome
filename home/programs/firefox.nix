@@ -73,11 +73,18 @@ in
         settings = {
           "browser.tabs.drawInTitlebar" = true;
           "browser.uidensity" = 0;
+          "extensions.pocket.enabled" = false;
+          "svg.context-properties.content.enabled" = true;
+          "toolkit.cosmeticAnimations.enabled" = false;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "ui.key.menuAccessKey" = 0; # Hide access key underlining
         };
 
         userChrome = ''
-          @import "/home/tad/proj/plata-theme/src/extra/firefox/dark.css";
+          @import "/home/tad/proj/firefox-plata-theme/result/plata-theme.css";
+          @import "/home/tad/proj/firefox-plata-theme/result/hide-single-tab.css";
+          @import "/home/tad/proj/firefox-plata-theme/result/system-icons.css";
+          @import "/home/tad/proj/firefox-plata-theme/result/drag-window-headerbar-buttons.css";
         '';
       };
 

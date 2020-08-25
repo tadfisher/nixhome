@@ -2,19 +2,21 @@
 
 let
   sysCfg = config.passthru.systemConfig or null;
+  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
 
 in {
-  imports = import home/module-list.nix ++ [
-    <nixpkgs/nixos/modules/misc/extra-arguments.nix>
+  imports = [
+    nur.repos.rycee.hmModules.emacs-init
     <nixpkgs/nixos/modules/misc/passthru.nix>
-  ];
+    <nixpkgs/nixos/modules/misc/extra-arguments.nix>
+  ] ++ import modules/module-list.nix
+    ++ import home/module-list.nix;
 
   home.packages = with pkgs; [
     dosfstools
     file
     gnupg
     lm_sensors
-    p7zip
     ripgrep
     rw
     telnet
@@ -30,6 +32,7 @@ in {
 
   passthru = {
     dataDir = ./data;
+    secrets = import "${config.home.homeDirectory}/${config.services.kbfs.mountPoint}/private/tad/secrets.nix";
   };
 
   profiles = {
@@ -45,10 +48,13 @@ in {
       };
     };
     direnv.enable = true;
-    emacs.enable = true;
-    emacs.init.enable = true;
+    emacs = {
+      enable = true;
+      init.enable = true;
+    };
     firefox.enable = true;
     git.enable = true;
+    home-manager.enable = true;
     mercurial = {
       enable = true;
       userName = "Tad Fisher";
@@ -66,7 +72,17 @@ in {
     kbfs.enable = true;
   };
 
-  systemd.user.startServices = true;
+  xdg.userDirs = {
+    enable = true;
+    desktop = "$HOME";
+    documents = "$HOME/doc";
+    download = "$HOME/download";
+    music = "$HOME/media/music";
+    pictures = "$HOME/media/image";
+    publicShare = "$HOME/public";
+    templates = "$HOME/templates";
+    videos = "$HOME/media/video";
+  };
 
-  programs.home-manager.enable = true;
+  systemd.user.startServices = true;
 }

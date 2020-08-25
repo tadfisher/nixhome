@@ -89,6 +89,7 @@ in {
         androidStudioPackages.canary
         cfg.android.sdk.finalPackage
         gitRepo
+        gnirehtet
       ];
 
       home.file = mkIf cfg.android.emulator.enableVulkan {
@@ -154,12 +155,12 @@ in {
       ];
 
       pam.sessionVariables = {
-        JAVA_HOME = "${pkgs.openjdk13.home}";
+        JAVA_HOME = "${pkgs.adoptopenjdk-bin.home}";
       };
 
       xdg.dataFile = {
         "java/openjdk8".source = pkgs.openjdk8.home;
-        "java/openjdk13".source = pkgs.openjdk13.home;
+         "java/adoptopenjdk".source = pkgs.adoptopenjdk-bin.home;
         "java/jetbrains".source = pkgs.jetbrains.jdk;
       };
     })

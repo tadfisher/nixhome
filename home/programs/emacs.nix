@@ -3,8 +3,6 @@
 with lib;
 
 let
-  nur = import <nur> { pkgs = null; };
-
   cfg = config.programs.emacs;
 
   emacsPackage =
@@ -15,11 +13,6 @@ let
 in
 
 {
-  imports = [
-     nur.repos.rycee.hmModules.emacs-init
-    ./emacs-lsp.nix
-  ];
-
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       ditaa
@@ -58,8 +51,7 @@ in
 
         (setq default-frame-alist
               '((vertical-scroll-bars . nil)
-                (width . 100)
-                (fullscreen . fullheight)))
+                (width . 100)))
 
         ;; Customize cursor.
         (setq-default cursor-type 'bar)
@@ -112,6 +104,13 @@ in
         ;; Trailing white space are banned!
         (setq-default show-trailing-whitespace t)
         (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+        ;; ...but sometimes we need to save a file with them.
+        (defun save-buffer-preserve-whitespace (&optional arg)
+          "Save the current buffer, preserving trailing whitespace."
+          (interactive "p")
+          (let ((before-save-hook (remove 'delete-trailing-whitespace before-save-hook)))
+            (save-buffer arg)))
 
         ;; Make a reasonable attempt at using one space sentence separation.
         (setq sentence-end "[.?!][]\"')}]*\\($\\|[ \t]\\)[ \t\n]*"
@@ -184,60 +183,56 @@ in
         ;; Just use bash, don't ask.
         (setq explicit-shell-file-name "${pkgs.bashInteractive}/bin/bash")
 
-        ;; Save my sessions.
-        (desktop-save-mode t)
+        ;; Unbind M-SPC, which I use as a prefix key.
+        (global-unset-key (kbd "M-SPC"))
       '';
 
       lsp = {
         enable = true;
         clients = {
-          "bash" = {
+          bash = {
+            require = "lsp-clients";
             modes = [ "sh-mode" ];
-            packages = [ pkgs.nodePackages.bash-language-server ];
+            executables.bash-language-server = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
           };
-          "clangd" = {
+          clangd = {
             require = "lsp-clients";
             modes = [ "c-mode" "c++mode" "objc-mode" ];
             config = ''
               (setq lsp-clients-clangd-executable "${pkgs.clang-tools}/bin/clangd")
             '';
           };
-          "clojure" = {
+          clojure = {
             modes = [ "clojure-mode" "clojurec-mode" "clojurescript-mode" ];
             config = ''
               (setq lsp-clojure-server-command '("${pkgs.clojure-lsp}/bin/clojure-lsp"))
             '';
           };
-          "css" = {
+          css = {
             modes = [ "css-mode" "less-css-mode" "sass-mode" "scss-mode" ];
-            packages = [ pkgs.nodePackages.vscode-css-languageserver-bin ];
+            executables.css-languageserver = "${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver";
           };
           # "dhall" = {
           #   modes = [ "dhall-mode" ];
           #   packages = [ pkgs.haskellPackages.dhall-lsp-server ];
           # };
-          "go" = {
+          go = {
             modes = [ "go-mode" ];
             config = ''
               (setq lsp-gopls-server-path "${pkgs.gotools}/bin/gopls")
             '';
           };
-          "html" = {
+          html = {
             modes = [ "html-mode" "sgml-mode" "mhtml-mode" "web-mode" ];
-            executables = {
-              "html-language-server" = "${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver";
-            };
-            config = ''
-              (setq lsp-html-server-command '("${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/" "--stdio"))
-            '';
+            executables.html-language-server = "${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver";
           };
-          "metals" = {
+          metals = {
             modes = [ "scala-mode" ];
             config = ''
               (setq lsp-metals-server-command '("${pkgs.metals}/bin/metals-emacs"))
             '';
           };
-          "rust" = {
+          rust = {
             modes = [ "rust-mode" ];
             config = ''
               (setq lsp-rust-analyzer-server-command '("${pkgs.rust-analyzer}/bin/rust-analyzer"))
@@ -247,8 +242,7 @@ in
         init = ''
           (setq lsp-eldoc-render-all nil
                 lsp-keymap-prefix "M-SPC l"
-                lsp-prefer-capf t
-                lsp-prefer-flymake nil)
+                lsp-prefer-capf t)
         '';
       };
 
@@ -280,14 +274,22 @@ in
 
         all-the-icons = {
           enable = true;
-          after = [ "tab-bar" ];
+          defer = true;
           config = ''
-            (setq tab-bar-close-button
-                  (propertize (all-the-icons-material "close" :face 'tab-bar-tab)
-                              'close-tab t
-                              :help "Close tab")
-                  tab-bar-new-button
-                  (all-the-icons-material "add" :face 'tab-bar))
+            (dolist
+                (entry '((forge-issue-list-mode       all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (forge-notifications-mode    all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (forge-post-mode             all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (forge-pullreq-list-mode     all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (forge-repository-list-mode  all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (forge-topic-list-mode       all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (forge-topic-mode            all-the-icons-alltheicon "git"                :face all-the-icons-lred)
+                         (notmuch-hello-mode          all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)
+                         (notmuch-message-mode        all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)
+                         (notmuch-search-mode         all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)
+                         (notmuch-show-mode           all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)
+                         (notmuch-tree-mode           all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)))
+              (add-to-list 'all-the-icons-mode-icon-alist entry))
           '';
         };
 
@@ -295,6 +297,9 @@ in
           enable = true;
           after = [ "tab-bar" "all-the-icons" ];
           package = epkgs: (pkgs.emacsPackagesCustom epkgs).pretty-tabs;
+          extraConfig = ''
+            :functions pretty-tabs-mode
+          '';
           config = ''
             (if (daemonp)
                 (progn
@@ -302,6 +307,22 @@ in
                   (add-hook 'server-after-make-frame-hook
                             'pretty-tabs-mode))
               (pretty-tabs-mode))
+          '';
+        };
+
+        tab-bar = {
+          enable = true;
+          after = [ "all-the-icons" ];
+          extraConfig = ''
+            :functions all-the-icons-material
+          '';
+          config = ''
+            (setq tab-bar-close-button
+                  (propertize (all-the-icons-material "close" :face 'tab-bar-tab)
+                              'close-tab t
+                              :help "Close tab")
+                  tab-bar-new-button
+                  (all-the-icons-material "add" :face 'tab-bar))
           '';
         };
 
@@ -375,6 +396,9 @@ in
 
         doom-modeline = {
           enable = true;
+          extraConfig = ''
+            :functions doom-modeline-mode
+          '';
           config = ''
             (setq doom-modeline-buffer-file-name-style 'truncate-except-project)
             (if (daemonp)
@@ -518,7 +542,21 @@ in
           command = [ "which-key-mode" ];
           diminish = [ "which-key-mode" ];
           defer = 2;
-          config = "(which-key-mode)";
+          config =
+            let
+              descriptions = {
+                "M-SPC p" = "project";
+              };
+              replacements = optionalString (descriptions != {}) ''
+                (which-key-add-key-based-replacements
+                  ${concatStringsSep "\n  " (mapAttrsToList (k: d: ''"${k}" "${d}"'') descriptions)})
+              '';
+
+            in ''
+              ${replacements}
+
+              (which-key-mode)
+            '';
         };
 
         # Enable winner mode. This global minor mode allows you to
@@ -577,7 +615,7 @@ in
         };
 
         ivy-prescient = {
-          enable = true;
+          enable = false;
           after = [ "ivy" ];
           config = ''
             (ivy-prescient-mode 1)
@@ -620,6 +658,8 @@ in
 
         counsel-projectile = {
           enable = true;
+          demand = true;
+          after = [ "projectile" ];
           config = ''
             (counsel-projectile-mode 1)
           '';
@@ -643,14 +683,16 @@ in
         # Configure magit, a nice mode for the git SCM.
         magit = {
           enable = true;
-          bind = {
-            "C-c g" = "magit-status";
-          };
           config = ''
             (setq magit-completing-read-function 'ivy-completing-read)
             (add-to-list 'git-commit-style-convention-checks
                          'overlong-summary-line)
           '';
+        };
+
+        forge = {
+          enable = true;
+          after = [ "magit" ];
         };
 
         git-messenger = {
@@ -726,7 +768,8 @@ in
         };
 
         direnv = {
-          enable = true;
+          enable = false;
+          command = [ "direnv-mode" ];
           config = ''
             (direnv-mode 1)
           '';
@@ -752,29 +795,6 @@ in
         lsp-ui = {
           enable = true;
           command = [ "lsp-ui-mode" ];
-          # bind = {
-          #   "M-SPC l d" = "lsp-ui-doc-show";
-          #   "M-SPC l s" = "lsp-ui-find-workspace-symbol";
-          # };
-          config = ''
-            (setq lsp-ui-sideline-enable t
-                  lsp-ui-sideline-show-symbol nil
-                  lsp-ui-sideline-show-hover nil
-                  lsp-ui-sideline-show-code-actions nil
-                  lsp-ui-sideline-update-mode 'point
-                  lsp-ui-doc-enable nil)
-          '';
-        };
-
-        company-lsp = {
-          enable = true;
-          after = [ "company" ];
-          command = [ "company-lsp" ];
-          config = ''
-            (setq company-lsp-enable-snippet t
-                  company-lsp-async t
-                  company-lsp-cache-candidates t)
-          '';
         };
 
         lsp-ivy = {
@@ -784,7 +804,7 @@ in
 
         lsp-treemacs = {
           enable = true;
-          after = [ "lsp-mode" "treemacs" ];
+          command = [ "lsp-treemacs-errors-list" ];
         };
 
         dap-mode = {
@@ -821,7 +841,7 @@ in
             ''("\\.hsc\\'" . haskell-mode)''
             ''("\\.c2hs\\'" . haskell-mode)''
             ''("\\.cpphs\\'" . haskell-mode)''
-            ''("\\.lhs\\'" . literate-haskell-mode)''
+            ''("\\.lhs\\'" . haskell-literate-mode)''
           ];
           hook = [
             ''
@@ -1029,38 +1049,6 @@ in
           '';
         };
 
-        org-roam = {
-          enable = true;
-          hook = [''(after-init . org-roam-mode)''];
-          bindLocal = {
-            org-roam-mode-map = {
-              "C-c n l" = "org-roam";
-              "C-c n f" = "org-roam-find-file";
-              "C-c n b" = "org-roam-switch-to-buffer";
-              "C-c n g" = "org-roam-graph";
-            };
-            org-mode-map = {
-              "C-c n i" = "org-roam-insert";
-            };
-          };
-          config = ''
-            (setq org-roam-directory "${config.home.homeDirectory}/doc/org"
-                  org-roam-graph-executable "${pkgs.graphviz}/bin/neato"
-                  org-roam-graph-extra-config '(("overlap" . "false"))
-                  org-roam-graph-viewer "${pkgs.xdg_utils}/bin/xdg-open"
-                  org-roam-completion-system 'ivy)
-            (require 'org-roam-protocol)
-          '';
-        };
-
-        company-org-roam = {
-          enable = true;
-          after = [ "company" ];
-          config = ''
-            (push 'company-org-roam company-backends);
-          '';
-        };
-
         org-table = {
           enable = true;
           after = [ "org" ];
@@ -1253,7 +1241,7 @@ in
           diminish = [ "projectile-mode" ];
           command = [ "projectile-mode" ];
           bindKeyMap = {
-            "C-c p" = "projectile-command-map";
+            "M-SPC p" = "projectile-command-map";
           };
           config = ''
             (setq projectile-enable-caching t
@@ -1287,7 +1275,8 @@ in
                         ([remap complete-symbol] . company-complete-common))
           '';
           config = ''
-            (setq company-idle-delay 0.3
+            (setq company-minimum-prefix-length 1
+                  company-idle-delay 0.0
                   company-show-numbers t)
           '';
         };
@@ -1417,6 +1406,9 @@ in
           enable = true;
           defer = true;
           hook = [''(dired-mode . dired-hide-details-mode)''];
+          init = ''
+            (setq dired-listing-switches "-al --group-directories-first")
+          '';
           config = ''
             (put 'dired-find-alternate-file 'disabled nil)
             (setq dired-target-dwim t)
@@ -1482,23 +1474,6 @@ in
           '';
         };
 
-        sendmail = {
-          enable = false;
-          mode = [
-            ''("mutt-" . mail-mode)''
-            ''("\\.article" . mail-mode))''
-          ];
-          hook = [
-            ''
-              (lambda ()
-                    (auto-fill-mode)     ; Avoid having to M-q all the time.
-                    ;; (rah-mail-flyspell)  ; I spel funily soemtijms.
-                    ;; (rah-mail-reftex)    ; Make it easy to include references.
-                    (mail-text))         ; Jump to the actual text.
-            ''
-          ];
-        };
-
         systemd = {
           enable = true;
           defer = true;
@@ -1511,8 +1486,7 @@ in
             "C-c t t" = "treemacs";
           };
           init = ''
-            (custom-set-variables
-              `(treemacs-python-executable "${pkgs.python3}/bin/python"))
+            (setq treemacs-python-executable "${pkgs.python3}/bin/python")
           '';
         };
 
@@ -1527,7 +1501,6 @@ in
 
         vterm = {
           enable = true;
-          package = epkgs: epkgs.emacs-libvterm;
           init = ''
             (defvar vterm-current-title)
           '';
@@ -1541,15 +1514,78 @@ in
           '';
         };
 
-        rainbow-mode = {
-          enable = true;
-        };
-
         auth-source-pass = {
           enable = true;
           config = ''
             (setq auth-source-pass-filename "${config.programs.pass.primaryStore.absPath}")
             (auth-source-pass-enable)
+          '';
+        };
+
+        notmuch = {
+          enable = true;
+          config = ''
+            (setq notmuch-search-oldest-first nil
+                  notmuch-archive-tags '("-inbox" "-unread")
+                  notmuch-crypto-gpg-program "${pkgs.gnupg}/bin/gpg2"
+                  notmuch-command "${pkgs.notmuch}/bin/notmuch"
+                  notmuch-address-save-filename "${config.xdg.cacheHome}/notmuch/address-cache"
+                  notmuch-mua-cite-function 'message-cite-original-without-signature)
+          '';
+        };
+
+        shr = {
+          enable = true;
+          defer = true;
+          config = ''
+            (setq shr-bullet "• "
+                  shr-use-colors nil)
+          '';
+        };
+
+        janet-mode = {
+          enable = true;
+          mode = [ ''"\\.janet\\'"'' ];
+        };
+
+        rust-mode = {
+          enable = true;
+          mode = [ ''"\\.rs\\'"'' ];
+        };
+
+        gnome-shell-mode = {
+          enable = true;
+          package = epkgs: (pkgs.emacsPackagesCustom epkgs).gnome-shell-mode;
+          command = [ "gnome-shell-mode" ];
+          # modeHydra = {
+          #   gnome-shell-mode = {
+          #     heads = {
+          #       Send = {
+          #         b = {
+          #           command = "gnome-shell-send-buffer";
+          #           hint = "buffer";
+          #         };
+          #       };
+          #     };
+          #   };
+          # };
+        };
+
+        css-mode = {
+          enable = true;
+          package = ""; # built-in
+          defer = true;
+          config = ''
+            (setq css-fontify-colors nil)
+          '';
+        };
+
+        # Auto-save buffers
+        super-save = {
+          enable = true;
+          config = ''
+            (super-save-mode 1)
+            (setq super-save-auto-save-when-idle t)
           '';
         };
       };

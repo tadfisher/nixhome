@@ -18,12 +18,14 @@ mkIf (config.gtk.enable) {
     };
     gtk2.extraConfig = ''
       gtk-cursor-blink = 0
+      gtk-im-module = "xim"
       gtk-key-theme-name = "Emacs"
     '';
     gtk3.extraConfig = {
-      gtk-cursor-blink = false;
-      gtk-key-theme-name = "Emacs";
       gtk-application-prefer-dark-theme = 1;
+      gtk-cursor-blink = false;
+      gtk-im-module = "xim";
+      gtk-key-theme-name = "Emacs";
     };
   };
 

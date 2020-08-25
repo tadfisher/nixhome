@@ -53,6 +53,7 @@ in {
         cursor-size = 16;
         cursor-theme = "Paper";
         document-font-name = "Noto Sans 9.75";
+        gtk-im-module = "xim";
         gtk-key-theme = "Emacs";
         monospace-font-name = "Roboto Mono 9.75";
         scaling-factor = 1;
@@ -194,13 +195,13 @@ in {
     };
 
     profiles.gnome.extensions = {
-      packages = with pkgs.gnomeExtensions; [
+      packages = with pkgs; [
         # dash-to-panel
         # freon
         # gsconnect
-        user-themes
         # workspace-indicator
-        paperwm
+        gnomeExtensions.paperwm
+        (gnome3.gnome-shell-extensions.overrideAttrs (attrs: attrs // { uuid = "user-theme@gnome-shell-extensions.gcampax.github.com"; }))
       ];
     };
 
