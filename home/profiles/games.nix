@@ -10,6 +10,7 @@ with lib;
       gnome3.gnome-chess
       enyo-doom
       gzdoom
+      protontricks
       steam
       steam-run
       stockfish

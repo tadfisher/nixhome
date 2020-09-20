@@ -136,6 +136,7 @@ in {
       };
 
       "org/gnome/shell" = {
+        always-show-log-out = true;
         enabled-extensions = cfg.extensions.ids
           ++ map (p: p.uuid) cfg.extensions.packages;
       };

@@ -55,10 +55,10 @@ with lib;
     };
 
     services = {
-      emacs = {
-        enable = true;
-        defaultEditor = true;
-      };
+      # emacs = {
+      #   enable = true;
+      #   defaultEditor = true;
+      # };
     };
   };
 }
