@@ -82,6 +82,8 @@ rec {
 
   firefox-plata-theme = callPackage ./firefox/firefox-plata-theme {};
 
+  gnomeExtensions = callPackage ./gnome/extensions.nix {};
+
   gradle2nix = import ./gradle2nix;
 
   kotlin-native = callPackage ./kotlin-native {
@@ -137,4 +139,16 @@ rec {
   valgrind-mmt-light = valgrind-mmt.override { gdb = null; };
 
   mopidy-youtube-music = callPackage ./mopidy/youtube.nix {};
+
+  yarn2nix-moretea = callPackage (fetchFromGitHub {
+      owner = "nix-community";
+      repo = "yarn2nix";
+      rev = "70666fc41fd64ade724aedf1d279d36567a6fd4c";
+      sha256 = "1wfbag8mimxbwdx2g3y807fvjkym73rq97lv4c4gk716nx8lpbcr";
+  });
+
+  inherit (yarn2nix-moretea)
+    yarn2nix
+    mkYarnPackage
+    fixup_yarn_lock;
 }
