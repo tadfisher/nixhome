@@ -13,7 +13,16 @@ mkIf config.programs.git.enable {
     userName = "Tad Fisher";
     userEmail = "tadfisher@gmail.com";
     ignores = [ "*~" "#*#" ];
-    signing.key = "tadfisher@gmail.com";
+    signing = {
+      key = "tadfisher@gmail.com";
+      signByDefault = true;
+    };
+    delta = {
+      enable = true;
+      options = {
+        features = "decorations";
+      };
+    };
     extraConfig = {
       branch = {
         autoSetupMerge = "true";

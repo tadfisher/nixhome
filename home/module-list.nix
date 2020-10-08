@@ -22,6 +22,7 @@
   programs/pass.nix
   programs/slack.nix
   programs/ssh.nix
+  programs/texlive.nix
   programs/zoom-us.nix
 
   services/emacs.nix

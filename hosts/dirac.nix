@@ -16,11 +16,13 @@
 
       android = {
         enable = true;
+        pkgs = /home/tad/proj/android-nixpkgs;
         sdk = {
           channel = "canary";
           packages = sdk: with sdk; [
             build-tools-29-0-3
             build-tools-30-0-2
+            cmdline-tools-latest
             emulator
             platform-tools
             platforms.android-29
@@ -33,7 +35,6 @@
             # system-images.android-26.google-apis-playstore.x86
             system-images.android-27.google-apis-playstore.x86
             system-images.android-29.google-apis-playstore.x86
-            tools
           ];
         };
       };
@@ -60,6 +61,7 @@
           IdentitiesOnly yes
           IdentityFile nix-ssh@tycho.lan
     '';
+    texlive.enable = true;
   };
 
   services = {

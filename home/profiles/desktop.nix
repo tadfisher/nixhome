@@ -6,6 +6,8 @@ with lib;
   options.profiles.desktop.enable = lib.mkEnableOption "desktop programs";
 
   config = mkIf config.profiles.desktop.enable {
+    fonts.fontconfig.enable = true;
+
     gtk.enable = true;
 
     home.keyboard.options = [ "ctrl:nocaps" "compose:prsc" ];

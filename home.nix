@@ -47,7 +47,19 @@ in {
         nixf = "${pkgs.nixFlakes}/bin/nix";
       };
     };
-    direnv.enable = true;
+    direnv = {
+      enable = true;
+      enableNixDirenvIntegration = true;
+      config = {
+        whitelist = {
+          prefix = [
+            "${config.home.homeDirectory}/proj"
+            "${config.home.homeDirectory}/simple"
+            "${config.home.homeDirectory}/src"
+          ];
+        };
+      };
+    };
     emacs = {
       enable = true;
       init.enable = true;

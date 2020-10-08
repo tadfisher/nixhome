@@ -19,6 +19,11 @@ in rec {
 
     packageRequires = [ js2-mode flycheck ];
 
+    postInstall = ''
+      install -D gnome-shell-mode@hedning:matrix.org/* -t $out/share/emacs/site-lisp
+      install bootstrap.js session.sh $out/share/emacs/site-lisp
+    '';
+
     meta = with lib; {
       description = "Tight integration of emacs with gnome-shell";
       homepage = "https://github.com/paperwm/gnome-shell-mode";

@@ -2,15 +2,15 @@
 
 stdenv.mkDerivation rec {
   pname = "paperwm";
-  version = "unstable-2020-03-02";
+  version = "unstable-2020-08-23";
 
   uuid = "paperwm@hedning:matrix.org";
 
   src = fetchFromGitHub {
     owner = "paperwm";
     repo = "PaperWM";
-    rev = "42a69e6c8b748723fcf06e0c4219b8fc2a40fc04";
-    sha256 = "05k884k3c4vck4fvca3cx8hrrpkqdyc7hkyshq7pb560pdfklm97";
+    rev = "40a750918845f3c708dd1b51a40f2d29c48808c2";
+    sha256 = "01r2ifwrl8w735d0ckzlwhvclax9dxd2ld5y2svv5bp444zbjsag";
   };
 
   buildPhase = ''

@@ -5,6 +5,9 @@
 with pkgs;
 
 rec {
+  androidStudioPackages = super.androidStudioPackages
+                          // (callPackage ./android-studio {});
+
   base16-builder-go = callPackage ./base16-builder-go {};
 
   clang-tools = super.clang-tools.override {
@@ -26,14 +29,30 @@ rec {
 
   faudio = callPackage ./faudio {};
 
+  # https://github.com/mickeynp/ligature.el/issues/10#issuecomment-690049372
+  emacs = super.emacs.overrideAttrs (attrs: {
+    patches = (attrs.patches or []) ++ [
+      (fetchpatch {
+        url = "https://git.savannah.gnu.org/cgit/emacs.git/patch/?id=fe903c5ab7354b97f80ecf1b01ca3ff1027be446";
+        sha256 = "0zldjs8nx26x7r8pwjc995lvpg06iv52rq4cy1w38hxhy7vp8lp3";
+      })
+    ];
+  });
+
   emacsPackagesCustom = epkgs: epkgs.overrideScope' (self: super: {
     base16-plata-theme = self.callPackage ./emacs/base16-plata-theme {};
+    ligature = self.callPackage ./emacs/ligature {};
     pretty-tabs = self.callPackage ./emacs/pretty-tabs {};
+    org-cv = self.callPackage ./emacs/org-cv {};
 
     inherit (self.callPackage ./emacs/gnome-shell-mode {})
       company-gnome-shell
       gnome-shell-mode;
   });
+
+  gnomeExtensionsCustom = callPackage ./gnome/extensions.nix {};
+
+  hidrd = callPackage ./hidrd {};
 
   fakeos = callPackage ./fakeos {};
 

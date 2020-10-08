@@ -84,8 +84,6 @@ in {
 
     (mkIf cfg.android.enable {
       home.packages = with pkgs; [
-        androidStudioPackages.stable
-        androidStudioPackages.beta
         androidStudioPackages.canary
         cfg.android.sdk.finalPackage
         gitRepo
@@ -155,12 +153,11 @@ in {
       ];
 
       pam.sessionVariables = {
-        JAVA_HOME = "${pkgs.adoptopenjdk-bin.home}";
+        JAVA_HOME = "${pkgs.openjdk11.home}";
       };
 
       xdg.dataFile = {
-        "java/openjdk8".source = pkgs.openjdk8.home;
-         "java/adoptopenjdk".source = pkgs.adoptopenjdk-bin.home;
+        "java/openjdk11".source = pkgs.openjdk11.home;
         "java/jetbrains".source = pkgs.jetbrains.jdk;
       };
     })

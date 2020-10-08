@@ -5,29 +5,38 @@ with lib;
 let
   cfg = config.programs.emacs;
 
-  emacsPackage =
-    if (config.profiles.desktop.enable)
-    then pkgs.emacsUnstable
-    else pkgs.emacsUnstable-nox;
-
 in
 
 {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       ditaa
+      emacs-all-the-icons-fonts
       freefont_ttf
       graphviz
       (hunspellWithDicts [ hunspellDicts.en-us])
+      jetbrains-mono
       jre
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
       plantuml
+      roboto
+      roboto-mono
       silver-searcher
     ];
 
-    programs.emacs.package = emacsPackage;
+    programs.emacs.package = if (config.profiles.desktop.enable) then pkgs.emacs else pkgs.emacs-nox;
 
     programs.emacs.overrides = self: super: rec {
-      seq = emacsPackage;
+      seq = cfg.package;
+      magit-delta = super.magit-delta.overrideAttrs (attrs: {
+        nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [ config.programs.git.package ];
+      });
+      treemacs = super.treemacs.overrideAttrs (attrs: {
+        nativeBuildInputs = (attrs.nativeBuildInputs or []) ++ [ pkgs.python3 ];
+      });
     };
 
     programs.emacs.init = {
@@ -60,7 +69,8 @@ in
         (set-face-attribute 'default
                             nil
                             :height 97
-                            :family "Roboto Mono")
+                            :family "JetBrains Mono"
+                            :weight 'normal)
         (set-face-attribute 'variable-pitch
                             nil
                             :family "Roboto")
@@ -133,19 +143,6 @@ in
         ;; Set a reasonable default fill-column.
         (setq-default fill-column 100)
 
-        ;; Display the fill-column in editable buffers.
-        (with-eval-after-load 'display-fill-column-indicator
-          (add-hook 'display-fill-column-indicator-mode-hook
-                    (lambda (&rest _)
-                      (if display-fill-column-indicator-mode
-                          (setq display-fill-column-indicator
-                                (not (or buffer-read-only
-                                         (derived-mode-p 'comint-mode))))))))
-        (global-display-fill-column-indicator-mode)
-
-        (set-face-attribute 'fill-column-indicator nil
-                            :family "FreeMono")
-
         ;; Improved handling of clipboard in GNU/Linux and otherwise.
         (setq select-enable-clipboard t
               select-enable-primary t
@@ -191,7 +188,7 @@ in
         enable = true;
         clients = {
           bash = {
-            require = "lsp-clients";
+            require = "lsp-bash";
             modes = [ "sh-mode" ];
             executables.bash-language-server = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
           };
@@ -236,6 +233,8 @@ in
             modes = [ "rust-mode" ];
             config = ''
               (setq lsp-rust-analyzer-server-command '("${pkgs.rust-analyzer}/bin/rust-analyzer"))
+              (setf (lsp--client-environment-fn (gethash 'rust-analyzer lsp-clients))
+                    (lambda () `(("PATH" . ,(concat "${pkgs.cargo}/bin:${pkgs.rustfmt}/bin:" (getenv "PATH"))))))
             '';
           };
         };
@@ -290,6 +289,21 @@ in
                          (notmuch-show-mode           all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)
                          (notmuch-tree-mode           all-the-icons-material   "mail" :v-adjust 0.0 :face all-the-icons-red)))
               (add-to-list 'all-the-icons-mode-icon-alist entry))
+          '';
+        };
+
+        display-fill-column-indicator = {
+          enable = true;
+          package = epkg: cfg.package;
+          hook = [ ''
+            (display-fill-column-indicator . (lambda ()
+                                               (when display-fill-column-indicator-mode
+                                                 (setq display-fill-column-indicator
+                                                       (not (or buffer-read-only
+                                                       (derived-mode-p 'comint-mode)))))))
+          '' ];
+          config = ''
+            (global-display-fill-column-indicator-mode)
           '';
         };
 
@@ -484,6 +498,29 @@ in
           ];
           config = ''
             (setq js-indent-level 2)
+          '';
+        };
+
+        ligature = {
+          enable = true;
+          package = epkgs: (pkgs.emacsPackagesCustom epkgs).ligature;
+          config = ''
+            (ligature-set-ligatures 'prog-mode '("-->" "//" "/**" "/*" "*/" "<!--" ":=" "->>" "<<-"
+                                                 "->" "<-" "<=>" "==" "!=" "<=" ">=" "=:=" "!=="
+                                                 "&&" "&&&" "||" "..." ".." "///" "===" "++" "--"
+                                                 "=>" "|>" "<|" "||>" "<||" "|||>" "<|||::=" "|]"
+                                                 "[|" "|}" "{|" "[<" ">]" ":?>" ":?" "/=" "[||]"
+                                                 "!!" "?:" "?." "::" "+++" "??" "##" "###" "####"
+                                                 ":::" ".?" "?=" "=!=" "<|>" "<:" ":<" ":>" ">:"
+                                                 "<>" "***" ";;" "/==" ".=" ".-" "__" "=/=" "<-<"
+                                                 "<<<" ">>>" "<=<" "<<=" "<==" "<==>" "==>" "=>>"
+                                                 ">=>" ">>=" ">>-" ">-" "<~>" "-<" "-<<" "<<" "---"
+                                                 "<-|" "<=|" "\\" "\\/" "|=>" "|->" "<~~" "<~" "~~"
+                                                 "~~>" "~>" "<$>" "<$" "$>" "<+>" "<+" "+>" "<*>"
+                                                 "<*" "*>" "</" "</>" "/>" "<->" "..<" "~=" "~-"
+                                                 "-~" "~@" "^=" "-|" "_|_" "|-" "||-" "|=" "||="
+                                                 "#{" "#[" "]#" "#(" "#?" "#_" "#_(" "#:" "#!" "#="))
+            (global-ligature-mode t)
           '';
         };
 
@@ -684,9 +721,19 @@ in
         magit = {
           enable = true;
           config = ''
-            (setq magit-completing-read-function 'ivy-completing-read)
+            (setq magit-completing-read-function 'ivy-completing-read
+                  magit-git-executable "${config.programs.git.package}/bin/git")
             (add-to-list 'git-commit-style-convention-checks
                          'overlong-summary-line)
+          '';
+        };
+
+        magit-delta = {
+          enable = true;
+          after = [ "magit" ];
+          config = ''
+            (setq magit-delta-delta-executable "${pkgs.gitAndTools.delta}/bin/delta")
+            (magit-delta-mode)
           '';
         };
 
@@ -768,9 +815,13 @@ in
         };
 
         direnv = {
-          enable = false;
-          command = [ "direnv-mode" ];
+          enable = true;
+          demand = true;
+          hook = [
+            ''(lsp-before-initialize . direnv-update-environment)''
+          ];
           config = ''
+            (setq direnv-always-show-summary nil)
             (direnv-mode 1)
           '';
         };
@@ -923,6 +974,9 @@ in
 
         nix-buffer = {
           enable = true;
+          init = ''
+            (defvar eshell-path-env "");
+          '';
         };
 
         nix-build = {
@@ -956,10 +1010,13 @@ in
         org = {
           enable = true;
           bind = {
-            "C-c c" = "org-capture";
-            "C-c a" = "org-agenda";
-            "C-c l" = "org-store-link";
-            "C-c b" = "org-switchb";
+            "M-SPC o c" = "org-capture";
+            "M-SPC o a" = "org-agenda";
+            "M-SPC o l" = "org-store-link";
+            "M-SPC o b" = "org-switchb";
+          };
+          bindKeyMap = {
+            "M-SPC M-SPC" = "org-mode-map";
           };
           hook = [
             ''
@@ -976,28 +1033,36 @@ in
 
             ;; (setq org-tag-alist rah-org-tag-alist)
 
-            ;; Refiling should include not only the current org buffer but
-            ;; also the standard org files. Further, set up the refiling to
-            ;; be convenient with IDO. Follows norang's setup quite closely.
-            (setq org-refile-targets '((nil :maxlevel . 2)
-                                       (org-agenda-files :maxlevel . 2))
+            ;; GTD
+            (defun tad/org-archive-done ()
+              "Archive all DONE tasks."
+              (interactive)
+              (org-map-entries 'org-archive-subtree "/DONE" 'file))
+
+            (require 'find-lisp)
+
+            (setq org-directory "${config.home.homeDirectory}/doc/org"
+                  tad/org-inbox (expand-file-name "inbox.org" org-directory)
+                  tad/org-email (expand-file-name "email.org" org-directory)
+                  org-capture-templates
+                  `(("i" "inbox" entry (file ,tad/org-inbox)
+                     "* TODO %?")
+                    ("e" "email" entry (file+headline ,tad/org-email "Emails")
+                     "* TODO [#A] Reply: %a" :immediate-finish t)
+                    ("l" "link" entry (file ,tad/org-inbox)
+                     "* TODO %(org-cliplink-capture)" :immediate-finish t)
+                    ("c" "org-protocol-capture" entry (file ,tad/org-inbox)
+                     "* TODO [[%:link][%:description]]\n\n %i" :immediate-finish t))
+                  org-todo-keywords
+                  '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                    (sequence "WAITING(w@/!)" "HOLD(h@/!)" "CANCELED(c@/!)"))
+                  org-log-done 'time
+                  org-log-into-drawer t
+                  org-log-state-notes-insert-after-drawers nil
+                  org-refile-targets '((org-agenda-files :level . 1))
                   org-refile-use-outline-path t
                   org-outline-path-complete-in-steps nil
                   org-refile-allow-creating-parent-nodes 'confirm)
-
-            ;; Add some todo keywords.
-            (setq org-todo-keywords
-                  '((sequence "TODO(t)"
-                              "READY(r)"
-                              "STARTED(s!)"
-                              "WAITING(w@!)"
-                              "FEEDBACK(f!)"
-                              "|"
-                              "DONE(d!)"
-                              "CANCELED(c@!)")))
-
-            ;; Setup org capture.
-            ;; (setq org-default-notes-file (rah-org-file "capture"))
 
             ;; Active Org-babel languages
             (org-babel-do-load-languages 'org-babel-load-languages
@@ -1014,18 +1079,22 @@ in
 
         org-agenda = {
           enable = true;
-          after = [ "org" ];
+          after = [ "org" "transient" ];
           defer = true;
           config = ''
-            ;; Set up agenda view.
-            (setq org-agenda-files '("${config.home.homeDirectory}/doc/org")
+            (setq org-agenda-files `(,org-directory)
                   org-agenda-span 5
                   org-deadline-warning-days 14
                   org-agenda-show-all-dates t
                   org-agenda-skip-deadline-if-done t
                   org-agenda-skip-scheduled-if-done t
-                  org-agenda-start-on-weekday nil)
+                  org-agenda-start-on-weekday t)
           '';
+        };
+
+        org-protocol = {
+          enable = true;
+          demand = true;
         };
 
         # org-mobile = {
@@ -1047,6 +1116,10 @@ in
           config = ''
             (setq org-plantuml-jar-path "${pkgs.plantuml}/lib/plantuml.jar")
           '';
+        };
+
+        org-ql = {
+          enable = true;
         };
 
         org-table = {
@@ -1118,6 +1191,27 @@ in
         org-tree-slide = {
           enable = true;
           command = [ "org-tree-slide-mode" ];
+        };
+
+        ox-moderncv = {
+          enable = true;
+          package = epkgs: (pkgs.emacsPackagesCustom epkgs).org-cv;
+          after = [ "ox-publish" ];
+          config = ''
+            (defun org-moderncv-export-to-pdf
+                (&optional async subtreep visible-only body-only ext-plist)
+              "Export current buffer as a moderncv CV (PDF)."
+              (interactive)
+              (let ((file (org-export-output-file-name ".tex" subtreep)))
+                (org-export-to-file 'moderncv file
+                  async subtreep visible-only body-only ext-plist
+                  (lambda (file) (org-latex-compile file)))))
+
+            (let ((backend (org-export-get-backend 'moderncv)))
+              (setf (org-export-backend-menu backend)
+                    '(?l 1
+                         ((?C "As PDF file (moderncv)" org-moderncv-export-to-pdf)))))
+          '';
         };
 
         # Set up yasnippet. Defer it for a while since I don't generally
@@ -1458,7 +1552,9 @@ in
             (setq recentf-save-file (locate-user-emacs-file "recentf")
                   recentf-max-menu-items 20
                   recentf-max-saved-items 500
-                  recentf-exclude '("COMMIT_MSG" "COMMIT_EDITMSG"))
+                  recentf-exclude '("COMMIT_MSG"
+                                    "COMMIT_EDITMSG"
+                                    "^/\\(?:ssh\\|su\\|sudo\\)?:"))
           '';
         };
 
