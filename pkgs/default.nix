@@ -74,6 +74,8 @@ rec {
 
   inkwave = callPackage ./inkwave {};
 
+  horizon-eda = callPackage ./horizon-eda {};
+
   fakeos = callPackage ./fakeos {};
 
   firebase-tools = nodePackages.firebase-tools;

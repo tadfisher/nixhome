@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       eagle
+      horizon-eda
       kicad
       librepcb
       openscad

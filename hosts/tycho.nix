@@ -23,7 +23,7 @@
         sdk = {
           channel = "canary";
           packages = sdk: with sdk; [
-            tools
+            cmdline-tools-latest
             build-tools-29-0-1
             build-tools-29-0-2
             build-tools-29-0-3
