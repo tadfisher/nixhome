@@ -13,9 +13,12 @@ in {
     ++ import home/module-list.nix;
 
   home.packages = with pkgs; [
+    bash-completion
+    curl
     dosfstools
     file
     gnupg
+    jq
     lm_sensors
     ripgrep
     rw
@@ -72,10 +75,7 @@ in {
       userName = "Tad Fisher";
       userEmail = "tadfisher@gmail.com";
     };
-    pass = {
-      enable = true;
-      package = pkgs.pass.withExtensions (e: [ e.pass-audit e.pass-otp ]);
-    };
+    pass.enable = true;
     ssh.enable = true;
   };
 

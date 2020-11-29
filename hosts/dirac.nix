@@ -16,7 +16,6 @@
 
       android = {
         enable = true;
-        pkgs = /home/tad/proj/android-nixpkgs;
         sdk = {
           channel = "canary";
           packages = sdk: with sdk; [
@@ -30,6 +29,7 @@
             skiaparser-1
             sources.android-28
             sources.android-29
+            sources.android-30
             system-images.android-23.google-apis.x86
             system-images.android-24.google-apis.x86
             # system-images.android-26.google-apis-playstore.x86
@@ -50,8 +50,8 @@
   };
 
   programs = {
-    # home-manager.path = "<home-manager>";
-    home-manager.path = "$HOME/src/home-manager";
+    home-manager.path = "<home-manager>";
+    # home-manager.path = "$HOME/src/home-manager";
     lieer.enable = true;
     ssh.extraConfig = ''
       Host tycho,tycho.lan
@@ -69,18 +69,4 @@
     lieer.enable = true;
     mopidy.enable = true;
   };
-
-  # services.mopidy = {
-  #   enable = true;
-  #   extensionPackages = [ pkgs.mopidy-gmusic ];
-  #   configuration = ''
-  #     [audio]
-  #     mixer = none
-
-  #     [gmusic]
-  #     bitrate = 320
-  #     radio_stations_as_playlists = true
-  #     refresh_token = 1//06tBrxx4yIYufCgYIARAAGAYSNwF-L9Irk23FK3hynXZDCZ6qIQ-yfammgstT-tXtHrYNbOHKWQY2C61tYUDKBb_wC2ujNEnE2zc
-  #   '';
-  # };
 }

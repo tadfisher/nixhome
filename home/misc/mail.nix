@@ -9,14 +9,28 @@ let
 
   cfgEmail = config.accounts.email;
 
+  sendmail = pkgs.writeShellScript "lieer-sendmail" ''
+    declare -a args
+    args=()
+    for arg in "$@"; do
+        case "$arg" in
+            -o*) continue ;;
+            *) args+="$arg" ;;
+        esac
+    done
+    ${pkgs.lieer}/bin/gmi send "''${args[@]}"
+  '';
+
   notmuchAccounts = filter (a: a.notmuch.enable) (attrValues cfgEmail.accounts);
+
+  primaryAccount = builtins.head (filter (a: a.primary) notmuchAccounts);
 
   # Enable prompting for sender if multiple accounts are defined.
   notmuchPromptFrom = if length notmuchAccounts > 1 then "'t" else "nil";
 
   elispMaildirPaths = let
-    mkPath = account: ''("${account.address}" . "${account.maildir.absPath}")'';
-  in '''(${concatMapStringsSep " " mkPath notmuchAccounts})'';
+    mkCons = account: ''("${account.address}" . "${account.maildir.absPath}")'';
+  in '''(${concatMapStringsSep " " mkCons notmuchAccounts})'';
 
   elispFromAddress =
     ''(nth 1 (mail-extract-address-components (message-field-value "From")))'';
@@ -26,16 +40,16 @@ let
 
   messageSendHookFunction = ''
     (setq hm--message-maildir-paths ${elispMaildirPaths})
-
     (defun hm--message-send ()
       (make-local-variable 'message-user-fqdn)
       (make-local-variable 'message-sendmail-extra-arguments)
-      (let* ((from ${elispFromAddress})
-             (path (alist-get from hm--message-maildir-paths)))
+      (when-let* ((from ${elispFromAddress})
+             (path (cdr (assoc from hm--message-maildir-paths))))
         ; Set the host part of the Message-ID to the email address host.
         (setq message-user-fqdn ${elispFromHost})
-        (when path
-          (setq message-sendmail-extra-arguments '("send" "--quiet" "-t" "-C" path)))))
+        (setq message-sendmail-extra-arguments `("--quiet" "-t" "-C" ,path))))
+
+    (add-hook 'message-send-mail-hook 'hm--message-send)
   '';
 
   # Advice the notmuch-draft-save function to save if the correct
@@ -89,11 +103,11 @@ in {
       enable = true;
       package = "";
       defer = true;
-      hook = [ "(message-send . hm--message-send)" ];
       config = ''
         ${messageSendHookFunction}
 
-        (setq message-directory "${cfgEmail.maildirBasePath}")
+        (setq message-directory "${cfgEmail.maildirBasePath}"
+              message-sendmail-extra-arguments '("--quiet" "-t" "-C" "${primaryAccount.maildir.absPath}"))
       '';
     };
 
@@ -116,7 +130,7 @@ in {
       defer = true;
       config = ''
         (setq send-mail-function #'sendmail-send-it
-              sendmail-program "${pkgs.gmailieer}/bin/gmi")
+              sendmail-program "${sendmail}")
       '';
     };
   };

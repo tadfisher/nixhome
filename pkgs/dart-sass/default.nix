@@ -1,13 +1,13 @@
 { stdenv, fetchFromGitHub, runtimeShell, makeWrapper, dart }:
 
 let
-  version = "1.26.10";
+  version = "1.29.0";
 
   src = fetchFromGitHub {
     owner = "sass";
     repo = "dart-sass";
     rev = version;
-    sha256 = "0qnqjd1ny8cm0jzd9fjacf12628ilc7py9p0fziww0d6n70cgrr0";
+    sha256 = "1zf8ykwq1dxw5wc95ma10g3m9yk2ajbqc0r8qqx1b10h9df1w50f";
   };
 
   deps = stdenv.mkDerivation rec {
@@ -16,7 +16,7 @@ let
 
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "1fx8x0cb6cb8ps4jhly7b4bprg238fral1dhgpwn3k0qzsn2z5rf";
+    outputHash = "065640yfz6ic8sw3mdvvf6pgvxdrfpj0z09kk8d747ga21xffbxk";
 
     buildPhase = ''
       cp ${./pubspec.lock} pubspec.lock

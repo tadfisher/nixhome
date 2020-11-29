@@ -111,6 +111,7 @@ in {
 
       profiles.dev.jvm.gradleProperties = ''
           org.gradle.jvmargs=-Xms512m -Xmx4096m -XX:+CMSClassUnloadingEnabled
+          # android.aapt2FromMavenOverride=${(import cfg.android.pkgs {}).aapt2}/bin/aapt2
         '';
 
       programs.chromium.extensions = [
@@ -157,6 +158,7 @@ in {
       };
 
       xdg.dataFile = {
+        "java/openjdk8".source = pkgs.openjdk8.home;
         "java/openjdk11".source = pkgs.openjdk11.home;
         "java/jetbrains".source = pkgs.jetbrains.jdk;
       };

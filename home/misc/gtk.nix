@@ -37,6 +37,6 @@ mkIf (config.gtk.enable) {
 
   qt = {
     enable = mkDefault true;
-    platformTheme = mkDefault "gtk";
+    platformTheme = mkDefault "gnome";
   };
 }

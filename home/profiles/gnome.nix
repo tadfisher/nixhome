@@ -200,7 +200,7 @@ in {
         # freon
         # gsconnect
         # workspace-indicator
-        gnomeExtensions.dash-to-panel
+        gnomeExtensionsCustom.dash-to-panel
         gnomeExtensions.paperwm
         (gnome3.gnome-shell-extensions.overrideAttrs (attrs: attrs // { uuid = "user-theme@gnome-shell-extensions.gcampax.github.com"; }))
       ];

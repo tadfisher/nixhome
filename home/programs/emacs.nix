@@ -27,7 +27,15 @@ in
       silver-searcher
     ];
 
-    programs.emacs.package = if (config.profiles.desktop.enable) then pkgs.emacs else pkgs.emacs-nox;
+    programs.bash.initExtra =
+      let
+        vterm = (pkgs.emacsPackagesFor cfg.package).vterm;
+      in
+        ''
+          . ${vterm}/share/emacs/site-lisp/elpa/${vterm.ename}-${vterm.version}/etc/emacs-vterm-bash.sh
+        '';
+
+    programs.emacs.package = if (config.profiles.desktop.enable) then pkgs.emacsGccPgtk else pkgs.emacs-nox;
 
     programs.emacs.overrides = self: super: rec {
       seq = cfg.package;
@@ -68,12 +76,13 @@ in
         ;; Set up fonts early.
         (set-face-attribute 'default
                             nil
-                            :height 97
+                            :height 98
                             :family "JetBrains Mono"
-                            :weight 'normal)
+                            :weight 'semi-light)
         (set-face-attribute 'variable-pitch
                             nil
-                            :family "Roboto")
+                            :family "Roboto"
+                            :height 98)
 
         ;; Set frame title.
         (setq frame-title-format
@@ -111,16 +120,8 @@ in
                       tab-width 4
                       c-basic-offset 4)
 
-        ;; Trailing white space are banned!
-        (setq-default show-trailing-whitespace t)
-        (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-        ;; ...but sometimes we need to save a file with them.
-        (defun save-buffer-preserve-whitespace (&optional arg)
-          "Save the current buffer, preserving trailing whitespace."
-          (interactive "p")
-          (let ((before-save-hook (remove 'delete-trailing-whitespace before-save-hook)))
-            (save-buffer arg)))
+        (defvar tad/read-only-modes '(read-only-mode special-mode comint-mode vterm-mode)
+          "Modes to treat as read-only for UI purposes.")
 
         ;; Make a reasonable attempt at using one space sentence separation.
         (setq sentence-end "[.?!][]\"')}]*\\($\\|[ \t]\\)[ \t\n]*"
@@ -188,12 +189,11 @@ in
         enable = true;
         clients = {
           bash = {
-            require = "lsp-bash";
             modes = [ "sh-mode" ];
-            executables.bash-language-server = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
+            executables.bash-language-server =
+              "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
           };
           clangd = {
-            require = "lsp-clients";
             modes = [ "c-mode" "c++mode" "objc-mode" ];
             config = ''
               (setq lsp-clients-clangd-executable "${pkgs.clang-tools}/bin/clangd")
@@ -207,7 +207,8 @@ in
           };
           css = {
             modes = [ "css-mode" "less-css-mode" "sass-mode" "scss-mode" ];
-            executables.css-languageserver = "${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver";
+            executables.css-languageserver =
+              "${pkgs.nodePackages.vscode-css-languageserver-bin}/bin/css-languageserver";
           };
           # "dhall" = {
           #   modes = [ "dhall-mode" ];
@@ -221,7 +222,14 @@ in
           };
           html = {
             modes = [ "html-mode" "sgml-mode" "mhtml-mode" "web-mode" ];
-            executables.html-language-server = "${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver";
+            executables.html-language-server =
+              "${pkgs.nodePackages.vscode-html-languageserver-bin}/bin/html-languageserver";
+          };
+          javascript-typescript = {
+            require = "lsp-javascript";
+            modes = [ "typescript-mode" ];
+            executables.javascript-typescript-langserver =
+              "${pkgs.nodePackages.javascript-typescript-langserver}/bin/javascript-typescript-stdio";
           };
           metals = {
             modes = [ "scala-mode" ];
@@ -292,18 +300,62 @@ in
           '';
         };
 
+        arc-mode = {
+          enable = true;
+          package = "";
+          defer = true;
+          config = ''
+            (setq archive-lzh-extract '("${pkgs.lhasa}/bin/lha" "pq")
+                  archive-lzh-expunge '("${pkgs.lhasa}/bin/lha" "d")
+                  archive-lzh-write-file-member '("${pkgs.lhasa}/bin/lha" "a")
+                  archive-zip-extract '("${pkgs.unzip}/bin/unzip" "-qq" "-c")
+                  archive-zip-expunge '("${pkgs.zip}/bin/zip" "-d" "-q")
+                  archive-zip-update '("${pkgs.unzip}/bin/zip" "-q")
+                  archive-zip-update-case '("${pkgs.unzip}/bin/zip" "-q" "-k")
+                  archive-7z-program '("${pkgs.p7zip}/bin/7z")
+                  archive-squashfs-extract '("${pkgs.squashfs-tools-ng}/bin/rdsquashfs" "-c"))
+          '';
+        };
+
         display-fill-column-indicator = {
           enable = true;
-          package = epkg: cfg.package;
-          hook = [ ''
-            (display-fill-column-indicator . (lambda ()
-                                               (when display-fill-column-indicator-mode
-                                                 (setq display-fill-column-indicator
-                                                       (not (or buffer-read-only
-                                                       (derived-mode-p 'comint-mode)))))))
-          '' ];
+          package = ""; # built-in
           config = ''
-            (global-display-fill-column-indicator-mode)
+            (define-globalized-minor-mode tad/global-display-fill-column-indicator-mode
+              display-fill-column-indicator-mode display-fill-column-indicator--turn-on
+              :predicate `((not ,@tad/read-only-modes) t))
+
+            (tad/global-display-fill-column-indicator-mode)
+          '';
+        };
+
+        simple = {
+          enable = true;
+          package = "";
+          defer = true;
+          hook = [ ''(before-save . delete-trailing-whitespace)'' ];
+          config = ''
+            (defun save-buffer-preserve-whitespace (&optional arg)
+              "Save the current buffer, preserving trailing whitespace."
+              (interactive "p")
+              (let ((before-save-hook (remove 'delete-trailing-whitespace before-save-hook)))
+                (save-buffer arg)))
+
+            (define-minor-mode tad/show-trailing-whitespace-mode
+              "Enable `show-trailing-whitespace' for the current buffer."
+              (setq show-trailing-whitespace tad/show-trailing-whitespace-mode))
+
+            (defun tad/show-trailing-whitespace--turn-on ()
+              "Turn on `tad/show-trailing-whitespace-mode'."
+              (unless (or (minibufferp)
+                          (and (daemonp) (null (frame-parameter 'nil 'client))))
+                (tad/show-trailing-whitespace-mode)))
+
+            (define-globalized-minor-mode tad/global-show-trailing-whitespace-mode
+              tad/show-trailing-whitespace-mode tad/show-trailing-whitespace--turn-on
+              :predicate `((not ,@tad/read-only-modes) t))
+
+            (tad/global-show-trailing-whitespace-mode)
           '';
         };
 
@@ -682,15 +734,31 @@ in
           command = [ "amx-initialize" ];
         };
 
+        help = {
+          enable = true;
+          package = "";
+          bind = {
+            "M-SPC h" = "help-command";
+          };
+        };
+
         counsel = {
           enable = true;
           bind = {
             "C-x C-f" = "counsel-find-file";
             "C-x C-r" = "counsel-recentf";
-            "C-x C-y" = "counsel-yank-pop";
+            "M-SPC h F" = "counsel-describe-face";
+            "M-SPC h f" = "counsel-describe-function";
+            "M-SPC h s" = "counsel-describe-symbol";
+            "M-SPC h v" = "counsel-describe-variable";
+            "M-SPC s r" = "counsel-rg";
             "M-x" = "counsel-M-x";
+            "M-y" = "counsel-yank-pop";
           };
           diminish = [ "counsel-mode" ];
+          config = ''
+            (counsel-mode)
+          '';
         };
 
         counsel-projectile = {
@@ -1289,7 +1357,7 @@ in
         };
 
         smartparens = {
-          enable = true;
+          enable = false;
           defer = 1;
           diminish = [ "smartparens-mode" ];
           command = [ "smartparens-global-mode" "show-smartparens-global-mode" ];
@@ -1457,6 +1525,10 @@ in
           mode = [ ''"\\.tt\\'"'' ];
         };
 
+        typescript-mode = {
+          enable = true;
+        };
+
         smart-tabs-mode = {
           enable = false;
           config = ''
@@ -1601,11 +1673,11 @@ in
             (defvar vterm-current-title)
           '';
           config = ''
-            (add-hook 'vterm-exit-functions
-                      (lambda (buffer) (when buffer (kill-buffer buffer))))
+            (setq vterm-buffer-name-string "vterm %s")
             (add-hook 'vterm-mode-hook (lambda ()
                                          (blink-cursor-mode -1)
-                                         (setq-local confirm-kill-processes nil)
+                                         (setq-local confirm-kill-processes nil
+                                                     global-hl-line-mode nil)
                                          (hl-line-mode -1)))
           '';
         };

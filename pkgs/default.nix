@@ -4,7 +4,17 @@
 
 with pkgs;
 
+let
+
+  pkgsMaster = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {
+    overlays = [];
+  };
+
+in
+
 rec {
+  inherit (pkgsMaster) breezy mercurial;
+
   androidStudioPackages = super.androidStudioPackages
                           // (callPackage ./android-studio {});
 
@@ -18,7 +28,11 @@ rec {
 
   fetchsteam = callPackage ./fetchsteam {};
 
-  dart-sass = callPackage ./dart-sass {};
+  dart-sass = callPackage ./dart-sass {
+    dart = super.dart.override {
+      version = "2.11.0-161.0.dev";
+    };
+  };
 
   dotxcompose = callPackage ./dotxcompose {};
 
@@ -39,6 +53,10 @@ rec {
     ];
   });
 
+  emacsGccPgtk = super.emacsGccPgtk.overrideAttrs (attrs: {
+    src = lib.cleanSource ~/src/emacs-pgtk;
+  });
+
   emacsPackagesCustom = epkgs: epkgs.overrideScope' (self: super: {
     base16-plata-theme = self.callPackage ./emacs/base16-plata-theme {};
     ligature = self.callPackage ./emacs/ligature {};
@@ -54,13 +72,21 @@ rec {
 
   hidrd = callPackage ./hidrd {};
 
+  inkwave = callPackage ./inkwave {};
+
   fakeos = callPackage ./fakeos {};
+
+  firebase-tools = nodePackages.firebase-tools;
 
   firefox-gnome-theme = callPackage ./firefox/firefox-gnome-theme {};
 
   firefox-plata-theme = callPackage ./firefox/firefox-plata-theme {};
 
   gradle2nix = import ./gradle2nix;
+
+  kotlin-native = callPackage ./kotlin-native {
+    inherit (llvmPackages_8) libclang;
+  };
 
   nautilus-admin = gnome3.callPackage ./gnome/nautilus-admin.nix {};
 
@@ -73,6 +99,8 @@ rec {
   };
 
   inset = callPackage ./inset {};
+
+  nodePackages = super.nodePackages // (callPackage ./node-packages { });
 
   paper-icon-theme = super.paper-icon-theme.overrideAttrs (attrs: rec {
     version = "2020-03-12";
@@ -90,6 +118,23 @@ rec {
   python-3dsconv = python3Packages.callPackage ./3dsconv {};
 
   sass-migrator = callPackage ./sass-migrator {};
+
+  valgrind-mmt = super.valgrind.overrideAttrs (attrs: {
+    name = "valgrind-mmt-3.16.1";
+
+    src = fetchFromGitHub {
+      owner = "envytools";
+      repo = "valgrind";
+      rev = "90426a34d81e465f5298fae4979c14ae1c506cd3";
+      sha256 = "1qfdh27yg8gxbyraiwix9rpgq190wm41yqrkgg6p3w28h9pwck6h";
+    };
+
+    outputs = [ "out" "dev" ];
+
+    nativeBuildInputs = attrs.nativeBuildInputs ++ [ autoreconfHook ];
+  });
+
+  valgrind-mmt-light = valgrind-mmt.override { gdb = null; };
 
   mopidy-youtube-music = callPackage ./mopidy/youtube.nix {};
 }

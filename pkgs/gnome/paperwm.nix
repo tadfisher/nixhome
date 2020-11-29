@@ -9,8 +9,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "paperwm";
     repo = "PaperWM";
-    rev = "40a750918845f3c708dd1b51a40f2d29c48808c2";
-    sha256 = "01r2ifwrl8w735d0ckzlwhvclax9dxd2ld5y2svv5bp444zbjsag";
+    rev = "ee0a3eaee414fc9e8e708ed961a0738f54eed023";
+    sha256 = "1qy5zkl0ki71b19713ns8n8jvbg4bc0svppklc68wpm5pj6zcp90";
   };
 
   buildPhase = ''

@@ -8,9 +8,9 @@ let
     inherit (gnome2) GConf gnome_vfs;
   };
   latestVersion = {
-    version = "4.2.0.13"; # "Android Studio 4.2 Canary 12"
-    build = "202.6863838";
-    sha256Hash = "sha256:6af9117a53f9fec0d75bba5d56b3a49e66f73ed47a5d01264178af645963a4b7";
+    version = "4.2.0.15";
+    build = "202.6922807";
+    sha256Hash = "sha256:3d714d9cf4896dda7d36d90c0d1dd5abebe95aa77ce48a361665cf8512d193ff";
   };
 in rec {
   canary = mkStudio (latestVersion // {

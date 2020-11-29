@@ -163,11 +163,9 @@ in {
       arguments = [ "--silent" ];
     };
 
-    programs.pass.stores = {
-      ".local/share/pass/work" = {
-        primary = true;
-        alias = "pw";
-      };
+    programs.pass.stores.".local/share/pass/work" = {
+      primary = true;
+      alias = "pw";
     };
 
     # programs.zoom-us.enable = true;
